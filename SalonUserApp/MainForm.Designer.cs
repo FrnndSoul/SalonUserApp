@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.createAccountForm1 = new SalonUserApp.User_Controls.CreateAccountForm();
+            this.information1 = new SalonUserApp.User_Controls.Information();
             this.SuspendLayout();
             // 
-            // createAccountForm1
+            // information1
             // 
-            this.createAccountForm1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.createAccountForm1.Location = new System.Drawing.Point(0, 0);
-            this.createAccountForm1.Name = "createAccountForm1";
-            this.createAccountForm1.Size = new System.Drawing.Size(1080, 720);
-            this.createAccountForm1.TabIndex = 0;
+            this.information1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.information1.Location = new System.Drawing.Point(0, 0);
+            this.information1.Name = "information1";
+            this.information1.Size = new System.Drawing.Size(1080, 720);
+            this.information1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 681);
-            this.Controls.Add(this.createAccountForm1);
+            this.Controls.Add(this.information1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -56,7 +56,7 @@
 
         #endregion
 
-        private User_Controls.CreateAccountForm createAccountForm1;
+        private User_Controls.Information information1;
     }
 }
 
