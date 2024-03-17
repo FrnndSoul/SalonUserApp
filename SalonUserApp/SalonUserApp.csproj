@@ -366,6 +366,18 @@
     <Compile Include="User Controls\Appointment Folder\Information.Designer.cs">
       <DependentUpon>Information.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\Appointment Folder\UCBlankDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\UCBlankDays.Designer.cs">
+      <DependentUpon>UCBlankDays.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\UCDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\UCDays.Designer.cs">
+      <DependentUpon>UCDays.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\CreateAccountForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -401,6 +413,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Appointment Folder\UCBlankDays.resx">
+      <DependentUpon>UCBlankDays.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Appointment Folder\UCDays.resx">
+      <DependentUpon>UCDays.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\CreateAccountForm.resx">
       <DependentUpon>CreateAccountForm.cs</DependentUpon>
