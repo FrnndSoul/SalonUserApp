@@ -262,6 +262,7 @@
             // 
             // CalendarFLP
             // 
+            this.CalendarFLP.BackColor = System.Drawing.Color.White;
             this.CalendarFLP.Location = new System.Drawing.Point(530, 65);
             this.CalendarFLP.Name = "CalendarFLP";
             this.CalendarFLP.Size = new System.Drawing.Size(547, 472);
