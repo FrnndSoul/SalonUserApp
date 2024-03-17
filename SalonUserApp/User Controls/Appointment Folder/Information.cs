@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalonUserApp.User_Controls.Appointment_Folder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace SalonUserApp.User_Controls
         public Information()
         {
             InitializeComponent();
+            
         }
 
         private void Appointment_Load(object sender, EventArgs e)
@@ -74,6 +76,8 @@ namespace SalonUserApp.User_Controls
                 MessageBox.Show("Phone number must be 11 digits long.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            AppointmentDate appointmentDate = new AppointmentDate();
+            
             //proceed to checker if a service is selected
         }
     }

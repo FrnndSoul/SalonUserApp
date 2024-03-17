@@ -4,6 +4,11 @@
         <name>ServiceStack.Common</name>
     </assembly>
     <members>
+        <member name="M:ServiceStack.AppTasks.Register(System.String,System.Action{System.String[]})">
+            <summary>
+            Register Task to run in APP_TASKS=task1;task2
+            </summary>
+        </member>
         <member name="M:ServiceStack.AssertUtils.AreNotNull(System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             Asserts that the supplied arguments are not null.
@@ -232,6 +237,11 @@
             <param name="commands"></param>
             <returns></returns>
         </member>
+        <member name="M:ServiceStack.EnumerableExtensions.EquivalentTo(System.Byte[],System.Byte[])">
+            <summary>
+            Constant Time byte[] comparison
+            </summary>
+        </member>
         <member name="M:ServiceStack.EnumerableExtensions.Safe``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Return T[0] when enumerable is null, safe to use in enumerations like foreach
@@ -327,7 +337,7 @@
         </member>
         <member name="M:ServiceStack.FuncUtils.TryExec(System.Action)">
             <summary>
-            Invokes the action provided and returns true if no excpetion was thrown.
+            Invokes the action provided and returns true if no exception was thrown.
             Otherwise logs the exception and returns false if an exception was thrown.
             </summary>
             <param name="action">The action.</param>
@@ -428,6 +438,20 @@
             <summary>
             Print htmlDump object with specified columns
             </summary>
+        </member>
+        <member name="T:ServiceStack.IO.FileContents">
+            <summary>
+            Transforms multiple data content types into a FileContents containing either a binary Stream or text string
+            </summary>
+        </member>
+        <member name="M:ServiceStack.IO.FileContents.GetAsync(System.Object,System.Boolean)">
+            <summary>
+            Transform multi supported content types into FileContents containing either Stream or string.
+            If returning unbuffered Stream responsibility is up to callee to properly dispose
+            </summary>
+            <param name="contents"></param>
+            <param name="buffer"></param>
+            <returns></returns>
         </member>
         <member name="M:ServiceStack.IO.VirtualDirectoryExtensions.GetFiles(ServiceStack.IO.IVirtualDirectory)">
             <summary>
@@ -832,7 +856,7 @@
             Duration (ms)
             </summary>
         </member>
-        <member name="M:ServiceStack.RequestExtensions.GetRequestParams(ServiceStack.Web.IRequest)">
+        <member name="M:ServiceStack.RequestScriptUtils.GetRequestParams(ServiceStack.Web.IRequest)">
             <summary>
             Duplicate Params are given a unique key by appending a #1 suffix
             </summary>
@@ -1786,19 +1810,6 @@
             Create an Invoker for public static void methods
             </summary>
         </member>
-        <member name="M:ServiceStack.TypeExtensions.IsNotNullable(System.Reflection.PropertyInfo)">
-            <summary>
-            Check if #nullable enabled reference type is non nullable
-            </summary>
-            <param name="property"></param>
-            <returns>true if #nullable enabled reference type, false if optional, null if value Type or #nullable not enabled</returns>
-        </member>
-        <member name="M:ServiceStack.TypeExtensions.IsNotNullable(System.Type,System.Reflection.MemberInfo,System.Collections.Generic.IEnumerable{System.Reflection.CustomAttributeData})">
-            <summary>
-            Check if #nullable enabled reference type is non nullable
-            </summary>
-            <returns>true if #nullable enabled reference type, false if optional, null if value Type or #nullable not enabled</returns>
-        </member>
         <member name="T:ServiceStack.UrnId">
             <summary>
             Creates a Unified Resource Name (URN) with the following formats:
@@ -1920,6 +1931,21 @@
             Whether to wrap JS scripts in an Immediately-Invoked Function Expression
             </summary>
         </member>
+        <member name="P:ServiceStack.BundleOptions.Async">
+            <summary>
+            Whether to "async" load script (default false)
+            </summary>
+        </member>
+        <member name="P:ServiceStack.BundleOptions.Defer">
+            <summary>
+            Whether to "defer" loading script (default false)
+            </summary>
+        </member>
+        <member name="P:ServiceStack.BundleOptions.Module">
+            <summary>
+            Whether script should be loaded as a "module" (default false)
+            </summary>
+        </member>
         <member name="T:ServiceStack.NavDefaults">
             <summary>
             Generic collection of Nav Links
@@ -2023,33 +2049,6 @@
             <summary>
             Return an error for the specified field (if any)  
             </summary>
-        </member>
-        <member name="T:ServiceStack.Words">
-            <summary>
-            The Words class transforms words from one 
-            form to another. For example, from singular to plural.
-            </summary>
-        </member>
-        <member name="M:ServiceStack.Words.Pluralize(System.String)">
-            <summary>
-            Return the plural of a word.
-            </summary>
-            <param name="word">The singular form</param>
-            <returns>The plural form of <paramref name="word"/></returns>
-        </member>
-        <member name="M:ServiceStack.Words.Singularize(System.String)">
-            <summary>
-            Return the singular of a word.
-            </summary>
-            <param name="word">The plural form</param>
-            <returns>The singular form of <paramref name="word"/></returns>
-        </member>
-        <member name="M:ServiceStack.Words.Capitalize(System.String)">
-            <summary>
-            Capitalizes a word.
-            </summary>
-            <param name="word">The word to be capitalized.</param>
-            <returns><paramref name="word"/> capitalized.</returns>
         </member>
     </members>
 </doc>
