@@ -263,7 +263,7 @@
             // CalendarFLP
             // 
             this.CalendarFLP.BackColor = System.Drawing.Color.White;
-            this.CalendarFLP.Location = new System.Drawing.Point(530, 65);
+            this.CalendarFLP.Location = new System.Drawing.Point(529, 65);
             this.CalendarFLP.Name = "CalendarFLP";
             this.CalendarFLP.Size = new System.Drawing.Size(547, 472);
             this.CalendarFLP.TabIndex = 30;
@@ -379,6 +379,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.CalendarFLP);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -388,7 +389,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NextBtn);
             this.Controls.Add(this.BackBtn);
-            this.Controls.Add(this.CalendarFLP);
             this.Controls.Add(this.MosYrLbl);
             this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.ServiceSelection);
