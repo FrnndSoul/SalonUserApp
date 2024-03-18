@@ -12,9 +12,15 @@ namespace SalonUserApp
 {
     public partial class MainForm : Form
     {
+        public readonly static mysqlcon;
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -38,7 +38,9 @@
             this.NameBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.ServiceSelection = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.ServiceFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GroupBox1.SuspendLayout();
+            this.ServiceSelection.SuspendLayout();
             this.SuspendLayout();
             // 
             // label3
@@ -218,6 +220,7 @@
             // ServiceSelection
             // 
             this.ServiceSelection.BorderColor = System.Drawing.Color.Black;
+            this.ServiceSelection.Controls.Add(this.ServiceFLP);
             this.ServiceSelection.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ServiceSelection.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ServiceSelection.Font = new System.Drawing.Font("Chinacat", 18F);
@@ -227,6 +230,14 @@
             this.ServiceSelection.Size = new System.Drawing.Size(660, 714);
             this.ServiceSelection.TabIndex = 26;
             this.ServiceSelection.Text = "Choose Service";
+            // 
+            // ServiceFLP
+            // 
+            this.ServiceFLP.BackColor = System.Drawing.Color.White;
+            this.ServiceFLP.Location = new System.Drawing.Point(26, 75);
+            this.ServiceFLP.Name = "ServiceFLP";
+            this.ServiceFLP.Size = new System.Drawing.Size(617, 539);
+            this.ServiceFLP.TabIndex = 0;
             // 
             // Information
             // 
@@ -242,6 +253,7 @@
             this.Load += new System.EventHandler(this.Appointment_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
+            this.ServiceSelection.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -257,5 +269,6 @@
         private Guna.UI2.WinForms.Guna2TextBox NameBox;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2GroupBox ServiceSelection;
+        private System.Windows.Forms.FlowLayoutPanel ServiceFLP;
     }
 }

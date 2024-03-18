@@ -1,9 +1,11 @@
-﻿using SalonUserApp.User_Controls.Appointment_Folder;
+﻿using MySql.Data.MySqlClient;
+using SalonUserApp.User_Controls.Appointment_Folder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +15,14 @@ namespace SalonUserApp.User_Controls
 {
     public partial class Information : UserControl
     {
+        public readonly string mysqlcon;
+
         public Information()
         {
             InitializeComponent();
-            
+            mysqlcon = "server=localhost;user=root;database=salondatabase;password=";
+            GetServiceData();
+
         }
 
         private void Appointment_Load(object sender, EventArgs e)
@@ -79,6 +85,71 @@ namespace SalonUserApp.User_Controls
             AppointmentDate appointmentDate = new AppointmentDate();
             
             //proceed to checker if a service is selected
+        }
+
+        public void GetServiceData()
+        {
+            using (var conn = new MySqlConnection(mysqlcon))
+            {
+                conn.Open();
+                string query = "SELECT ServiceName, ServiceImage, ServiceAmount, ServiceTypeID FROM salon_services"; //database table
+
+                using (MySqlCommand command = new MySqlCommand(query, conn))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            byte[] imageBytes = (byte[])reader["ServiceImage"];
+
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                Image servicetypeImage = Image.FromStream(ms);
+
+                                Panel panel = new Panel
+                                {
+                                    Width = 200,
+                                    Height = 200,
+                                    Margin = new Padding(10),
+                                    Tag = reader["ServiceTypeID"].ToString()
+                                };
+
+                                PictureBox picBox = new PictureBox
+                                {
+                                    Width = 200,
+                                    Height = 150,
+                                    Location = new Point(10, 10),
+                                    BackgroundImage = servicetypeImage,
+                                    BackgroundImageLayout = ImageLayout.Stretch,
+                                    Tag = reader["ServiceTypeID"].ToString()
+                                };
+
+                                Label labelTitle = new Label
+                                {
+                                    Text = reader["ServiceName"].ToString(),
+                                    Location = new Point(10, 160),
+                                    ForeColor = Color.Black,
+                                    AutoSize = true,
+                                    Font = new Font("Stanberry", 16, FontStyle.Regular),
+                                    Tag = reader["ServiceTypeID"].ToString()
+                                };
+
+                                EventHandler clickHandler = (sender, e) => //click event
+                                {
+                                    string serviceID = ((Control)sender).Tag.ToString();
+                                    MessageBox.Show(serviceID);
+                                };
+
+                                panel.Click += clickHandler;
+                                picBox.Click += clickHandler;
+                                panel.Controls.Add(picBox);
+                                panel.Controls.Add(labelTitle);
+                                ServiceFLP.Controls.Add(panel); //name ng flowlayoupanel
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
