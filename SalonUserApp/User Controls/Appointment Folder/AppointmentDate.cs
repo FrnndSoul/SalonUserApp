@@ -28,6 +28,8 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
         public AppointmentDate()
         {
+            InitializeComponent();
+            DisplayDays();
         }
 
         private void DisplayDays()

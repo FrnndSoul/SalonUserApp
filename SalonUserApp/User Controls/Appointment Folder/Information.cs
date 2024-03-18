@@ -15,14 +15,14 @@ namespace SalonUserApp.User_Controls
 {
     public partial class Information : UserControl
     {
-        public readonly string mysqlcon;
+        public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
+        public MySqlConnection connection = new MySqlConnection(mysqlcon);
+        public static string serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
 
         public Information()
         {
             InitializeComponent();
-            mysqlcon = "server=localhost;user=root;database=salondatabase;password=";
             GetServiceData();
-
         }
 
         private void Appointment_Load(object sender, EventArgs e)
@@ -84,17 +84,24 @@ namespace SalonUserApp.User_Controls
             }
             AppointmentDate appointmentDate = new AppointmentDate();
 
-            //proceed to checker if a service is selected
+            if (currentlyHighlightedPanel == null)
+            {
+                MessageBox.Show("Select a service first.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
+
+        private Panel currentlyHighlightedPanel = null;
 
         public void GetServiceData()
         {
             using (var conn = new MySqlConnection(mysqlcon))
             {
                 conn.Open();
-                string query = "SELECT ServiceName, ServiceImage, ServiceAmount, ServiceTypeID FROM salon_services"; //database table
+                string query = "SELECT ServiceName, ServiceImage, ServiceAmount, ServiceTypeID, ServiceVariationID FROM salon_services"; //database table
 
                 using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
@@ -110,20 +117,10 @@ namespace SalonUserApp.User_Controls
 
                                 Panel panel = new Panel
                                 {
-                                    Width = 200,
-                                    Height = 200,
+                                    Width = 210,
+                                    Height = 250,
                                     Margin = new Padding(10),
-                                    Tag = reader["ServiceTypeID"].ToString()
-                                };
-
-                                PictureBox picBox = new PictureBox
-                                {
-                                    Width = 200,
-                                    Height = 150,
-                                    Location = new Point(10, 10),
-                                    BackgroundImage = servicetypeImage,
-                                    BackgroundImageLayout = ImageLayout.Stretch,
-                                    Tag = reader["ServiceTypeID"].ToString()
+                                    Tag = reader["ServiceTypeID"].ToString(),
                                 };
 
                                 Label labelTitle = new Label
@@ -136,16 +133,68 @@ namespace SalonUserApp.User_Controls
                                     Tag = reader["ServiceTypeID"].ToString()
                                 };
 
+                                Label labelTitle1 = new Label
+                                {
+                                    Text = reader["ServiceAmount"].ToString(),
+                                    Location = new Point(10, labelTitle.Bottom + 25), 
+                                    ForeColor = Color.Black,
+                                    AutoSize = true,
+                                    Font = new Font("Stanberry", 16, FontStyle.Regular),
+                                    Tag = reader["ServiceTypeID"].ToString()
+                                };
+
+                                PictureBox picBox = new PictureBox
+                                {
+                                    Width = 185,
+                                    Height = 150,
+                                    Location = new Point(10, 10),
+                                    BackgroundImage = servicetypeImage,
+                                    BackgroundImageLayout = ImageLayout.Stretch,
+                                    Tag = reader["ServiceTypeID"].ToString()
+                                };
+
+                                Label labelTitle2 = new Label
+                                {
+                                    Text = reader["ServiceTypeID"].ToString(),
+                                    Location = new Point(190, 160),
+                                    ForeColor = Color.Black,
+                                    AutoSize = true,
+                                    Font = new Font("Stanberry", 16, FontStyle.Regular),
+                                    Tag = reader["ServiceTypeID"].ToString()
+                                };
+
+                                Label labelTitle3 = new Label
+                                {
+                                    Text = reader["ServiceVariationID"].ToString(),
+                                    Location = new Point(280, 160),
+                                    ForeColor = Color.Black,
+                                    AutoSize = true,
+                                    Font = new Font("Stanberry", 16, FontStyle.Regular),
+                                    Tag = reader["ServiceTypeID"].ToString()
+                                };
+
                                 EventHandler clickHandler = (sender, e) =>
                                 {
-                                    string serviceID = ((Control)sender).Tag.ToString();
-                                    MessageBox.Show(serviceID);
+                                     serviceID = ((Control)sender).Tag.ToString();
+                                     serviceName = labelTitle.Text;
+                                     serviceAmount = labelTitle1.Text;
+                                     serviceTypeID = labelTitle2.Text;
+                                     serviceVariationID = labelTitle3.Text;
+
+                                    if (currentlyHighlightedPanel != null)
+                                    {
+                                        currentlyHighlightedPanel.BackColor = Color.Transparent;
+                                    }
+
+                                    panel.BackColor = Color.LightGray;
+                                    currentlyHighlightedPanel = panel;
                                 };
 
                                 panel.Click += clickHandler;
                                 picBox.Click += clickHandler;
                                 panel.Controls.Add(picBox);
                                 panel.Controls.Add(labelTitle);
+                                panel.Controls.Add(labelTitle1);
                                 ServiceFLP.Controls.Add(panel);
                             }
                         }
@@ -153,6 +202,7 @@ namespace SalonUserApp.User_Controls
                 }
             }
         }
+
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
