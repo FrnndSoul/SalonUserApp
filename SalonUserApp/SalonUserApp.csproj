@@ -407,6 +407,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="User Controls\Appointment Folder\AppointmentDate.resx">
       <DependentUpon>AppointmentDate.cs</DependentUpon>
@@ -454,6 +455,12 @@
   <ItemGroup>
     <Folder Include="bin\Debug\" />
     <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SignInDesign.png" />
+    <None Include="Resources\SignInDesignLogo1.png" />
+    <None Include="Resources\SignInDesign1.png" />
+    <Content Include="Resources\SignInDesignLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />

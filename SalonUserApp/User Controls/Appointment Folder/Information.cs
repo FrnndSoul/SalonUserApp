@@ -83,8 +83,10 @@ namespace SalonUserApp.User_Controls
                 return;
             }
             AppointmentDate appointmentDate = new AppointmentDate();
-            
+
             //proceed to checker if a service is selected
+            this.Visible = false;
+            MainForm.ShowAppointDate();
         }
 
         public void GetServiceData()
@@ -134,7 +136,7 @@ namespace SalonUserApp.User_Controls
                                     Tag = reader["ServiceTypeID"].ToString()
                                 };
 
-                                EventHandler clickHandler = (sender, e) => //click event
+                                EventHandler clickHandler = (sender, e) =>
                                 {
                                     string serviceID = ((Control)sender).Tag.ToString();
                                     MessageBox.Show(serviceID);
@@ -144,12 +146,18 @@ namespace SalonUserApp.User_Controls
                                 picBox.Click += clickHandler;
                                 panel.Controls.Add(picBox);
                                 panel.Controls.Add(labelTitle);
-                                ServiceFLP.Controls.Add(panel); //name ng flowlayoupanel
+                                ServiceFLP.Controls.Add(panel);
                             }
                         }
                     }
                 }
             }
+        }
+
+        private void BackBtn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            MainForm.ShowHomePage();
         }
     }
 }

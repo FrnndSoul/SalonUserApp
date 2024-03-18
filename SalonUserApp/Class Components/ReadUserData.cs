@@ -18,11 +18,12 @@ namespace SalonUserApp.Class_Components
             dbUsername, dbPassword;
         public static int AccountID, Status;
 
-        public static void ReadData(string InputUsername)
+        public static bool ReadData(string InputUsername)
         {
             try
             {
-                string query = "SELECT `Username`, `Password`, `AccountID`, `Status` FROM `accounts` WHERE `Username` = @Username";
+                string query = "SELECT `Password`, `AccountID`, `Status` FROM `accounts` WHERE `Username` = @Username";
+                bool userFound = false;
 
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                 {
@@ -34,41 +35,62 @@ namespace SalonUserApp.Class_Components
 
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
-                            while (reader.Read())
+                            if (reader.HasRows)
                             {
-                                Username = reader.GetString("Username");
-                                Password = reader.GetString("Password");
-                                AccountID = reader.GetInt32("AccountID");
-                                Status = reader.GetInt32("Status");
+                                while (reader.Read())
+                                {
+                                    Password = reader.GetString("Password");
+                                    AccountID = reader.GetInt32("AccountID");
+                                    Status = reader.GetInt32("Status");
+                                }
+                                userFound = true;
                             }
                         }
                     }
                 }
-            } catch (Exception ex) 
+
+                return userFound;
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "ReadData",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "ReadData", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
-        public static bool LoginUser(string InputUsername, string InputPassword)
-        {
-            ReadData(InputUsername);
-            HashedPassword = PasswordHashing(InputPassword);
 
-            if (Status > 3)
+        public static void LoginUser(string InputUsername, string InputPassword)
+        {
+            if (ReadData(InputUsername))
             {
-                if (HashedPassword == Password)
+                HashedPassword = PasswordHashing(InputPassword);
+
+                if (Status <= 3)
                 {
-                    ResetStatus(InputUsername);
-                    return true;
+                    if (HashedPassword == Password)
+                    {
+                        ResetStatus(InputUsername);
+                        MessageBox.Show("Account Login Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MainForm.ShowHomePage();
+                        return;
+                    }
+                    else
+                    {
+                        IncrementStatus(InputUsername);
+                        MessageBox.Show("Wrong password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
                 else
                 {
-                    IncrementStatus(InputUsername);
-                    return false;
+                    MessageBox.Show("Account inactive", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+            } else
+            {
+                MessageBox.Show("Account not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            return false;
         }
 
         public static void IncrementStatus(string InputUsername)

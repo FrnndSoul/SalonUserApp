@@ -17,11 +17,17 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         static int currentYear = currentDT.Year;
         static int currentMonth = currentDT.Month;
         static int maxMonth = currentMonth + 2 > 12 ? (currentMonth + 2) % 12 : currentMonth + 2;
+        public MainForm mainFormInstance;
+
+        public AppointmentDate(MainForm mainForm)
+        {
+            InitializeComponent();
+            this.mainFormInstance = mainForm;
+            DisplayDays();
+        }
 
         public AppointmentDate()
         {
-            InitializeComponent();
-            DisplayDays();
         }
 
         private void DisplayDays()
@@ -79,6 +85,24 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                 currentYear--;
             }
             DisplayDays();
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            foreach (Control control in MainForm.mainFormInstance.Controls)
+            {
+                if (control is Information)
+                {
+                    control.Visible = true;
+                    break;
+                }
+            }
+        }
+
+        private void Next_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -56,7 +56,8 @@ namespace SalonUserApp.User_Controls
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
-
+            this.Dispose();
+            MainForm.ShowSignin();
         }
 
         private void CreateAccountForm_Load(object sender, EventArgs e)

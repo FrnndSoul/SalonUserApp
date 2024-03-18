@@ -123,6 +123,7 @@
             this.BackBtn.Size = new System.Drawing.Size(180, 45);
             this.BackBtn.TabIndex = 18;
             this.BackBtn.Text = "Back";
+            this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
             // NextBtn
             // 

@@ -16,5 +16,11 @@ namespace SalonUserApp.User_Controls
         {
             InitializeComponent();
         }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            MainForm.ShowAppointInfo();
+        }
     }
 }
