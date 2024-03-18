@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ServiceSelection = new Guna.UI2.WinForms.Guna2GroupBox();
             this.nextMon = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
             this.prevMon = new Guna.UI2.WinForms.Guna2Button();
@@ -53,33 +52,8 @@
             this.btn11 = new Guna.UI2.WinForms.Guna2Button();
             this.Next = new Guna.UI2.WinForms.Guna2Button();
             this.Back = new Guna.UI2.WinForms.Guna2Button();
-            this.ServiceSelection.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ServiceSelection
-            // 
-            this.ServiceSelection.BorderColor = System.Drawing.Color.Black;
-            this.ServiceSelection.Controls.Add(this.nextMon);
-            this.ServiceSelection.Controls.Add(this.label8);
-            this.ServiceSelection.Controls.Add(this.prevMon);
-            this.ServiceSelection.Controls.Add(this.CalendarFLP);
-            this.ServiceSelection.Controls.Add(this.label6);
-            this.ServiceSelection.Controls.Add(this.label2);
-            this.ServiceSelection.Controls.Add(this.label7);
-            this.ServiceSelection.Controls.Add(this.MosYrLbl);
-            this.ServiceSelection.Controls.Add(this.label4);
-            this.ServiceSelection.Controls.Add(this.label3);
-            this.ServiceSelection.Controls.Add(this.label5);
-            this.ServiceSelection.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ServiceSelection.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ServiceSelection.Font = new System.Drawing.Font("Chinacat", 18F);
-            this.ServiceSelection.ForeColor = System.Drawing.Color.Black;
-            this.ServiceSelection.Location = new System.Drawing.Point(3, 3);
-            this.ServiceSelection.Name = "ServiceSelection";
-            this.ServiceSelection.Size = new System.Drawing.Size(609, 714);
-            this.ServiceSelection.TabIndex = 27;
-            this.ServiceSelection.Text = "Choose Date";
             // 
             // nextMon
             // 
@@ -93,7 +67,7 @@
             this.nextMon.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.nextMon.Font = new System.Drawing.Font("Chinacat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nextMon.ForeColor = System.Drawing.Color.Black;
-            this.nextMon.Location = new System.Drawing.Point(401, 591);
+            this.nextMon.Location = new System.Drawing.Point(409, 600);
             this.nextMon.Name = "nextMon";
             this.nextMon.Size = new System.Drawing.Size(180, 45);
             this.nextMon.TabIndex = 31;
@@ -105,7 +79,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Chinacat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(507, 94);
+            this.label8.Location = new System.Drawing.Point(515, 103);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 16);
             this.label8.TabIndex = 38;
@@ -123,7 +97,7 @@
             this.prevMon.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.prevMon.Font = new System.Drawing.Font("Chinacat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prevMon.ForeColor = System.Drawing.Color.Black;
-            this.prevMon.Location = new System.Drawing.Point(34, 591);
+            this.prevMon.Location = new System.Drawing.Point(42, 600);
             this.prevMon.Name = "prevMon";
             this.prevMon.Size = new System.Drawing.Size(180, 45);
             this.prevMon.TabIndex = 0;
@@ -132,18 +106,20 @@
             // 
             // CalendarFLP
             // 
+            this.CalendarFLP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CalendarFLP.BackColor = System.Drawing.Color.White;
-            this.CalendarFLP.Location = new System.Drawing.Point(34, 113);
+            this.CalendarFLP.Location = new System.Drawing.Point(42, 122);
             this.CalendarFLP.Name = "CalendarFLP";
             this.CalendarFLP.Size = new System.Drawing.Size(547, 472);
             this.CalendarFLP.TabIndex = 30;
+            this.CalendarFLP.Paint += new System.Windows.Forms.PaintEventHandler(this.CalendarFLP_Paint);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Chinacat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(444, 94);
+            this.label6.Location = new System.Drawing.Point(452, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 37;
@@ -154,7 +130,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Chinacat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(43, 94);
+            this.label2.Location = new System.Drawing.Point(51, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 32;
@@ -165,7 +141,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Chinacat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(360, 94);
+            this.label7.Location = new System.Drawing.Point(368, 103);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 16);
             this.label7.TabIndex = 36;
@@ -176,7 +152,7 @@
             this.MosYrLbl.AutoSize = true;
             this.MosYrLbl.BackColor = System.Drawing.Color.Transparent;
             this.MosYrLbl.Font = new System.Drawing.Font("Chinacat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MosYrLbl.Location = new System.Drawing.Point(243, 49);
+            this.MosYrLbl.Location = new System.Drawing.Point(251, 58);
             this.MosYrLbl.Name = "MosYrLbl";
             this.MosYrLbl.Size = new System.Drawing.Size(157, 29);
             this.MosYrLbl.TabIndex = 29;
@@ -187,7 +163,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Chinacat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(269, 94);
+            this.label4.Location = new System.Drawing.Point(277, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 16);
             this.label4.TabIndex = 35;
@@ -198,7 +174,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Chinacat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(121, 94);
+            this.label3.Location = new System.Drawing.Point(129, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 16);
             this.label3.TabIndex = 33;
@@ -209,7 +185,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Chinacat", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(194, 94);
+            this.label5.Location = new System.Drawing.Point(202, 103);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 16);
             this.label5.TabIndex = 34;
@@ -232,9 +208,9 @@
             this.guna2GroupBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Chinacat", 18F);
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(653, 24);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(658, 122);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(380, 451);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(380, 461);
             this.guna2GroupBox1.TabIndex = 28;
             this.guna2GroupBox1.Text = "Choose Time";
             // 
@@ -430,7 +406,7 @@
             this.Next.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.Next.Font = new System.Drawing.Font("Chinacat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Next.ForeColor = System.Drawing.Color.Black;
-            this.Next.Location = new System.Drawing.Point(869, 543);
+            this.Next.Location = new System.Drawing.Point(858, 600);
             this.Next.Name = "Next";
             this.Next.Size = new System.Drawing.Size(180, 45);
             this.Next.TabIndex = 40;
@@ -449,7 +425,7 @@
             this.Back.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.Back.Font = new System.Drawing.Font("Chinacat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Back.ForeColor = System.Drawing.Color.Black;
-            this.Back.Location = new System.Drawing.Point(639, 543);
+            this.Back.Location = new System.Drawing.Point(658, 600);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(180, 45);
             this.Back.TabIndex = 39;
@@ -461,22 +437,29 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.CalendarFLP);
             this.Controls.Add(this.Next);
+            this.Controls.Add(this.nextMon);
             this.Controls.Add(this.guna2GroupBox1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.prevMon);
             this.Controls.Add(this.Back);
-            this.Controls.Add(this.ServiceSelection);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.MosYrLbl);
+            this.Controls.Add(this.label4);
             this.Name = "AppointmentDate";
             this.Size = new System.Drawing.Size(1080, 720);
-            this.ServiceSelection.ResumeLayout(false);
-            this.ServiceSelection.PerformLayout();
             this.guna2GroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2GroupBox ServiceSelection;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2Button btn7;
         private Guna.UI2.WinForms.Guna2Button btn6;

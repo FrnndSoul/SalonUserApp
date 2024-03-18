@@ -18,7 +18,7 @@ namespace SalonUserApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ShowSignin();
+            ShowAppointDate();
         }
 
         public static void ShowSignin()

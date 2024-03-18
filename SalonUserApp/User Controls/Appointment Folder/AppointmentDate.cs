@@ -17,20 +17,15 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         static int currentYear = currentDT.Year;
         static int currentMonth = currentDT.Month;
         static int maxMonth = currentMonth + 2 > 12 ? (currentMonth + 2) % 12 : currentMonth + 2;
-        public MainForm mainFormInstance;
-
-        public AppointmentDate(MainForm mainForm)
-        {
-            InitializeComponent();
-            this.mainFormInstance = mainForm;
-            DisplayDays();
-        }
 
         public AppointmentDate()
         {
             InitializeComponent();
             DisplayDays();
         }
+
+        // Define a field to keep track of the currently selected day
+        private UCDays selectedDay = null;
 
         private void DisplayDays()
         {
@@ -72,6 +67,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             DisplayDays();
         }
 
+
         private void BackBtn_Click(object sender, EventArgs e)
         {
             if (currentMonth == currentDT.Month && currentYear == currentDT.Year)
@@ -103,6 +99,11 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         }
 
         private void Next_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CalendarFLP_Paint(object sender, PaintEventArgs e)
         {
 
         }

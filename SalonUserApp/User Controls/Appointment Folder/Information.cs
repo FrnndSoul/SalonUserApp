@@ -18,6 +18,7 @@ namespace SalonUserApp.User_Controls
         public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
         public static string serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
+        private Panel currentlyHighlightedPanel = null;
 
         public Information()
         {
@@ -93,8 +94,6 @@ namespace SalonUserApp.User_Controls
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
-
-        private Panel currentlyHighlightedPanel = null;
 
         public void GetServiceData()
         {
