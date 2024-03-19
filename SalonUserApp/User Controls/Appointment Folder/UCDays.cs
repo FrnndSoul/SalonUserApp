@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalonUserApp.Class_Components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
     {
         private DateTime date;
         private static UCDays previousClicked = null;
+        
         public UCDays()
         {
             InitializeComponent();
@@ -23,7 +25,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         {
             DaysLbl.Text = numday + "";
             date = new DateTime(year, month, numday);
-
         }
 
         private void UCDays_Click(object sender, EventArgs e)
@@ -34,8 +35,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
             this.BackColor = Color.LightGray; // Highlight the clicked panel
             previousClicked = this;
-
-            MessageBox.Show("The date is: " + date.ToString("0M/dd/yyyy"));
+            Appoint.SetAppointDay(DaysLbl.Text);
         }
 
         private void DaysLbl_Click(object sender, EventArgs e)
@@ -46,8 +46,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
             this.BackColor = Color.LightGray; // Highlight the clicked panel
             previousClicked = this;
-
-            MessageBox.Show("The date is: " + date.ToString("0M/dd/yyyy"));
+            Appoint.SetAppointDay(DaysLbl.Text);
         }
     }
 }

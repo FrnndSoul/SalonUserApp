@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalonUserApp.Class_Components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace SalonUserApp.User_Controls.Appointment_Folder
@@ -22,9 +24,9 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         {
             InitializeComponent();
             DisplayDays();
+            DisplayAvailableTimeSlots();
         }
 
-        // Define a field to keep track of the currently selected day
         private UCDays selectedDay = null;
 
         private void DisplayDays()
@@ -46,9 +48,79 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             {
                 UCDays ucdays = new UCDays();
                 ucdays.days(i, currentMonth, currentYear);
+
+                // Check if the day is a weekend
+                if (IsWeekendDay(currentYear, currentMonth, i))
+                {
+                    // If it's a weekend, disable the user control
+                    ucdays.Enabled = false;
+                }
+
                 CalendarFLP.Controls.Add(ucdays);
             }
         }
+
+        // Helper method to check if a given day is a weekend day
+        private bool IsWeekendDay(int year, int month, int day)
+        {
+            DateTime date = new DateTime(year, month, day);
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
+
+
+        private void DisplayAvailableTimeSlots()
+        {
+            TimeFLP.Controls.Clear();
+
+            // Define time range
+            TimeSpan startTime = new TimeSpan(11, 0, 0); // 11:00 AM
+            TimeSpan endTime = new TimeSpan(20, 0, 0);   // 08:00 PM
+
+            TimeSpan slotDuration = new TimeSpan(1, 0, 0); // 1 hour slot
+            TimeSpan currentTime = startTime;
+            while (currentTime < endTime)
+            {
+                // Create a TimeUC control
+                TimeUC timeControl = new TimeUC();
+
+                // Set the text of the Timelbl label directly with the custom time format
+                timeControl.Timelbl.Text = FormatTime(currentTime);
+
+                // Add the TimeUC control to the TimeFLP
+                TimeFLP.Controls.Add(timeControl);
+
+                currentTime += slotDuration;
+            }
+        }
+
+        private string FormatTime(TimeSpan time)
+        {
+            string formattedTime;
+            int hour = time.Hours;
+
+            if (hour == 0)
+            {
+                // 12:00 AM (midnight)
+                formattedTime = "12:" + time.ToString("mm") + " am";
+            }
+            else if (hour < 12)
+            {
+                // Before noon
+                formattedTime = time.ToString("hh\\:mm") + " am";
+            }
+            else if (hour == 12)
+            {
+                // 12:00 PM (noon)
+                formattedTime = "12:" + time.ToString("mm") + " nn";
+            }
+            else
+            {
+                // After noon
+                formattedTime = (hour - 12).ToString() + ":" + time.ToString("mm") + " pm";
+            }
+            return formattedTime;
+        }
+
 
         private void NextBtn_Click(object sender, EventArgs e)
         {
@@ -100,7 +172,18 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
         private void Next_Click(object sender, EventArgs e)
         {
+            string[] mosYr = MosYrLbl.Text.Split(' ');
+            string month = mosYr[0];
+            string year = mosYr[1];
 
+            foreach (Control control in CalendarFLP.Controls)
+            {
+                if (control.BackColor == Color.LightGray && control is UCDays)
+                {
+                    Appoint.SetAppointYearMonth(month, year);
+
+                }
+            }
         }
 
         private void CalendarFLP_Paint(object sender, PaintEventArgs e)

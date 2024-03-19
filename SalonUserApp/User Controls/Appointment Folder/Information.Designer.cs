@@ -212,7 +212,7 @@
             this.guna2GroupBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Chinacat", 18F);
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(3, 136);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(3, 3);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.Size = new System.Drawing.Size(408, 412);
             this.guna2GroupBox1.TabIndex = 25;
@@ -228,7 +228,7 @@
             this.ServiceSelection.ForeColor = System.Drawing.Color.Black;
             this.ServiceSelection.Location = new System.Drawing.Point(417, 3);
             this.ServiceSelection.Name = "ServiceSelection";
-            this.ServiceSelection.Size = new System.Drawing.Size(660, 644);
+            this.ServiceSelection.Size = new System.Drawing.Size(660, 619);
             this.ServiceSelection.TabIndex = 26;
             this.ServiceSelection.Text = "Choose Service";
             // 
@@ -236,7 +236,7 @@
             // 
             this.ServiceFLP.AutoScroll = true;
             this.ServiceFLP.BackColor = System.Drawing.Color.White;
-            this.ServiceFLP.Location = new System.Drawing.Point(26, 75);
+            this.ServiceFLP.Location = new System.Drawing.Point(22, 58);
             this.ServiceFLP.Name = "ServiceFLP";
             this.ServiceFLP.Size = new System.Drawing.Size(617, 539);
             this.ServiceFLP.TabIndex = 0;

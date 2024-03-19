@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using Npgsql.Internal.Postgres;
+using SalonUserApp.Class_Components;
 using SalonUserApp.User_Controls.Appointment_Folder;
 using System;
 using System.Collections.Generic;
@@ -91,6 +93,8 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
+            Appoint.SetUserInfo(NameBox.Text, NumberBox.Text, AgeBox.Text);
+            Appoint.SetServiceInfo(serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID);
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
@@ -205,6 +209,8 @@ namespace SalonUserApp.User_Controls
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
+            Appoint.SetUserInfo(null, null, null);
+            Appoint.SetServiceInfo(null, null, null, null, null);
             this.Dispose();
             MainForm.ShowHomePage();
         }

@@ -345,6 +345,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class Components\Appoint.cs" />
     <Compile Include="Class Components\ReadUserData.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -365,6 +366,12 @@
     </Compile>
     <Compile Include="User Controls\Appointment Folder\Information.Designer.cs">
       <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\TimeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\TimeUC.Designer.cs">
+      <DependentUpon>TimeUC.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\Appointment Folder\UCBlankDays.cs">
       <SubType>UserControl</SubType>
@@ -414,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Appointment Folder\TimeUC.resx">
+      <DependentUpon>TimeUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\UCBlankDays.resx">
       <DependentUpon>UCBlankDays.cs</DependentUpon>
