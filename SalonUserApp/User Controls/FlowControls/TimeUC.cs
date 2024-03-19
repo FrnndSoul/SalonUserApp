@@ -40,8 +40,12 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
         public void TimeNull()
         {
+            if (previousClicked != null)
+            {
+                previousClicked.BackColor = Color.Transparent;
+            }
+
             previousClicked = null;
-            previousClicked.BackColor = Color.Transparent;
         }
     }
 }
