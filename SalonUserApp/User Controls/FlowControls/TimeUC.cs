@@ -17,11 +17,14 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         private void TimeUC_Click(object sender, EventArgs e)
         {
             HighlightControl();
+            Appoint.SetAppointHour(Timelbl.Text);
+            MessageBox.Show(Timelbl.Text);
         }
 
         private void Timelbl_Click(object sender, EventArgs e)
         {
             HighlightControl();
+            Appoint.SetAppointHour(Timelbl.Text);
         }
 
         private void HighlightControl()
@@ -32,9 +35,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
 
             this.BackColor = Color.LightGray;
-
             previousClicked = this;
-            Appoint.SetAppointHour(Timelbl.Text);
         }
     }
 }

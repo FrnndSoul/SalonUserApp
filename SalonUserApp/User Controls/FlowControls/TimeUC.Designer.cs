@@ -35,11 +35,11 @@
             // 
             this.Timelbl.AutoSize = true;
             this.Timelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F);
-            this.Timelbl.Location = new System.Drawing.Point(38, 29);
+            this.Timelbl.Location = new System.Drawing.Point(56, 29);
             this.Timelbl.Name = "Timelbl";
-            this.Timelbl.Size = new System.Drawing.Size(114, 29);
+            this.Timelbl.Size = new System.Drawing.Size(76, 29);
             this.Timelbl.TabIndex = 0;
-            this.Timelbl.Text = "00:00PM";
+            this.Timelbl.Text = "00:00";
             this.Timelbl.Click += new System.EventHandler(this.Timelbl_Click);
             // 
             // TimeUC

@@ -349,22 +349,22 @@
     <Compile Include="User Controls\Appointment Folder\Information.Designer.cs">
       <DependentUpon>Information.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\TimeUC.cs">
+    <Compile Include="User Controls\FlowControls\TimeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\TimeUC.Designer.cs">
+    <Compile Include="User Controls\FlowControls\TimeUC.Designer.cs">
       <DependentUpon>TimeUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\UCBlankDays.cs">
+    <Compile Include="User Controls\FlowControls\UCBlankDays.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\UCBlankDays.Designer.cs">
+    <Compile Include="User Controls\FlowControls\UCBlankDays.Designer.cs">
       <DependentUpon>UCBlankDays.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\UCDays.cs">
+    <Compile Include="User Controls\FlowControls\UCDays.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\UCDays.Designer.cs">
+    <Compile Include="User Controls\FlowControls\UCDays.Designer.cs">
       <DependentUpon>UCDays.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\CreateAccountForm.cs">
@@ -404,13 +404,13 @@
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Appointment Folder\TimeUC.resx">
+    <EmbeddedResource Include="User Controls\FlowControls\TimeUC.resx">
       <DependentUpon>TimeUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Appointment Folder\UCBlankDays.resx">
+    <EmbeddedResource Include="User Controls\FlowControls\UCBlankDays.resx">
       <DependentUpon>UCBlankDays.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Appointment Folder\UCDays.resx">
+    <EmbeddedResource Include="User Controls\FlowControls\UCDays.resx">
       <DependentUpon>UCDays.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\CreateAccountForm.resx">

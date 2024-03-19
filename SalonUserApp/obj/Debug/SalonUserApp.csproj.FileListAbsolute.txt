@@ -30,7 +30,6 @@ C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.Use
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUse.EA8B5C7A.Up2Date
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.exe
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.pdb
-C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\bin\Debug\Bunifu.Charts.WinForms.xml
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\bin\Debug\Newtonsoft.Json.xml
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\bin\Debug\Npgsql.xml
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.Common.xml
@@ -123,7 +122,6 @@ C:\Users\Starla\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.cs
 C:\Users\Starla\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.csproj.CopyComplete
 C:\Users\Starla\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.exe
 C:\Users\Starla\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.pdb
-C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Bunifu.UI.WinForms.xml
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Bcl.HashCode.xml
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
@@ -239,3 +237,4 @@ C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.
 C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.exe
 C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.pdb
 C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.TimeUC.resources
+C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.TimeUC.resources

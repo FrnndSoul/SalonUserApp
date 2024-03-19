@@ -95,29 +95,11 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
         private string FormatTime(TimeSpan time)
         {
-            string formattedTime;
             int hour = time.Hours;
+            int minute = time.Minutes;
 
-            if (hour == 0)
-            {
-                // 12:00 AM (midnight)
-                formattedTime = "12:" + time.ToString("mm") + " am";
-            }
-            else if (hour < 12)
-            {
-                // Before noon
-                formattedTime = time.ToString("hh\\:mm") + " am";
-            }
-            else if (hour == 12)
-            {
-                // 12:00 PM (noon)
-                formattedTime = "12:" + time.ToString("mm") + " nn";
-            }
-            else
-            {
-                // After noon
-                formattedTime = (hour - 12).ToString() + ":" + time.ToString("mm") + " pm";
-            }
+            string formattedTime = $"{hour:D2}:{minute:D2}";
+
             return formattedTime;
         }
 
@@ -181,7 +163,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                 if (control.BackColor == Color.LightGray && control is UCDays)
                 {
                     Appoint.SetAppointYearMonth(month, year);
-
+                    Appoint.Appointment();
                 }
             }
         }

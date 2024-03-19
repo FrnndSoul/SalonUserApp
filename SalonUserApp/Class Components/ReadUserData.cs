@@ -48,7 +48,6 @@ namespace SalonUserApp.Class_Components
                         }
                     }
                 }
-
                 return userFound;
             }
             catch (Exception ex)
@@ -71,6 +70,7 @@ namespace SalonUserApp.Class_Components
                     {
                         ResetStatus(InputUsername);
                         MessageBox.Show("Account Login Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Appoint.SetUsername(InputUsername);
                         MainForm.ShowHomePage();
                         return;
                     }
