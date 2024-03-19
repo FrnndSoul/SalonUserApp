@@ -19,6 +19,8 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         static int currentYear = currentDT.Year;
         static int currentMonth = currentDT.Month;
         static int maxMonth = currentMonth + 2 > 12 ? (currentMonth + 2) % 12 : currentMonth + 2;
+        private UCDays selectedDay = null;
+        DateTime daychecker;
 
         public AppointmentDate()
         {
@@ -27,16 +29,16 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             DisplayAvailableTimeSlots();
         }
 
-        private UCDays selectedDay = null;
-
         private void DisplayDays()
         {
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(currentMonth);
             MosYrLbl.Text = monthname + " " + currentYear;
 
-            DateTime monthstart = new DateTime(currentYear, currentMonth, 1);
+            // Initialize daychecker with the start date of the current month
+            daychecker = new DateTime(currentYear, currentMonth, 1);
+
             int days = DateTime.DaysInMonth(currentYear, currentMonth);
-            int weekdays = Convert.ToInt32(monthstart.DayOfWeek.ToString("d")) + 1;
+            int weekdays = Convert.ToInt32(daychecker.DayOfWeek.ToString("d")) + 1;
 
             for (int i = 1; i < weekdays; i++)
             {
@@ -49,6 +51,12 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                 UCDays ucdays = new UCDays();
                 ucdays.days(i, currentMonth, currentYear);
 
+                // Check if the day is in the past or within the next 7 days
+                if (daychecker.AddDays(i) < DateTime.Today || daychecker.AddDays(i) < DateTime.Today.AddDays(7))
+                {
+                    ucdays.Enabled = false;
+                }
+
                 // Check if the day is a weekend
                 if (IsWeekendDay(currentYear, currentMonth, i))
                 {
@@ -60,13 +68,13 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
         }
 
+
         // Helper method to check if a given day is a weekend day
         private bool IsWeekendDay(int year, int month, int day)
         {
             DateTime date = new DateTime(year, month, day);
             return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
         }
-
 
         private void DisplayAvailableTimeSlots()
         {
@@ -111,6 +119,14 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                 return;
             }
 
+            foreach (Control control in TimeFLP.Controls)
+            {
+                if (control is TimeUC)
+                {
+                    ((TimeUC)control).TimeNull();
+                }
+            }
+
             CalendarFLP.Controls.Clear();
             currentMonth++;
             if (currentMonth > 12)
@@ -127,6 +143,14 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             if (currentMonth == currentDT.Month && currentYear == currentDT.Year)
             {
                 return;
+            }
+
+            foreach (Control control in TimeFLP.Controls)
+            {
+                if (control is TimeUC)
+                {
+                    ((TimeUC)control).TimeNull();
+                }
             }
 
             CalendarFLP.Controls.Clear();

@@ -343,11 +343,23 @@
     <Compile Include="User Controls\Appointment Folder\AppointmentDate.Designer.cs">
       <DependentUpon>AppointmentDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\Appointment Folder\AppointStatuses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\AppointStatuses.Designer.cs">
+      <DependentUpon>AppointStatuses.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\Appointment Folder\Information.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="User Controls\Appointment Folder\Information.Designer.cs">
       <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\FlowControls\AppointInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\FlowControls\AppointInfo.Designer.cs">
+      <DependentUpon>AppointInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\FlowControls\TimeUC.cs">
       <SubType>UserControl</SubType>
@@ -401,8 +413,14 @@
     <EmbeddedResource Include="User Controls\Appointment Folder\AppointmentDate.resx">
       <DependentUpon>AppointmentDate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Appointment Folder\AppointStatuses.resx">
+      <DependentUpon>AppointStatuses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\FlowControls\AppointInfo.resx">
+      <DependentUpon>AppointInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\FlowControls\TimeUC.resx">
       <DependentUpon>TimeUC.cs</DependentUpon>

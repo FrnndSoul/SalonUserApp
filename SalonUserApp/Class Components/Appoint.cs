@@ -152,7 +152,6 @@ namespace SalonUserApp.Class_Components
             Random random = new Random();
 
             int number = random.Next(10000000, 99999999); // Generates a number between 10000000 and 99999999
-
             return number;
         }
     }
