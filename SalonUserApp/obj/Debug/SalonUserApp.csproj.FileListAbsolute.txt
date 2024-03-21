@@ -30,7 +30,6 @@ C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.Use
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUse.EA8B5C7A.Up2Date
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.exe
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.pdb
-C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\bin\Debug\Bunifu.Charts.WinForms.xml
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\bin\Debug\Newtonsoft.Json.xml
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\bin\Debug\Npgsql.xml
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.Common.xml
@@ -123,7 +122,6 @@ C:\Users\Starla\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.cs
 C:\Users\Starla\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.csproj.CopyComplete
 C:\Users\Starla\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.exe
 C:\Users\Starla\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.pdb
-C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Bunifu.UI.WinForms.xml
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Bcl.HashCode.xml
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
@@ -158,3 +156,87 @@ C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Threading
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.UCBlankDays.resources
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.UCDays.resources
 C:\Users\saulf\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.csproj.Fody.CopyLocal.cache
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\App.config
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\SalonUserApp.exe.config
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\SalonUserApp.exe
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\SalonUserApp.pdb
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Bunifu.Charts.WinForms.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Bunifu.UI.WinForms.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Google.Protobuf.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Win32.Registry.AccessControl.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Microsoft.Win32.SystemEvents.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\MySql.Data.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\Npgsql.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\RestSharp.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.Common.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.OrmLite.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.OrmLite.MySql.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.OrmLite.Oracle.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.OrmLite.PostgreSQL.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.OrmLite.SqlServer.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\ServiceStack.Text.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Buffers.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.CodeDom.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Collections.Immutable.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Data.Odbc.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Data.OleDb.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Data.SqlClient.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Diagnostics.EventLog.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Diagnostics.PerformanceCounter.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Drawing.Common.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Formats.Asn1.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.IO.FileSystem.AccessControl.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.IO.Packaging.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.IO.Pipelines.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.IO.Ports.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Memory.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Security.AccessControl.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Security.Cryptography.Cng.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Security.Cryptography.Pkcs.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Security.Cryptography.ProtectedData.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Security.Cryptography.Xml.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Security.Permissions.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.ServiceModel.Syndication.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.ServiceProcess.ServiceController.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Text.Json.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Threading.AccessControl.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Threading.Channels.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\bin\Debug\System.ValueTuple.xml
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.csproj.AssemblyReference.cache
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.MainForm.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.Properties.Resources.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.AppointmentDate.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Information.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.UCBlankDays.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.UCDays.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.CreateAccountForm.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.HomePage.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.SigninPage.resources
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.csproj.GenerateResource.cache
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.csproj.CoreCompileInputs.cache
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.csproj.Fody.CopyLocal.cache
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.csproj.CopyComplete
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.exe
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.pdb
+C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.TimeUC.resources
+C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.TimeUC.resources
+C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.AppointStatuses.resources
+C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.FlowControls.AppointInfo.resources

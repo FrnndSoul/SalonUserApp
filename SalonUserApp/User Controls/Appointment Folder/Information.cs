@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using Npgsql.Internal.Postgres;
+using SalonUserApp.Class_Components;
 using SalonUserApp.User_Controls.Appointment_Folder;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,7 @@ namespace SalonUserApp.User_Controls
         public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
         public static string serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
+        private Panel currentlyHighlightedPanel = null;
 
         public Information()
         {
@@ -90,11 +93,11 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
+            Appoint.SetUserInfo(NameBox.Text, NumberBox.Text, AgeBox.Text);
+            Appoint.SetServiceInfo(serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID);
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
-
-        private Panel currentlyHighlightedPanel = null;
 
         public void GetServiceData()
         {
@@ -206,6 +209,8 @@ namespace SalonUserApp.User_Controls
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
+            Appoint.SetUserInfo(null, null, null);
+            Appoint.SetServiceInfo(null, null, null, null, null);
             this.Dispose();
             MainForm.ShowHomePage();
         }

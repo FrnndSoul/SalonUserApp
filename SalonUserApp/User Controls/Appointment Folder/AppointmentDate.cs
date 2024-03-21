@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalonUserApp.Class_Components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace SalonUserApp.User_Controls.Appointment_Folder
@@ -17,19 +19,14 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         static int currentYear = currentDT.Year;
         static int currentMonth = currentDT.Month;
         static int maxMonth = currentMonth + 2 > 12 ? (currentMonth + 2) % 12 : currentMonth + 2;
-        public MainForm mainFormInstance;
-
-        public AppointmentDate(MainForm mainForm)
-        {
-            InitializeComponent();
-            this.mainFormInstance = mainForm;
-            DisplayDays();
-        }
+        private UCDays selectedDay = null;
+        DateTime daychecker;
 
         public AppointmentDate()
         {
             InitializeComponent();
             DisplayDays();
+            DisplayAvailableTimeSlots();
         }
 
         private void DisplayDays()
@@ -37,9 +34,11 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             String monthname = DateTimeFormatInfo.CurrentInfo.GetMonthName(currentMonth);
             MosYrLbl.Text = monthname + " " + currentYear;
 
-            DateTime monthstart = new DateTime(currentYear, currentMonth, 1);
+            // Initialize daychecker with the start date of the current month
+            daychecker = new DateTime(currentYear, currentMonth, 1);
+
             int days = DateTime.DaysInMonth(currentYear, currentMonth);
-            int weekdays = Convert.ToInt32(monthstart.DayOfWeek.ToString("d")) + 1;
+            int weekdays = Convert.ToInt32(daychecker.DayOfWeek.ToString("d")) + 1;
 
             for (int i = 1; i < weekdays; i++)
             {
@@ -51,15 +50,81 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             {
                 UCDays ucdays = new UCDays();
                 ucdays.days(i, currentMonth, currentYear);
+
+                // Check if the day is in the past or within the next 7 days
+                if (daychecker.AddDays(i) < DateTime.Today || daychecker.AddDays(i) < DateTime.Today.AddDays(7))
+                {
+                    ucdays.Enabled = false;
+                }
+
+                // Check if the day is a weekend
+                if (IsWeekendDay(currentYear, currentMonth, i))
+                {
+                    // If it's a weekend, disable the user control
+                    ucdays.Enabled = false;
+                }
+
                 CalendarFLP.Controls.Add(ucdays);
             }
         }
+
+
+        // Helper method to check if a given day is a weekend day
+        private bool IsWeekendDay(int year, int month, int day)
+        {
+            DateTime date = new DateTime(year, month, day);
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
+
+        private void DisplayAvailableTimeSlots()
+        {
+            TimeFLP.Controls.Clear();
+
+            // Define time range
+            TimeSpan startTime = new TimeSpan(11, 0, 0); // 11:00 AM
+            TimeSpan endTime = new TimeSpan(20, 0, 0);   // 08:00 PM
+
+            TimeSpan slotDuration = new TimeSpan(1, 0, 0); // 1 hour slot
+            TimeSpan currentTime = startTime;
+            while (currentTime < endTime)
+            {
+                // Create a TimeUC control
+                TimeUC timeControl = new TimeUC();
+
+                // Set the text of the Timelbl label directly with the custom time format
+                timeControl.Timelbl.Text = FormatTime(currentTime);
+
+                // Add the TimeUC control to the TimeFLP
+                TimeFLP.Controls.Add(timeControl);
+
+                currentTime += slotDuration;
+            }
+        }
+
+        private string FormatTime(TimeSpan time)
+        {
+            int hour = time.Hours;
+            int minute = time.Minutes;
+
+            string formattedTime = $"{hour:D2}:{minute:D2}";
+
+            return formattedTime;
+        }
+
 
         private void NextBtn_Click(object sender, EventArgs e)
         {
             if (currentMonth == maxMonth)
             {
                 return;
+            }
+
+            foreach (Control control in TimeFLP.Controls)
+            {
+                if (control is TimeUC)
+                {
+                    ((TimeUC)control).TimeNull();
+                }
             }
 
             CalendarFLP.Controls.Clear();
@@ -72,11 +137,20 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             DisplayDays();
         }
 
+
         private void BackBtn_Click(object sender, EventArgs e)
         {
             if (currentMonth == currentDT.Month && currentYear == currentDT.Year)
             {
                 return;
+            }
+
+            foreach (Control control in TimeFLP.Controls)
+            {
+                if (control is TimeUC)
+                {
+                    ((TimeUC)control).TimeNull();
+                }
             }
 
             CalendarFLP.Controls.Clear();
@@ -103,6 +177,22 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         }
 
         private void Next_Click(object sender, EventArgs e)
+        {
+            string[] mosYr = MosYrLbl.Text.Split(' ');
+            string month = mosYr[0];
+            string year = mosYr[1];
+
+            foreach (Control control in CalendarFLP.Controls)
+            {
+                if (control.BackColor == Color.LightGray && control is UCDays)
+                {
+                    Appoint.SetAppointYearMonth(month, year);
+                    Appoint.Appointment();
+                }
+            }
+        }
+
+        private void CalendarFLP_Paint(object sender, PaintEventArgs e)
         {
 
         }
