@@ -240,3 +240,4 @@ C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.TimeUC.resources
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.AppointStatuses.resources
 C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.FlowControls.AppointInfo.resources
+C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.CheckAppointmentStatus.resources

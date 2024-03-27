@@ -54,8 +54,15 @@ namespace SalonUserApp.User_Controls
             }
         }
 
+        private void NumberBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
+
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -207,8 +214,9 @@ namespace SalonUserApp.User_Controls
         }
 
 
-        private void BackBtn_Click(object sender, EventArgs e)
+        private async void BackBtn_Click(object sender, EventArgs e)
         {
+            await Task.Delay(500);
             Appoint.SetUserInfo(null, null, null);
             Appoint.SetServiceInfo(null, null, null, null, null);
             this.Dispose();

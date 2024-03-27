@@ -33,6 +33,7 @@
             this.SigninBtn = new Guna.UI2.WinForms.Guna2Button();
             this.ShowPass = new Guna.UI2.WinForms.Guna2CheckBox();
             this.CreateAccountBtn = new System.Windows.Forms.LinkLabel();
+            this.CloseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // UsernameBox
@@ -139,18 +140,40 @@
             this.CreateAccountBtn.Text = "Create an Account";
             this.CreateAccountBtn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreateAccountBtn_LinkClicked);
             // 
+            // CloseBtn
+            // 
+            this.CloseBtn.Animated = true;
+            this.CloseBtn.AutoRoundedCorners = true;
+            this.CloseBtn.BackColor = System.Drawing.Color.Transparent;
+            this.CloseBtn.BorderRadius = 21;
+            this.CloseBtn.BorderThickness = 1;
+            this.CloseBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CloseBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CloseBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CloseBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.CloseBtn.Font = new System.Drawing.Font("Chinacat", 18F);
+            this.CloseBtn.ForeColor = System.Drawing.Color.White;
+            this.CloseBtn.Location = new System.Drawing.Point(817, 633);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(244, 45);
+            this.CloseBtn.TabIndex = 5;
+            this.CloseBtn.Text = "Exit Program";
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
             // SigninPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.CreateAccountBtn);
             this.Controls.Add(this.ShowPass);
             this.Controls.Add(this.SigninBtn);
             this.Controls.Add(this.PasswordBox);
             this.Controls.Add(this.UsernameBox);
             this.Name = "SigninPage";
-            this.Size = new System.Drawing.Size(1080, 720);
+            this.Size = new System.Drawing.Size(1064, 681);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +186,6 @@
         private Guna.UI2.WinForms.Guna2Button SigninBtn;
         private Guna.UI2.WinForms.Guna2CheckBox ShowPass;
         private System.Windows.Forms.LinkLabel CreateAccountBtn;
+        private Guna.UI2.WinForms.Guna2Button CloseBtn;
     }
 }

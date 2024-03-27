@@ -16,5 +16,10 @@ namespace SalonUserApp.User_Controls.FlowControls
         {
             InitializeComponent();
         }
+
+        private void CheckStatusBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

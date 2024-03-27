@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.CheckStatusBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
@@ -39,24 +39,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2Button1
+            // CheckStatusBtn
             // 
-            this.guna2Button1.Animated = true;
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 38;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Chinacat", 18F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(406, 65);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(269, 78);
-            this.guna2Button1.TabIndex = 7;
-            this.guna2Button1.Text = "Check Appointment Status";
+            this.CheckStatusBtn.Animated = true;
+            this.CheckStatusBtn.AutoRoundedCorners = true;
+            this.CheckStatusBtn.BackColor = System.Drawing.Color.Transparent;
+            this.CheckStatusBtn.BorderRadius = 38;
+            this.CheckStatusBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CheckStatusBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CheckStatusBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CheckStatusBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CheckStatusBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.CheckStatusBtn.Font = new System.Drawing.Font("Chinacat", 18F);
+            this.CheckStatusBtn.ForeColor = System.Drawing.Color.White;
+            this.CheckStatusBtn.Location = new System.Drawing.Point(406, 65);
+            this.CheckStatusBtn.Name = "CheckStatusBtn";
+            this.CheckStatusBtn.Size = new System.Drawing.Size(269, 78);
+            this.CheckStatusBtn.TabIndex = 7;
+            this.CheckStatusBtn.Text = "Check Appointment Status";
+            this.CheckStatusBtn.Click += new System.EventHandler(this.CheckStatusBtn_Click);
             // 
             // guna2Panel1
             // 
@@ -65,7 +66,7 @@
             this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.guna2Button3);
             this.guna2Panel1.Controls.Add(this.guna2Button4);
-            this.guna2Panel1.Controls.Add(this.guna2Button1);
+            this.guna2Panel1.Controls.Add(this.CheckStatusBtn);
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1080, 200);
@@ -89,6 +90,7 @@
             this.guna2Button3.Size = new System.Drawing.Size(266, 78);
             this.guna2Button3.TabIndex = 10;
             this.guna2Button3.Text = "Edit Profile";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2Button4
             // 
@@ -152,7 +154,7 @@
         }
 
         #endregion
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button CheckStatusBtn;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;

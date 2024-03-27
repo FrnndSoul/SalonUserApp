@@ -171,6 +171,7 @@
             this.NumberBox.SelectedText = "";
             this.NumberBox.Size = new System.Drawing.Size(366, 49);
             this.NumberBox.TabIndex = 15;
+            this.NumberBox.TextChanged += new System.EventHandler(this.NumberBox_TextChanged);
             this.NumberBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberBox_KeyPress);
             // 
             // NameBox

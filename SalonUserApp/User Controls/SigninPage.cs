@@ -31,8 +31,9 @@ namespace SalonUserApp.User_Controls
             }
         }
 
-        private void SigninBtn_Click(object sender, EventArgs e)
+        private async void SigninBtn_Click(object sender, EventArgs e)
         {
+            await Task.Delay(500);
             string username = UsernameBox.Text;
             string password = PasswordBox.Text;
 
@@ -49,6 +50,12 @@ namespace SalonUserApp.User_Controls
         {
             this.Dispose();
             MainForm.ShowCreateAccount();
+        }
+
+        private async void CloseBtn_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(500);
+            Application.Exit();
         }
     }
 }
