@@ -19,5 +19,9 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             InitializeComponent();
             ReadUserData.LoadAppointmentsFLP(AppointFLP);
         }
+        private void Guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Parent.Controls.Remove(this);
+        }
     }
 }

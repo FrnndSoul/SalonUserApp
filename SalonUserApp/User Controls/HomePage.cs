@@ -13,7 +13,8 @@ namespace SalonUserApp.User_Controls
 {
     public partial class HomePage : UserControl
     {
-        CheckAppointmentStatus checkStatusControl;
+        private const int Y = 200;
+        readonly CheckAppointmentStatus checkStatusControl;
 
         public HomePage()
         {
@@ -21,7 +22,7 @@ namespace SalonUserApp.User_Controls
             checkStatusControl = new CheckAppointmentStatus();
         }
 
-        private async void guna2Button4_Click(object sender, EventArgs e)
+        private async void Guna2Button4_Click(object sender, EventArgs e)
         {
             await Task.Delay(500);
             this.Dispose();
@@ -33,13 +34,13 @@ namespace SalonUserApp.User_Controls
             await Task.Delay(500);
             if (this.Controls.Find("CheckAppointmentStatus", true).Length == 0)
             {
-                checkStatusControl.Location = new Point(0, 200);
+                checkStatusControl.Location = new Point(0, Y);
                 this.Controls.Add(checkStatusControl);
                 checkStatusControl.BringToFront();
             }
         }
 
-        private async void guna2Button3_Click(object sender, EventArgs e)
+        private async void Guna2Button3_Click(object sender, EventArgs e)
         {
             await Task.Delay(500);
         }

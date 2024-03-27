@@ -208,7 +208,6 @@ namespace SalonUserApp.Class_Components
                                         Flp.Controls.Add(appointInfo);
                                     }
                                 }
-
                             }
                         }
                     }

@@ -343,12 +343,6 @@
     <Compile Include="User Controls\Appointment Folder\AppointmentDate.Designer.cs">
       <DependentUpon>AppointmentDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\AppointStatuses.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User Controls\Appointment Folder\AppointStatuses.Designer.cs">
-      <DependentUpon>AppointStatuses.cs</DependentUpon>
-    </Compile>
     <Compile Include="User Controls\Appointment Folder\CheckAppointmentStatus.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -418,9 +412,6 @@
     </Compile>
     <EmbeddedResource Include="User Controls\Appointment Folder\AppointmentDate.resx">
       <DependentUpon>AppointmentDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Appointment Folder\AppointStatuses.resx">
-      <DependentUpon>AppointStatuses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\CheckAppointmentStatus.resx">
       <DependentUpon>CheckAppointmentStatus.cs</DependentUpon>

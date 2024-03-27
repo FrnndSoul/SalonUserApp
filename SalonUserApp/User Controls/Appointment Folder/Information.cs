@@ -92,7 +92,6 @@ namespace SalonUserApp.User_Controls
                 MessageBox.Show("Phone number must be 11 digits long.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            AppointmentDate appointmentDate = new AppointmentDate();
 
             if (currentlyHighlightedPanel == null)
             {
@@ -183,13 +182,13 @@ namespace SalonUserApp.User_Controls
                                     Tag = reader["ServiceTypeID"].ToString()
                                 };
 
-                                EventHandler clickHandler = (sender, e) =>
+                                void clickHandler(object sender, EventArgs e)
                                 {
-                                     serviceID = ((Control)sender).Tag.ToString();
-                                     serviceName = labelTitle.Text;
-                                     serviceAmount = labelTitle1.Text;
-                                     serviceTypeID = labelTitle2.Text;
-                                     serviceVariationID = labelTitle3.Text;
+                                    serviceID = ((Control)sender).Tag.ToString();
+                                    serviceName = labelTitle.Text;
+                                    serviceAmount = labelTitle1.Text;
+                                    serviceTypeID = labelTitle2.Text;
+                                    serviceVariationID = labelTitle3.Text;
 
                                     if (currentlyHighlightedPanel != null)
                                     {
@@ -198,7 +197,7 @@ namespace SalonUserApp.User_Controls
 
                                     panel.BackColor = Color.LightGray;
                                     currentlyHighlightedPanel = panel;
-                                };
+                                }
 
                                 panel.Click += clickHandler;
                                 picBox.Click += clickHandler;
@@ -213,13 +212,12 @@ namespace SalonUserApp.User_Controls
             }
         }
 
-
         private async void BackBtn_Click(object sender, EventArgs e)
         {
             await Task.Delay(500);
             Appoint.SetUserInfo(null, null, null);
             Appoint.SetServiceInfo(null, null, null, null, null);
-            this.Dispose();
+            this.Parent.Controls.Remove(this);
             MainForm.ShowHomePage();
         }
     }

@@ -90,7 +90,7 @@
             this.guna2Button3.Size = new System.Drawing.Size(266, 78);
             this.guna2Button3.TabIndex = 10;
             this.guna2Button3.Text = "Edit Profile";
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            this.guna2Button3.Click += new System.EventHandler(this.Guna2Button3_Click);
             // 
             // guna2Button4
             // 
@@ -110,7 +110,7 @@
             this.guna2Button4.Size = new System.Drawing.Size(266, 78);
             this.guna2Button4.TabIndex = 9;
             this.guna2Button4.Text = "Schedule an Appointment";
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            this.guna2Button4.Click += new System.EventHandler(this.Guna2Button4_Click);
             // 
             // guna2PictureBox1
             // 

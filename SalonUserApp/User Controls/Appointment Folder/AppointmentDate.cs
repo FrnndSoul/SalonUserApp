@@ -15,11 +15,10 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 {
     public partial class AppointmentDate : UserControl
     {
-        static DateTime currentDT = DateTime.Now;
+        static readonly DateTime currentDT = DateTime.Now;
         static int currentYear = currentDT.Year;
         static int currentMonth = currentDT.Month;
-        static int maxMonth = currentMonth + 2 > 12 ? (currentMonth + 2) % 12 : currentMonth + 2;
-        private UCDays selectedDay = null;
+        static readonly int maxMonth = currentMonth + 2 > 12 ? (currentMonth + 2) % 12 : currentMonth + 2;
         DateTime daychecker;
 
         public AppointmentDate()
@@ -121,9 +120,9 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
             foreach (Control control in TimeFLP.Controls)
             {
-                if (control is TimeUC)
+                if (control is TimeUC uC)
                 {
-                    ((TimeUC)control).TimeNull();
+                    uC.TimeNull();
                 }
             }
 
@@ -147,9 +146,9 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
             foreach (Control control in TimeFLP.Controls)
             {
-                if (control is TimeUC)
+                if (control is TimeUC uC)
                 {
-                    ((TimeUC)control).TimeNull();
+                    uC.TimeNull();
                 }
             }
 
@@ -165,7 +164,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
         private void Back_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Parent.Controls.Remove(this);
             foreach (Control control in MainForm.mainFormInstance.Controls)
             {
                 if (control is Information)
