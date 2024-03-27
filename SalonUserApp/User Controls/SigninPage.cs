@@ -43,7 +43,7 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
-            ReadUserData.LoginUser(username, password);
+            ReadUserData.LoginUser(username, password, this);
         }
 
         private void CreateAccountBtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

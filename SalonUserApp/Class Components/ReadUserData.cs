@@ -58,7 +58,7 @@ namespace SalonUserApp.Class_Components
             }
         }
 
-        public static void LoginUser(string InputUsername, string InputPassword)
+        public static void LoginUser(string InputUsername, string InputPassword, Control control)
         {
             if (ReadData(InputUsername))
             {
@@ -72,6 +72,7 @@ namespace SalonUserApp.Class_Components
                         dbUsername = InputUsername;
                         MessageBox.Show("Account Login Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Appoint.SetUsername(InputUsername);
+                        control.Parent.Controls.Remove(control);
                         MainForm.ShowHomePage();
                         return;
                     }

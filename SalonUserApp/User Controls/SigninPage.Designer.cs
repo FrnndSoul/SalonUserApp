@@ -34,6 +34,8 @@
             this.ShowPass = new Guna.UI2.WinForms.Guna2CheckBox();
             this.CreateAccountBtn = new System.Windows.Forms.LinkLabel();
             this.CloseBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // UsernameBox
@@ -132,12 +134,12 @@
             this.CreateAccountBtn.ActiveLinkColor = System.Drawing.Color.Pink;
             this.CreateAccountBtn.AutoSize = true;
             this.CreateAccountBtn.Font = new System.Drawing.Font("Chinacat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateAccountBtn.Location = new System.Drawing.Point(167, 532);
+            this.CreateAccountBtn.Location = new System.Drawing.Point(353, 306);
             this.CreateAccountBtn.Name = "CreateAccountBtn";
-            this.CreateAccountBtn.Size = new System.Drawing.Size(165, 19);
+            this.CreateAccountBtn.Size = new System.Drawing.Size(73, 19);
             this.CreateAccountBtn.TabIndex = 4;
             this.CreateAccountBtn.TabStop = true;
-            this.CreateAccountBtn.Text = "Create an Account";
+            this.CreateAccountBtn.Text = "Sign Up!";
             this.CreateAccountBtn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreateAccountBtn_LinkClicked);
             // 
             // CloseBtn
@@ -154,12 +156,23 @@
             this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.CloseBtn.Font = new System.Drawing.Font("Chinacat", 18F);
             this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.Location = new System.Drawing.Point(817, 633);
+            this.CloseBtn.Location = new System.Drawing.Point(3, 633);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(244, 45);
             this.CloseBtn.TabIndex = 5;
             this.CloseBtn.Text = "Exit Program";
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::SalonUserApp.Properties.Resources.SignInDesign;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1064, 681);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // SigninPage
             // 
@@ -172,8 +185,10 @@
             this.Controls.Add(this.SigninBtn);
             this.Controls.Add(this.PasswordBox);
             this.Controls.Add(this.UsernameBox);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "SigninPage";
             this.Size = new System.Drawing.Size(1064, 681);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +202,6 @@
         private Guna.UI2.WinForms.Guna2CheckBox ShowPass;
         private System.Windows.Forms.LinkLabel CreateAccountBtn;
         private Guna.UI2.WinForms.Guna2Button CloseBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

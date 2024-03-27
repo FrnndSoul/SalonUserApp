@@ -64,7 +64,7 @@
             this.CheckStatusBtn.Name = "CheckStatusBtn";
             this.CheckStatusBtn.Size = new System.Drawing.Size(180, 45);
             this.CheckStatusBtn.TabIndex = 1;
-            this.CheckStatusBtn.Text = "Check Status";
+            this.CheckStatusBtn.Text = "View Actions";
             this.CheckStatusBtn.Click += new System.EventHandler(this.CheckStatusBtn_Click);
             // 
             // DateLabel

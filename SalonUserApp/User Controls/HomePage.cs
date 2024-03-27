@@ -25,7 +25,7 @@ namespace SalonUserApp.User_Controls
         private async void Guna2Button4_Click(object sender, EventArgs e)
         {
             await Task.Delay(500);
-            this.Dispose();
+            this.Parent.Controls.Remove(this);
             MainForm.ShowAppointInfo();
         }
 
@@ -43,6 +43,13 @@ namespace SalonUserApp.User_Controls
         private async void Guna2Button3_Click(object sender, EventArgs e)
         {
             await Task.Delay(500);
+        }
+
+        private async void LogoutBtn_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(500);
+            this.Parent.Controls.Remove(this);
+            MainForm.ShowSignin();
         }
     }
 }
