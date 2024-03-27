@@ -145,22 +145,20 @@
             // CloseBtn
             // 
             this.CloseBtn.Animated = true;
-            this.CloseBtn.AutoRoundedCorners = true;
-            this.CloseBtn.BackColor = System.Drawing.Color.Transparent;
-            this.CloseBtn.BorderRadius = 21;
+            this.CloseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(105)))), ((int)(((byte)(195)))));
             this.CloseBtn.BorderThickness = 1;
             this.CloseBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.CloseBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.CloseBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.CloseBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.CloseBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.CloseBtn.Font = new System.Drawing.Font("Chinacat", 18F);
-            this.CloseBtn.ForeColor = System.Drawing.Color.White;
-            this.CloseBtn.Location = new System.Drawing.Point(3, 633);
+            this.CloseBtn.ForeColor = System.Drawing.Color.IndianRed;
+            this.CloseBtn.Location = new System.Drawing.Point(1011, 3);
             this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(244, 45);
+            this.CloseBtn.Size = new System.Drawing.Size(50, 50);
             this.CloseBtn.TabIndex = 5;
-            this.CloseBtn.Text = "Exit Program";
+            this.CloseBtn.Text = "X";
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // pictureBox1
