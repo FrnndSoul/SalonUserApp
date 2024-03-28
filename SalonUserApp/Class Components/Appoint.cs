@@ -167,65 +167,71 @@ namespace SalonUserApp.Class_Components
             return number;
         }
 
-        public static void ReadAppointData(string refNumber)
+        public static async Task ReadAppointData(string refNumber)
         {
-            string query = @"SELECT `ReferenceNumber`, `DateFiled`, `AppointDate`, `Username`, `Name`, 
-                            `PhoneNumber`, `Age`, `ServiceID`, `ServiceName`, `ServiceAmount`,  
-                            `ServiceTypeID`, `ServiceVariationID`, `IsCancelled` 
-                            FROM `Appointments` WHERE `ReferenceNumber` = @dbReferenceNumber";
-
-            using (MySqlConnection conn = new MySqlConnection(mysqlcon))
+            await Task.Run(() =>
             {
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                ReferenceNumber = Convert.ToInt32(refNumber);
+                string query = @"SELECT `ReferenceNumber`, `DateFiled`, `AppointDate`, `Username`, `Name`, 
+                        `PhoneNumber`, `Age`, `ServiceID`, `ServiceName`, `ServiceAmount`,  
+                        `ServiceTypeID`, `ServiceVariationID`, `IsCancelled` 
+                        FROM `Appointments` WHERE `ReferenceNumber` = @dbReferenceNumber";
+
+                using (MySqlConnection conn = new MySqlConnection(mysqlcon))
                 {
-                    cmd.Parameters.AddWithValue("@dbReferenceNumber", refNumber);
-                    try
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        conn.Open();
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        cmd.Parameters.AddWithValue("@dbReferenceNumber", refNumber);
+                        try
                         {
-                            if (reader.Read())
+                            conn.Open();
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
                             {
-                                if (DateTime.TryParse(reader["DateFiled"].ToString(), out DateTime dateFiled))
+                                if (reader.Read())
                                 {
-                                    dbDateFiled = dateFiled.ToString("dd/MM/yyyy");
-                                }
-
-                                if (DateTime.TryParse(reader["AppointDate"].ToString(), out DateTime appointDate))
-                                {
-                                    dbAppointDate = appointDate.ToString("dd/MM/yyyy");
-                                }
-
-                                dbUsername = reader["Username"].ToString();
-                                dbName = reader["Name"].ToString();
-                                dbPhoneNumber = reader["PhoneNumber"].ToString();
-                                dbAge = reader["Age"].ToString();
-                                dbServicelD = reader["ServiceID"].ToString();
-                                dbServiceName = reader["ServiceName"].ToString();
-                                dbServiceAmount = reader["ServiceAmount"].ToString();
-                                dbServiceTypelD = reader["ServiceTypeID"].ToString();
-                                dbServiceVariationlD = reader["ServiceVariationID"].ToString();
-                                dbIsCancelled = reader["IsCancelled"].ToString();
-
-                                foreach (Control control in MainForm.mainFormInstance.Controls)
-                                {
-                                    if (!(control is ChangeAppointInfo))
+                                    if (DateTime.TryParse(reader["DateFiled"].ToString(), out DateTime dateFiled))
                                     {
-                                        continue;
+                                        dbDateFiled = dateFiled.ToString("dd/MM/yyyy");
                                     }
-                                    ChangeAppointInfo appointInfoControl = (ChangeAppointInfo)control;
-                                    appointInfoControl.SetStrings(refNumber, dbDateFiled, dbAppointDate, dbUsername, dbName, dbPhoneNumber, dbAge, dbServicelD, dbServiceName, dbServiceAmount, dbServiceTypelD, dbServiceVariationlD, dbIsCancelled);
-                                }
 
+                                    if (DateTime.TryParse(reader["AppointDate"].ToString(), out DateTime appointDate))
+                                    {
+                                        dbAppointDate = appointDate.ToString("dd/MM/yyyy");
+                                    }
+
+                                    dbUsername = reader["Username"].ToString();
+                                    dbName = reader["Name"].ToString();
+                                    dbPhoneNumber = reader["PhoneNumber"].ToString();
+                                    dbAge = reader["Age"].ToString();
+                                    dbServicelD = reader["ServiceID"].ToString();
+                                    dbServiceName = reader["ServiceName"].ToString();
+                                    dbServiceAmount = reader["ServiceAmount"].ToString();
+                                    dbServiceTypelD = reader["ServiceTypeID"].ToString();
+                                    dbServiceVariationlD = reader["ServiceVariationID"].ToString();
+                                    dbIsCancelled = reader["IsCancelled"].ToString();
+
+                                    MainForm.mainFormInstance.Invoke((MethodInvoker)(() =>
+                                    {
+                                        foreach (Control control in MainForm.mainFormInstance.Controls)
+                                        {
+                                            if (!(control is ChangeAppointInfo))
+                                            {
+                                                continue;
+                                            }
+                                            ChangeAppointInfo appointInfoControl = (ChangeAppointInfo)control;
+                                            appointInfoControl.SetStrings(refNumber, dbDateFiled, dbAppointDate, dbUsername, dbName, dbPhoneNumber, dbAge, dbServicelD, dbServiceName, dbServiceAmount, dbServiceTypelD, dbServiceVariationlD, dbIsCancelled);
+                                        }
+                                    }));
+                                }
                             }
                         }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error.");
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error.");
+                        }
                     }
                 }
-            }
+            });
         }
 
         public static async void EditAppointment()
@@ -317,6 +323,23 @@ namespace SalonUserApp.Class_Components
         public static void EditAppointRefnum(string refNumber)
         {
             ReferenceNumber = Convert.ToInt32(refNumber);
+        }
+
+        public static void ViewAppointmentDetails()
+        {
+            MessageBox.Show
+                ($"Reference Number:{ReferenceNumber}\n\n" +
+                $"Appointment Date and Time: {appointDate}\n\n" +
+                "Customer Information\n" +
+                $"   Name: {cName}\n" +
+                $"   Username: {cUsername}\n" +
+                $"   Phone Number: {cNumber}\n" +
+                $"   Age: {cAge}\n\n" +
+                "Service Information\n" +
+                $"   Service: {serviceName}\n" +
+                $"   ServiceID: {serviceID}\n" +
+                $"   Amount: {serviceAmount}\n\n" , "View Appointment Details"
+               );
         }
     }
 }

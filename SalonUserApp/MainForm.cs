@@ -14,6 +14,15 @@ namespace SalonUserApp
         {
             InitializeComponent();
             mainFormInstance = this;
+            this.Resize += MainForm_Resize;
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)

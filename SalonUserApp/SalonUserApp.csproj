@@ -343,12 +343,6 @@
     <Compile Include="User Controls\Appointment Folder\AppointmentDate.Designer.cs">
       <DependentUpon>AppointmentDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\AppointmentView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User Controls\Appointment Folder\AppointmentView.Designer.cs">
-      <DependentUpon>AppointmentView.cs</DependentUpon>
-    </Compile>
     <Compile Include="User Controls\Appointment Folder\ChangeAppointInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>

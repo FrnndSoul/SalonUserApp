@@ -106,8 +106,11 @@ namespace SalonUserApp.User_Controls.FlowControls
 
             view.Click += async (sender, e) =>
             {
-                await Task.Delay(1000);
-                promptForm.Close();
+                await Task.Delay(500);
+                promptForm.Close(); 
+                await Appoint.ReadAppointData(RefTextLabel.Text);
+                Appoint.ViewAppointmentDetails();
+
             };
 
             change.Click += async (sender, e) => 
@@ -121,7 +124,7 @@ namespace SalonUserApp.User_Controls.FlowControls
                 }
                 else
                 {
-                    await Task.Delay(1000);
+                    await Task.Delay(500);
                     promptForm.Close();
                     MainForm.ShowAppointEdit();
                     Appoint.ReadAppointData(RefTextLabel.Text);
@@ -139,7 +142,26 @@ namespace SalonUserApp.User_Controls.FlowControls
                         "changes and cancellation", "Warning");
                 } else
                 {
-                    await Task.Delay(1000);
+                    await Task.Delay(500);
+                    DialogResult result = MessageBox.Show(
+                        $"Are you sure you want to cancel this appointment?\nReference number: {RefTextLabel.Text}",
+                        "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                        );
+
+                    if (result != DialogResult.Yes)
+                    {
+                        return;
+                    }
+
+                    foreach (Control control in MainForm.mainFormInstance.Controls)
+                    {
+                        if (control is CheckAppointmentStatus)
+                        {
+                            CheckAppointmentStatus checkAppointmentStatus = (CheckAppointmentStatus)control;
+                            checkAppointmentStatus.CancelAppointment(RefTextLabel.Text);
+                        }
+                    }
+
                     promptForm.Close();
                 }
             };
@@ -148,7 +170,6 @@ namespace SalonUserApp.User_Controls.FlowControls
             {
                 promptForm.Close();
             };
-
             promptForm.ShowDialog();
         }
     }
