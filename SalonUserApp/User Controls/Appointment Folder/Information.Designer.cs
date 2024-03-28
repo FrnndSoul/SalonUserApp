@@ -118,7 +118,7 @@
             this.BackBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.BackBtn.Font = new System.Drawing.Font("Chinacat", 18F);
             this.BackBtn.ForeColor = System.Drawing.Color.White;
-            this.BackBtn.Location = new System.Drawing.Point(24, 421);
+            this.BackBtn.Location = new System.Drawing.Point(24, 445);
             this.BackBtn.Name = "BackBtn";
             this.BackBtn.Size = new System.Drawing.Size(180, 45);
             this.BackBtn.TabIndex = 18;
@@ -139,7 +139,7 @@
             this.NextBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.NextBtn.Font = new System.Drawing.Font("Chinacat", 18F);
             this.NextBtn.ForeColor = System.Drawing.Color.White;
-            this.NextBtn.Location = new System.Drawing.Point(210, 421);
+            this.NextBtn.Location = new System.Drawing.Point(210, 445);
             this.NextBtn.Name = "NextBtn";
             this.NextBtn.Size = new System.Drawing.Size(180, 45);
             this.NextBtn.TabIndex = 17;
@@ -215,7 +215,7 @@
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2GroupBox1.Location = new System.Drawing.Point(3, 3);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(408, 412);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(408, 409);
             this.guna2GroupBox1.TabIndex = 25;
             this.guna2GroupBox1.Text = "Customer Information";
             // 

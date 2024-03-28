@@ -217,6 +217,10 @@ namespace SalonUserApp.User_Controls
             await Task.Delay(500);
             Appoint.SetUserInfo(null, null, null);
             Appoint.SetServiceInfo(null, null, null, null, null);
+            ServiceSelection.Visible = false;
+            guna2GroupBox1.Visible = false;
+            BackBtn.Visible = false;
+            NextBtn.Visible = false;
             this.Parent.Controls.Remove(this);
             MainForm.ShowHomePage();
         }

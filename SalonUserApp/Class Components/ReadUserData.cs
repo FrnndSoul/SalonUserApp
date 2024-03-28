@@ -22,6 +22,7 @@ namespace SalonUserApp.Class_Components
 
         public static bool ReadData(string InputUsername)
         {
+            Username = InputUsername;
             try
             {
                 string query = "SELECT `Password`, `AccountID`, `Status` FROM `accounts` WHERE `Username` = @Username";
@@ -108,7 +109,6 @@ namespace SalonUserApp.Class_Components
                 MessageBox.Show(ex.Message, "Error");
             }
         }
-
 
         public static void LoginUser(string InputUsername, string InputPassword, Control control)
         {

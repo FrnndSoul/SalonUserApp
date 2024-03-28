@@ -13,56 +13,96 @@ namespace SalonUserApp.User_Controls
 {
     public partial class HomePage : UserControl
     {
-        readonly CheckAppointmentStatus checkStatusControl;
+        readonly CheckAppointmentStatus checkAppointment;
         readonly ChangeUserPassword changeUserPassword;
+        private readonly Control[] controls;
 
         public HomePage()
         {
             InitializeComponent();
-            checkStatusControl = new CheckAppointmentStatus();
+
+            // Initialize checkAppointment and changeUserPassword controls
+            checkAppointment = new CheckAppointmentStatus();
+            changeUserPassword = new ChangeUserPassword();
+
+            // Initialize controls array with parent controls
+            controls = this.Controls.Cast<Control>().ToArray();
         }
 
-        private async void Guna2Button4_Click(object sender, EventArgs e)
+        private async void Guna2Button4_Click(object sender, EventArgs e) //sched an appoint
         {
             await Task.Delay(500);
-            this.Parent.Controls.Remove(this);
+            foreach (Control control in controls)
+            {
+                if (control is ChangeUserPassword)
+                {
+                    changeUserPassword.Parent.Controls.Remove(changeUserPassword);
+                    break;
+                }
+            }
+            foreach (Control control in controls)
+            {
+                if (control is CheckAppointmentStatus)
+                {
+                    checkAppointment.Parent.Controls.Remove(changeUserPassword);
+                    break;
+                }
+            }
             MainForm.ShowAppointInfo();
         }
 
-        private async void CheckStatusBtn_Click(object sender, EventArgs e)
+        private async void CheckStatusBtn_Click(object sender, EventArgs e) //check status
         {
             await Task.Delay(500);
-            if (this.Controls.Find("ChangeUserPassword", true).Length == 0)
+            foreach (Control control in controls)
             {
-                changeUserPassword.Parent.Controls.Remove(changeUserPassword);
+                if (control is ChangeUserPassword)
+                {
+                    changeUserPassword.Parent.Controls.Remove(changeUserPassword);
+                    break;
+                }
             }
-            if (this.Controls.Find("CheckAppointmentStatus", true).Length == 0)
-            {
-                checkStatusControl.Location = new Point(0, 200);
-                this.Controls.Add(checkStatusControl);
-                checkStatusControl.BringToFront();
-            }
+            this.Controls.Add(checkAppointment);
+            checkAppointment.Location = new Point(0, 200);
+            checkAppointment.BringToFront();
         }
 
-        private async void Guna2Button3_Click(object sender, EventArgs e)
+
+        private async void Guna2Button3_Click(object sender, EventArgs e) //change pass
         {
             await Task.Delay(500);
-            if (this.Controls.Find("CheckAppointmentStatus", true).Length == 0)
+            foreach (Control control in controls)
             {
-                checkStatusControl.Parent.Controls.Remove(checkStatusControl);
+                if (control is CheckAppointmentStatus)
+                {
+                    checkAppointment.Parent.Controls.Remove(checkAppointment);
+                    break;
+                }
             }
-            if (this.Controls.Find("ChangeUserPassword", true).Length == 0)
-            {
-                changeUserPassword.Location = new Point(0, 200);
-                this.Controls.Add(changeUserPassword);
-                changeUserPassword.BringToFront();
-            }
+            this.Controls.Add(changeUserPassword);
+            changeUserPassword.Location = new Point(0, 200);
+            changeUserPassword.BringToFront();
         }
 
-        private async void LogoutBtn_Click(object sender, EventArgs e)
+        private async void LogoutBtn_Click(object sender, EventArgs e) //logout
         {
             await Task.Delay(500);
-            this.Parent.Controls.Remove(this);
+            foreach (Control control in controls)
+            {
+                if (control is ChangeUserPassword)
+                {
+                    changeUserPassword.Parent.Controls.Remove(changeUserPassword);
+                    break;
+                }
+            }
+            foreach (Control control in controls)
+            {
+                if (control is CheckAppointmentStatus)
+                {
+                    checkAppointment.Parent.Controls.Remove(changeUserPassword);
+                    break;
+                }
+            }
             MainForm.ShowSignin();
         }
     }

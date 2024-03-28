@@ -43,13 +43,14 @@
             this.guna2ToggleSwitch1 = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             this.label6 = new System.Windows.Forms.Label();
             this.changePass = new System.Windows.Forms.Panel();
+            this.changePass.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Chinacat", 15.75F);
-            this.label4.Location = new System.Drawing.Point(605, 157);
+            this.label4.Location = new System.Drawing.Point(471, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(256, 25);
             this.label4.TabIndex = 23;
@@ -59,7 +60,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Chinacat", 15.75F);
-            this.label3.Location = new System.Drawing.Point(272, 157);
+            this.label3.Location = new System.Drawing.Point(138, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(167, 25);
             this.label3.TabIndex = 22;
@@ -170,7 +171,7 @@
             this.Password2Box.Font = new System.Drawing.Font("Chinacat", 15.75F);
             this.Password2Box.ForeColor = System.Drawing.Color.Black;
             this.Password2Box.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Password2Box.Location = new System.Drawing.Point(550, 187);
+            this.Password2Box.Location = new System.Drawing.Point(416, 59);
             this.Password2Box.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Password2Box.Name = "Password2Box";
             this.Password2Box.PasswordChar = '\0';
@@ -195,7 +196,7 @@
             this.Password1Box.Font = new System.Drawing.Font("Chinacat", 15.75F);
             this.Password1Box.ForeColor = System.Drawing.Color.Black;
             this.Password1Box.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.Password1Box.Location = new System.Drawing.Point(172, 187);
+            this.Password1Box.Location = new System.Drawing.Point(38, 59);
             this.Password1Box.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Password1Box.Name = "Password1Box";
             this.Password1Box.PasswordChar = '\0';
@@ -292,6 +293,10 @@
             // 
             // changePass
             // 
+            this.changePass.Controls.Add(this.Password1Box);
+            this.changePass.Controls.Add(this.Password2Box);
+            this.changePass.Controls.Add(this.label3);
+            this.changePass.Controls.Add(this.label4);
             this.changePass.Location = new System.Drawing.Point(134, 126);
             this.changePass.Name = "changePass";
             this.changePass.Size = new System.Drawing.Size(819, 146);
@@ -314,13 +319,11 @@
             this.Controls.Add(this.CreateBtn);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.UsernameBox);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.Password2Box);
-            this.Controls.Add(this.Password1Box);
             this.Controls.Add(this.changePass);
             this.Name = "ChangeUserPassword";
             this.Size = new System.Drawing.Size(1064, 481);
+            this.changePass.ResumeLayout(false);
+            this.changePass.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

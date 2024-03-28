@@ -21,6 +21,12 @@ namespace SalonUserApp.User_Controls
         {
             InitializeComponent();
             ReadUserData.LoadEditProfile();
+            textLoad();
+        }
+
+        private async void textLoad()
+        {
+            await Task.Delay(1000);
             IDBox.Text = ID;
             UsernameBox.Text = Username;
         }
@@ -29,28 +35,37 @@ namespace SalonUserApp.User_Controls
         {
             string confirmOld, new1, new2;
             string newPass = null;
-            if (guna2ToggleSwitch1.Checked == true)
+            confirmOld = PasswordHashing(OldBox.Text);
+
+            if (string.Equals(confirmOld, Password, StringComparison.OrdinalIgnoreCase))
             {
-                 confirmOld = PasswordHashing(OldBox.Text);
-                if (string.Equals(confirmOld, Password, StringComparison.OrdinalIgnoreCase))
+                if (guna2ToggleSwitch1.Checked == true)
                 {
                     new1 = Password1Box.Text;
                     new2 = Password2Box.Text;
 
-                    if (string.Equals(new1, new2, StringComparison.OrdinalIgnoreCase))
+                    if (Password1Box.Text == null)
+                    {
+                        MessageBox.Show("Input new password!", "Warning");
+                        return;
+                    }
+
+                    if (string.Equals(new1, new2))
                     {
                         newPass = PasswordHashing(new1);
-                    } else
-                    {
-                        MessageBox.Show("Old password did not match", "Warning");
                     }
-                } else
-                {
-                    MessageBox.Show("Old password did not match", "Warning");
+                    else
+                    {
+                        MessageBox.Show("New password do not match", "Warning");
+                        return;
+                    }
                 }
-            } else
+                ReadUserData.EditUserProfile(ID, UsernameBox.Text, newPass);
+                
+            }
+            else
             {
-                ReadUserData.EditUserProfile(ID,UsernameBox.Text,newPass);
+                MessageBox.Show("Old password did not match", "Warning");
             }
         }
 
