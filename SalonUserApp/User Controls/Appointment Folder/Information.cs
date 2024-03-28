@@ -79,6 +79,16 @@ namespace SalonUserApp.User_Controls
             }
         }
 
+        public bool IsPhoneNumberValid()
+        {
+            string number = NumberBox.Text;
+            if (number[0] == '0' && number[1] == '9' && number.Length == 11)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void NextBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(NameBox.Text) || string.IsNullOrEmpty(AgeBox.Text) || string.IsNullOrEmpty(NumberBox.Text))
@@ -87,9 +97,9 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
-            if (NumberBox.TextLength != 11)
+            if (IsPhoneNumberValid())
             {
-                MessageBox.Show("Phone number must be 11 digits long.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Phone number must be valid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

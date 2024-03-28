@@ -44,9 +44,30 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
+        public bool IsPhoneNumberValid()
+        {
+            string number = NumberBox.Text;
+            if (number[0] == '0' && number[1] == '9' && number.Length == 11)
+            {
+                return true;
+            }
+            return false;
+        }
 
         private async void SaveBtn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(NameBox.Text) || string.IsNullOrEmpty(AgeBox.Text) || string.IsNullOrEmpty(NumberBox.Text))
+            {
+                MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (IsPhoneNumberValid())
+            {
+                MessageBox.Show("Phone number must be valid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             await Task.Delay(1000);
             DialogResult result = MessageBox.Show
                 ("Please confirm the following details with changes:\n\n" +
