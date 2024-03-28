@@ -18,7 +18,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         {
             HighlightControl();
             Appoint.SetAppointHour(Timelbl.Text);
-            MessageBox.Show(Timelbl.Text);
         }
 
         private void Timelbl_Click(object sender, EventArgs e)

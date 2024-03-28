@@ -85,5 +85,18 @@ namespace SalonUserApp
                 appointmentDate.BringToFront();
             }
         }
+
+        public static void ShowAppointEdit()
+        {
+            if (mainFormInstance != null)
+            {
+                ChangeAppointInfo ChangeAppointInfo = new ChangeAppointInfo
+                {
+                    Dock = DockStyle.Fill
+                };
+                mainFormInstance.Controls.Add(ChangeAppointInfo);
+                ChangeAppointInfo.BringToFront();
+            }
+        }
     }
 }

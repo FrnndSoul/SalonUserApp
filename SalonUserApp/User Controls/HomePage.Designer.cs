@@ -120,7 +120,7 @@
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(1080, 720);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(1064, 681);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 10;
             this.guna2PictureBox1.TabStop = false;
@@ -150,7 +150,7 @@
             this.LogoutBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.LogoutBtn.Font = new System.Drawing.Font("Chinacat", 18F);
             this.LogoutBtn.ForeColor = System.Drawing.Color.White;
-            this.LogoutBtn.Location = new System.Drawing.Point(3, 639);
+            this.LogoutBtn.Location = new System.Drawing.Point(0, 600);
             this.LogoutBtn.Name = "LogoutBtn";
             this.LogoutBtn.Size = new System.Drawing.Size(266, 78);
             this.LogoutBtn.TabIndex = 11;
@@ -167,7 +167,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2PictureBox1);
             this.Name = "HomePage";
-            this.Size = new System.Drawing.Size(1080, 720);
+            this.Size = new System.Drawing.Size(1064, 681);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();

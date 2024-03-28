@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using SalonUserApp.Class_Components;
+using SalonUserApp.User_Controls.Appointment_Folder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,8 +31,7 @@ namespace SalonUserApp.User_Controls.FlowControls
         private async void CheckStatusBtn_Click(object sender, EventArgs e)
         {
             await Task.Delay(500);
-            ReadAppointData();
-            ShowInputDialog(dbReferenceNumber);
+            ShowInputDialog(RefTextLabel.Text);
         }
 
         private async void ShowInputDialog(string refNumber)
@@ -64,8 +65,7 @@ namespace SalonUserApp.User_Controls.FlowControls
                 Top = 70, 
                 Height = 30, 
                 Font = font,
-                TextAlign = ContentAlignment.MiddleCenter,
-                DialogResult = DialogResult.OK
+                TextAlign = ContentAlignment.MiddleCenter
             };
 
             Button change = new Button() { 
@@ -75,8 +75,7 @@ namespace SalonUserApp.User_Controls.FlowControls
                 Top = 105, 
                 Height = 30, 
                 Font = font,
-                TextAlign = ContentAlignment.MiddleCenter,
-                DialogResult = DialogResult.OK
+                TextAlign = ContentAlignment.MiddleCenter
             };
 
             Button cancel = new Button() { 
@@ -86,8 +85,7 @@ namespace SalonUserApp.User_Controls.FlowControls
                 Top = 140, 
                 Height = 30, 
                 Font = font,
-                TextAlign = ContentAlignment.MiddleCenter,
-                DialogResult = DialogResult.OK
+                TextAlign = ContentAlignment.MiddleCenter
             };
 
             Button none = new Button() { 
@@ -97,8 +95,7 @@ namespace SalonUserApp.User_Controls.FlowControls
                 Top = 175, 
                 Height = 30, 
                 Font = font,
-                TextAlign = ContentAlignment.MiddleCenter,
-                DialogResult = DialogResult.OK
+                TextAlign = ContentAlignment.MiddleCenter
             };
 
             promptForm.Controls.Add(textLabel);
@@ -107,19 +104,44 @@ namespace SalonUserApp.User_Controls.FlowControls
             promptForm.Controls.Add(cancel);
             promptForm.Controls.Add(none);
 
-            view.Click += (sender, e) =>
+            view.Click += async (sender, e) =>
             {
+                await Task.Delay(1000);
                 promptForm.Close();
             };
 
-            change.Click += (sender, e) => 
-            { 
-                promptForm.Close(); 
+            change.Click += async (sender, e) => 
+            {
+                DateTime.TryParse(DateTextLabel.Text, out DateTime appointDate);
+                if (appointDate <= DateTime.Now.AddDays(7))
+                {
+                    MessageBox.Show("You cannot make changes with the appointment.\n" +
+                        "The Appointment is in 7 days grace period for\n" +
+                        "changes and cancellation", "Warning");
+                }
+                else
+                {
+                    await Task.Delay(1000);
+                    promptForm.Close();
+                    MainForm.ShowAppointEdit();
+                    Appoint.ReadAppointData(RefTextLabel.Text);
+                    this.Parent.Controls.Remove(this);
+                }
             };
 
-            cancel.Click += (sender, e) =>
+            cancel.Click += async (sender, e) =>
             {
-                promptForm.Close();
+                DateTime.TryParse(DateTextLabel.Text, out DateTime appointDate);
+                if (appointDate <= DateTime.Now.AddDays(7))
+                {
+                    MessageBox.Show("You cannot make changes with the appointment.\n" +
+                        "The Appointment is in 7 days grace period for\n" +
+                        "changes and cancellation", "Warning");
+                } else
+                {
+                    await Task.Delay(1000);
+                    promptForm.Close();
+                }
             };
 
             none.Click += (sender, e) =>
@@ -128,58 +150,6 @@ namespace SalonUserApp.User_Controls.FlowControls
             };
 
             promptForm.ShowDialog();
-        }
-
-        private void ReadAppointData()
-        {
-            dbReferenceNumber = RefTextLabel.Text;
-
-            string query = @"SELECT `ReferenceNumber`, `DateFiled`, `AppointDate`, `Username`, `Name`, 
-                            `PhoneNumber`, `Age`, `ServiceID`, `ServiceName`, `ServiceAmount`,  
-                            `ServiceTypeID`, `ServiceVariationID`, `IsCancelled` 
-                            FROM `Appointments` WHERE `ReferenceNumber` = @dbReferenceNumber";
-
-            using (MySqlConnection conn = new MySqlConnection(mysqlcon))
-            {
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@dbReferenceNumber", dbReferenceNumber);
-                    try
-                    {
-                        conn.Open();
-                        using (MySqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                if (DateTime.TryParse(reader["DateFiled"].ToString(), out DateTime dateFiled))
-                                {
-                                    dbDateFiled = dateFiled.ToString("dd/MM/yyyy");
-                                }
-
-                                if (DateTime.TryParse(reader["AppointDate"].ToString(), out DateTime appointDate))
-                                {
-                                    dbAppointDate = appointDate.ToString("dd/MM/yyyy");
-                                }
-
-                                dbUsername = reader["Username"].ToString();
-                                dbName = reader["Name"].ToString();
-                                dbPhoneNumber = reader["PhoneNumber"].ToString();
-                                dbAge = reader["Age"].ToString();
-                                dbServicelD = reader["ServiceID"].ToString();
-                                dbServiceName = reader["ServiceName"].ToString();
-                                dbServiceAmount = reader["ServiceAmount"].ToString();
-                                dbServiceTypelD = reader["ServiceTypeID"].ToString();
-                                dbServiceVariationlD = reader["ServiceVariationID"].ToString();
-                                dbIsCancelled = reader["IsCancelled"].ToString();
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error.");
-                    }
-                }
-            }
         }
     }
 }

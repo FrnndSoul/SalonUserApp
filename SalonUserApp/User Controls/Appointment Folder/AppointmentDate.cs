@@ -67,8 +67,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
         }
 
-
-        // Helper method to check if a given day is a weekend day
         private bool IsWeekendDay(int year, int month, int day)
         {
             DateTime date = new DateTime(year, month, day);
@@ -110,7 +108,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             return formattedTime;
         }
 
-
         private void NextBtn_Click(object sender, EventArgs e)
         {
             if (currentMonth == maxMonth)
@@ -135,7 +132,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
             DisplayDays();
         }
-
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
@@ -167,7 +163,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             this.Parent.Controls.Remove(this);
             foreach (Control control in MainForm.mainFormInstance.Controls)
             {
-                if (control is Information)
+                if (control is Information || control is ChangeAppointInfo)
                 {
                     control.Visible = true;
                     break;
@@ -181,12 +177,31 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             string month = mosYr[0];
             string year = mosYr[1];
 
-            foreach (Control control in CalendarFLP.Controls)
+            foreach (Control dayControl in CalendarFLP.Controls)
             {
-                if (control.BackColor == Color.LightGray && control is UCDays)
+                if (dayControl.BackColor == Color.LightGray && dayControl is UCDays)
                 {
                     Appoint.SetAppointYearMonth(month, year);
-                    Appoint.Appointment();
+
+                    foreach (Control control in MainForm.mainFormInstance.Controls)
+                    {
+                        if (control is Information)
+                        {
+                            if (control.Visible == false)
+                            {
+                                Appoint.Appointment();
+                                break;
+                            }
+
+                        } else if (control is ChangeAppointInfo)
+                        {
+                            if (control.Visible == false)
+                            {
+                                Appoint.EditAppointment();
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
