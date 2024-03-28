@@ -476,6 +476,12 @@
     <Folder Include="bin\Release\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\user.png" />
+    <None Include="Resources\logout.jpg" />
+    <None Include="Resources\shutdown.jpg" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\schedule.png" />
+    <None Include="Resources\calendar.png" />
     <Content Include="Resources\SignInDesign.png" />
     <None Include="Resources\SignInDesignLogo1.png" />
     <None Include="Resources\SignInDesign1.png" />
