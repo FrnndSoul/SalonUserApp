@@ -98,8 +98,6 @@ namespace SalonUserApp.User_Controls
             Password = password;
         }
 
-
-
         public static string PasswordHashing(string InputPassword)
         {
             using (SHA256 sha256 = SHA256.Create())
@@ -110,6 +108,5 @@ namespace SalonUserApp.User_Controls
                 return hashedString;
             }
         }
-
     }
 }
