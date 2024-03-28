@@ -343,17 +343,29 @@
     <Compile Include="User Controls\Appointment Folder\AppointmentDate.Designer.cs">
       <DependentUpon>AppointmentDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\AppointStatuses.cs">
+    <Compile Include="User Controls\Appointment Folder\ChangeAppointInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\AppointStatuses.Designer.cs">
-      <DependentUpon>AppointStatuses.cs</DependentUpon>
+    <Compile Include="User Controls\Appointment Folder\ChangeAppointInfo.Designer.cs">
+      <DependentUpon>ChangeAppointInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\CheckAppointmentStatus.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\CheckAppointmentStatus.Designer.cs">
+      <DependentUpon>CheckAppointmentStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\Appointment Folder\Information.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="User Controls\Appointment Folder\Information.Designer.cs">
       <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\ChangeUserPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ChangeUserPassword.Designer.cs">
+      <DependentUpon>ChangeUserPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\FlowControls\AppointInfo.cs">
       <SubType>UserControl</SubType>
@@ -413,11 +425,17 @@
     <EmbeddedResource Include="User Controls\Appointment Folder\AppointmentDate.resx">
       <DependentUpon>AppointmentDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Appointment Folder\AppointStatuses.resx">
-      <DependentUpon>AppointStatuses.cs</DependentUpon>
+    <EmbeddedResource Include="User Controls\Appointment Folder\ChangeAppointInfo.resx">
+      <DependentUpon>ChangeAppointInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Appointment Folder\CheckAppointmentStatus.resx">
+      <DependentUpon>CheckAppointmentStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ChangeUserPassword.resx">
+      <DependentUpon>ChangeUserPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\FlowControls\AppointInfo.resx">
       <DependentUpon>AppointInfo.cs</DependentUpon>
@@ -467,6 +485,12 @@
     <Folder Include="bin\Release\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\user.png" />
+    <None Include="Resources\logout.jpg" />
+    <None Include="Resources\shutdown.jpg" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\schedule.png" />
+    <None Include="Resources\calendar.png" />
     <Content Include="Resources\SignInDesign.png" />
     <None Include="Resources\SignInDesignLogo1.png" />
     <None Include="Resources\SignInDesign1.png" />

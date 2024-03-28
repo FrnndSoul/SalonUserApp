@@ -262,7 +262,7 @@
             this.Controls.Add(this.Password1Box);
             this.Controls.Add(this.UsernameBox);
             this.Name = "CreateAccountForm";
-            this.Size = new System.Drawing.Size(1080, 720);
+            this.Size = new System.Drawing.Size(1064, 681);
             this.Load += new System.EventHandler(this.CreateAccountForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

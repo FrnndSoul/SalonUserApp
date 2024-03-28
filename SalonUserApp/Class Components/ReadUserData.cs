@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using SalonUserApp.User_Controls;
+using SalonUserApp.User_Controls.FlowControls;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -20,6 +22,7 @@ namespace SalonUserApp.Class_Components
 
         public static bool ReadData(string InputUsername)
         {
+            Username = InputUsername;
             try
             {
                 string query = "SELECT `Password`, `AccountID`, `Status` FROM `accounts` WHERE `Username` = @Username";
@@ -57,8 +60,57 @@ namespace SalonUserApp.Class_Components
             }
         }
 
+        public static void LoadEditProfile()
+        {
+            ChangeUserPassword.GetStrings(AccountID.ToString(), Username, Password);
+        }
 
-        public static void LoginUser(string InputUsername, string InputPassword)
+        public static void EditUserProfile(string id, string username, string password)
+        {
+            try
+            {
+                string query = @"UPDATE accounts SET Username = @Username";
+
+                if (password != null)
+                {
+                    query += ", Password = @Password";
+                }
+
+                query += " WHERE AccountID = @AccountID";
+
+                using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                {
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Username", username);
+
+                        if (password != null)
+                        {
+                            command.Parameters.AddWithValue("@Password", password);
+                        }
+                        
+                        command.Parameters.AddWithValue("@AccountID", id);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("User profile updated successfully.", "Success");
+                        }
+                        else
+                        {
+                            MessageBox.Show("User profile not found.", "Error");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        public static void LoginUser(string InputUsername, string InputPassword, Control control)
         {
             if (ReadData(InputUsername))
             {
@@ -69,8 +121,10 @@ namespace SalonUserApp.Class_Components
                     if (HashedPassword == Password)
                     {
                         ResetStatus(InputUsername);
+                        dbUsername = InputUsername;
                         MessageBox.Show("Account Login Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Appoint.SetUsername(InputUsername);
+                        control.Parent.Controls.Remove(control);
                         MainForm.ShowHomePage();
                         return;
                     }
@@ -176,5 +230,48 @@ namespace SalonUserApp.Class_Components
                 MessageBox.Show(ex.Message, "Registeruser", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static FlowLayoutPanel LoadAppointmentsFLP(FlowLayoutPanel Flp)
+        {
+            Flp.Controls.Clear();
+            string query = "SELECT `ReferenceNumber`, `AppointDate`, `Name`, `IsCancelled` FROM `Appointments` WHERE `Username` = @inputUsername";
+            using (MySqlConnection conn = new MySqlConnection(mysqlcon))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@inputUsername", dbUsername);
+                    try
+                    {
+                        conn.Open();
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                AppointInfo appointInfo = new AppointInfo();
+
+                                appointInfo.RefTextLabel.Text = reader["ReferenceNumber"].ToString();
+                                appointInfo.NameTextLabel.Text = reader["Name"].ToString();
+                                string cancel = reader["IsCancelled"].ToString();
+
+                                if (DateTime.TryParse(reader["AppointDate"].ToString(), out DateTime appointDate))
+                                {
+                                    appointInfo.DateTextLabel.Text = appointDate.ToString("dd/MM/yyyy");
+                                    if (appointDate >= DateTime.Today && string.Equals(cancel, "NO", StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        Flp.Controls.Add(appointInfo);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error");
+                    }
+                }
+            }
+            return Flp;
+        }
+
     }
 }

@@ -15,11 +15,10 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 {
     public partial class AppointmentDate : UserControl
     {
-        static DateTime currentDT = DateTime.Now;
+        static readonly DateTime currentDT = DateTime.Now;
         static int currentYear = currentDT.Year;
         static int currentMonth = currentDT.Month;
-        static int maxMonth = currentMonth + 2 > 12 ? (currentMonth + 2) % 12 : currentMonth + 2;
-        private UCDays selectedDay = null;
+        static readonly int maxMonth = currentMonth + 2 > 12 ? (currentMonth + 2) % 12 : currentMonth + 2;
         DateTime daychecker;
 
         public AppointmentDate()
@@ -68,8 +67,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
         }
 
-
-        // Helper method to check if a given day is a weekend day
         private bool IsWeekendDay(int year, int month, int day)
         {
             DateTime date = new DateTime(year, month, day);
@@ -111,7 +108,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             return formattedTime;
         }
 
-
         private void NextBtn_Click(object sender, EventArgs e)
         {
             if (currentMonth == maxMonth)
@@ -121,9 +117,9 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
             foreach (Control control in TimeFLP.Controls)
             {
-                if (control is TimeUC)
+                if (control is TimeUC uC)
                 {
-                    ((TimeUC)control).TimeNull();
+                    uC.TimeNull();
                 }
             }
 
@@ -137,7 +133,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             DisplayDays();
         }
 
-
         private void BackBtn_Click(object sender, EventArgs e)
         {
             if (currentMonth == currentDT.Month && currentYear == currentDT.Year)
@@ -147,9 +142,9 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
             foreach (Control control in TimeFLP.Controls)
             {
-                if (control is TimeUC)
+                if (control is TimeUC uC)
                 {
-                    ((TimeUC)control).TimeNull();
+                    uC.TimeNull();
                 }
             }
 
@@ -165,10 +160,10 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
         private void Back_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Parent.Controls.Remove(this);
             foreach (Control control in MainForm.mainFormInstance.Controls)
             {
-                if (control is Information)
+                if (control is Information || control is ChangeAppointInfo)
                 {
                     control.Visible = true;
                     break;
@@ -182,12 +177,31 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             string month = mosYr[0];
             string year = mosYr[1];
 
-            foreach (Control control in CalendarFLP.Controls)
+            foreach (Control dayControl in CalendarFLP.Controls)
             {
-                if (control.BackColor == Color.LightGray && control is UCDays)
+                if (dayControl.BackColor == Color.LightGray && dayControl is UCDays)
                 {
                     Appoint.SetAppointYearMonth(month, year);
-                    Appoint.Appointment();
+
+                    foreach (Control control in MainForm.mainFormInstance.Controls)
+                    {
+                        if (control is Information)
+                        {
+                            if (control.Visible == false)
+                            {
+                                Appoint.Appointment();
+                                break;
+                            }
+
+                        } else if (control is ChangeAppointInfo)
+                        {
+                            if (control.Visible == false)
+                            {
+                                Appoint.EditAppointment();
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
