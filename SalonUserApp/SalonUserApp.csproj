@@ -361,6 +361,12 @@
     <Compile Include="User Controls\Appointment Folder\Information.Designer.cs">
       <DependentUpon>Information.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\ChangeUserPassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ChangeUserPassword.Designer.cs">
+      <DependentUpon>ChangeUserPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\FlowControls\AppointInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -427,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\ChangeUserPassword.resx">
+      <DependentUpon>ChangeUserPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\FlowControls\AppointInfo.resx">
       <DependentUpon>AppointInfo.cs</DependentUpon>

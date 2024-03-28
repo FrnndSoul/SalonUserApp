@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using SalonUserApp.User_Controls;
 using SalonUserApp.User_Controls.FlowControls;
 using System;
 using System.Collections.Generic;
@@ -57,6 +58,57 @@ namespace SalonUserApp.Class_Components
                 return false;
             }
         }
+
+        public static void LoadEditProfile()
+        {
+            ChangeUserPassword.GetStrings(AccountID.ToString(), Username, Password);
+        }
+
+        public static void EditUserProfile(string id, string username, string password)
+        {
+            try
+            {
+                string query = @"UPDATE accounts SET Username = @Username";
+
+                if (password != null)
+                {
+                    query += ", Password = @Password";
+                }
+
+                query += " WHERE AccountID = @AccountID";
+
+                using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                {
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Username", username);
+
+                        if (password != null)
+                        {
+                            command.Parameters.AddWithValue("@Password", password);
+                        }
+                        
+                        command.Parameters.AddWithValue("@AccountID", id);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("User profile updated successfully.", "Success");
+                        }
+                        else
+                        {
+                            MessageBox.Show("User profile not found.", "Error");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
 
         public static void LoginUser(string InputUsername, string InputPassword, Control control)
         {
@@ -220,5 +272,6 @@ namespace SalonUserApp.Class_Components
             }
             return Flp;
         }
+
     }
 }
