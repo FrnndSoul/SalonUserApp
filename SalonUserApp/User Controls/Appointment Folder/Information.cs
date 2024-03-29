@@ -97,7 +97,7 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
-            if (IsPhoneNumberValid())
+            if (!IsPhoneNumberValid())
             {
                 MessageBox.Show("Phone number must be valid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

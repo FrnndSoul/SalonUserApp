@@ -23,25 +23,26 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             InitializeComponent();
             ReadUserData.LoadAppointmentsFLP(AppointFLP);
         }
+
+
         private void Guna2Button1_Click(object sender, EventArgs e)
         {
             this.Parent.Controls.Remove(this);
         }
 
-        public async void CancelAppointment(string refNumber)
+        public void CancelAppointment(string refNumber)
         {
+            string query = "UPDATE Appointments SET IsCancelled = 'YES' WHERE ReferenceNumber = @ReferenceNumber";
             try
             {
-                string query = "UPDATE Appointments SET IsCancelled = YES WHERE ReferenceNumber = @ReferenceNumber";
-
-                using (MySqlConnection connection = new MySqlConnection(mysqlcon))
+                using (MySqlConnection conn = new MySqlConnection(mysqlcon))
                 {
-                    await connection.OpenAsync();
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        command.Parameters.AddWithValue("@ReferenceNumber", refNumber);
+                        cmd.Parameters.AddWithValue("@ReferenceNumber", refNumber);
 
-                        int rowsAffected = await command.ExecuteNonQueryAsync();
+                        int rowsAffected = cmd.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Appointment canceled");
