@@ -206,28 +206,29 @@ namespace SalonUserApp.Class_Components
             }
         }
 
-        public static void Registeruser(string username, string password, string id)
+        public async static Task Registeruser(string username, string password, string id)
         {
+            string query = "INSERT INTO accounts (Username, Password, AccountID, Status) VALUES (@Username, @Password, @AccountID, '0')";
+            
             try
             {
-                string query = "INSERT INTO accounts (Username, Password, AccountID) VALUES (@Username, @Password, @AccountID)";
-                using (SqlConnection connection = new SqlConnection(mysqlcon))
+                using (MySqlConnection conn = new MySqlConnection(mysqlcon))
                 {
-                    connection.Open();
+                    await conn.OpenAsync();
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        command.Parameters.AddWithValue("@Username", username);
-                        command.Parameters.AddWithValue("@Password", PasswordHashing(password));
-                        command.Parameters.AddWithValue("@AccountID", id);
+                        cmd.Parameters.AddWithValue("@Username", username);
+                        cmd.Parameters.AddWithValue("@Password", PasswordHashing(password));
+                        cmd.Parameters.AddWithValue("@AccountID", id);
 
-                        command.ExecuteNonQuery();
+                        await cmd.ExecuteNonQueryAsync();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Registeruser", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Register User");
             }
         }
 

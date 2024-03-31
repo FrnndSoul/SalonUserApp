@@ -243,7 +243,7 @@
             this.CreateBtn.Size = new System.Drawing.Size(180, 45);
             this.CreateBtn.TabIndex = 5;
             this.CreateBtn.Text = "Create";
-            this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
+            this.CreateBtn.Click += async (sender, e) => await CreateBtn_Click(sender, e);
             // 
             // CreateAccountForm
             // 
