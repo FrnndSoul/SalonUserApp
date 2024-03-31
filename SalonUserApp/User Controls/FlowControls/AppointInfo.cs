@@ -127,7 +127,7 @@ namespace SalonUserApp.User_Controls.FlowControls
                     await Task.Delay(500);
                     promptForm.Close();
                     MainForm.ShowAppointEdit();
-                    Appoint.ReadAppointData(RefTextLabel.Text);
+                    await Appoint.ReadAppointData(RefTextLabel.Text);
                     this.Parent.Controls.Remove(this);
                 }
             };
@@ -155,13 +155,19 @@ namespace SalonUserApp.User_Controls.FlowControls
 
                     foreach (Control control in MainForm.mainFormInstance.Controls)
                     {
-                        if (control is CheckAppointmentStatus)
+                        if (control is HomePage homepage)
                         {
-                            CheckAppointmentStatus checkAppointmentStatus = (CheckAppointmentStatus)control;
-                            checkAppointmentStatus.CancelAppointment(RefTextLabel.Text);
+                            foreach (Control cont in homepage.Controls)
+                            {
+                                if (cont is CheckAppointmentStatus checkAppointmentStatus)
+                                {
+                                    checkAppointmentStatus.CancelAppointment(RefTextLabel.Text);
+                                }
+                                break;
+                            }
                         }
+                        break;
                     }
-
                     promptForm.Close();
                 }
             };
