@@ -31,19 +31,31 @@ namespace SalonUserApp.User_Controls
             }
         }
 
-        private void SigninBtn_Click(object sender, EventArgs e)
+        private async void SigninBtn_Click(object sender, EventArgs e)
         {
+            await Task.Delay(500);
             string username = UsernameBox.Text;
             string password = PasswordBox.Text;
-            if (ReadUserData.LoginUser(username, password))
-            {
 
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please input username and password", "Warning",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
+
+            ReadUserData.LoginUser(username, password, this);
         }
 
         private void CreateAccountBtn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Dispose();
+            MainForm.ShowCreateAccount();
+        }
 
+        private async void CloseBtn_Click(object sender, EventArgs e)
+        {
+            await Task.Delay(500);
+            Application.Exit();
         }
     }
 }
