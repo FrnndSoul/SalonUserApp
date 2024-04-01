@@ -88,6 +88,15 @@ namespace SalonUserApp.User_Controls
 
         private void BackBtn_Click(object sender, EventArgs e)
         {
+            if(!string.IsNullOrEmpty(Password1Box.Text) || !string.IsNullOrEmpty(Password1Box.Text))
+            {
+                Password1Box.Text = "";
+                Password2Box.Text = "";
+            }
+
+            OldBox.Text = "";
+            guna2ToggleSwitch1.Checked = false;
+
             this.Parent.Controls.Remove(this);
         }
 

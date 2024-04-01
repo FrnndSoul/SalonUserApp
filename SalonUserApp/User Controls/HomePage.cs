@@ -15,24 +15,20 @@ namespace SalonUserApp.User_Controls
     {
         readonly CheckAppointmentStatus checkAppointment;
         readonly ChangeUserPassword changeUserPassword;
-        private readonly Control[] controls;
 
         public HomePage()
         {
             InitializeComponent();
 
-            // Initialize checkAppointment and changeUserPassword controls
             checkAppointment = new CheckAppointmentStatus();
             changeUserPassword = new ChangeUserPassword();
 
-            // Initialize controls array with parent controls
-            controls = this.Controls.Cast<Control>().ToArray();
         }
 
         private async void Guna2Button4_Click(object sender, EventArgs e) //sched an appoint
         {
             await Task.Delay(500);
-            foreach (Control control in controls)
+            foreach (Control control in Controls)
             {
                 if (control is ChangeUserPassword)
                 {
@@ -40,7 +36,7 @@ namespace SalonUserApp.User_Controls
                     break;
                 }
             }
-            foreach (Control control in controls)
+            foreach (Control control in Controls)
             {
                 if (control is CheckAppointmentStatus)
                 {
@@ -54,7 +50,7 @@ namespace SalonUserApp.User_Controls
         private async void CheckStatusBtn_Click(object sender, EventArgs e) //check status
         {
             await Task.Delay(500);
-            foreach (Control control in controls)
+            foreach (Control control in Controls)
             {
                 if (control is ChangeUserPassword)
                 {
@@ -71,7 +67,7 @@ namespace SalonUserApp.User_Controls
         private async void Guna2Button3_Click(object sender, EventArgs e) //change pass
         {
             await Task.Delay(500);
-            foreach (Control control in controls)
+            foreach (Control control in Controls)
             {
                 if (control is CheckAppointmentStatus)
                 {
@@ -87,7 +83,7 @@ namespace SalonUserApp.User_Controls
         private async void LogoutBtn_Click(object sender, EventArgs e) //logout
         {
             await Task.Delay(500);
-            foreach (Control control in controls)
+            foreach (Control control in Controls)
             {
                 if (control is ChangeUserPassword)
                 {
@@ -95,7 +91,7 @@ namespace SalonUserApp.User_Controls
                     break;
                 }
             }
-            foreach (Control control in controls)
+            foreach (Control control in Controls)
             {
                 if (control is CheckAppointmentStatus)
                 {
