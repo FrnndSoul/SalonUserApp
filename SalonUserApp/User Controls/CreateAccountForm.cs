@@ -25,7 +25,7 @@ namespace SalonUserApp.User_Controls
             Password2Box.PasswordChar = '*';
         }
 
-        private void CreateBtn_Click(object sender, EventArgs e)
+        private async Task CreateBtn_Click(object sender, EventArgs e)
         {
             string username = UsernameBox.Text;
             string pass1 = Password1Box.Text;
@@ -38,7 +38,7 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
-            if (DuplicateChecker(username, "Username", "accounts"))
+            if (await DuplicateChecker(username, "Username", "accounts"))
             {
                 MessageBox.Show("Username already taken.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -49,9 +49,17 @@ namespace SalonUserApp.User_Controls
                 MessageBox.Show("Passwords do not match.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            ReadUserData.Registeruser(username, pass1, id);
-            MessageBox.Show("Account created successfully.","Thank you", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            BackBtn_Click(null, null);
+
+            try
+            {
+                await ReadUserData.Registeruser(username, pass1, id);
+                MessageBox.Show("Account created successfully.", "Thank you", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                BackBtn_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to create account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BackBtn_Click(object sender, EventArgs e)
@@ -60,48 +68,41 @@ namespace SalonUserApp.User_Controls
             MainForm.ShowSignin();
         }
 
-        private void CreateAccountForm_Load(object sender, EventArgs e)
+        private async void CreateAccountForm_Load(object sender, EventArgs e)
         {
-            IDBox.Text = GenerateID().ToString();
+            IDBox.Text = (await GenerateID()).ToString();
         }
 
-        public static int GenerateID()
+        public static async Task<int> GenerateID()
         {
             Random random = new Random();
             int Ref;
             do
             {
                 Ref = random.Next(10000, 100000);
-            } while (DuplicateChecker(Ref.ToString(), "AccountID", "accounts") == true);
+            } while (await DuplicateChecker(Ref.ToString(), "AccountID", "accounts"));
             return Ref;
         }
 
-        public static bool DuplicateChecker(string Data, string Column, string Table)
+        public static async Task<bool> DuplicateChecker(string Data, string Column, string Table)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                 {
-                    connection.Open();
+                    await connection.OpenAsync();
                     string query = $"SELECT COUNT(*) FROM {Table} WHERE {Column} = @data";
                     using (MySqlCommand querycmd = new MySqlCommand(query, connection))
                     {
                         querycmd.Parameters.AddWithValue("@data", Data);
-                        int count = Convert.ToInt32(querycmd.ExecuteScalar());
-                        if (count != 0)
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                        int count = Convert.ToInt32(await querycmd.ExecuteScalarAsync());
+                        return count != 0;
                     }
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + "\n\nat DuplicateChecker()", "SQL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"SQL ERROR in DuplicateChecker(): {e.Message}", "SQL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

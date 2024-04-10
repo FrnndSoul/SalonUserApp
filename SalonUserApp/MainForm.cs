@@ -14,6 +14,15 @@ namespace SalonUserApp
         {
             InitializeComponent();
             mainFormInstance = this;
+            this.Resize += MainForm_Resize;
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -25,8 +34,10 @@ namespace SalonUserApp
         {
             if (mainFormInstance != null)
             {
-                SigninPage signinPage = new SigninPage();
-                signinPage.Dock = DockStyle.Fill;
+                SigninPage signinPage = new SigninPage
+                {
+                    Dock = DockStyle.Fill
+                };
                 mainFormInstance.Controls.Add(signinPage);
                 signinPage.BringToFront();
             }
@@ -36,8 +47,10 @@ namespace SalonUserApp
         {
             if (mainFormInstance != null)
             {
-                CreateAccountForm createAccountForm = new CreateAccountForm();
-                createAccountForm.Dock = DockStyle.Fill;
+                CreateAccountForm createAccountForm = new CreateAccountForm
+                {
+                    Dock = DockStyle.Fill
+                };
                 mainFormInstance.Controls.Add(createAccountForm);
                 createAccountForm.BringToFront();
             }
@@ -47,8 +60,10 @@ namespace SalonUserApp
         {
             if (mainFormInstance != null)
             {
-                HomePage homePage = new HomePage();
-                homePage.Dock = DockStyle.Fill;
+                HomePage homePage = new HomePage
+                {
+                    Dock = DockStyle.Fill
+                };
                 mainFormInstance.Controls.Add(homePage);
                 homePage.BringToFront();
             }
@@ -58,8 +73,10 @@ namespace SalonUserApp
         {
             if (mainFormInstance != null)
             {
-                Information information = new Information();
-                information.Dock = DockStyle.Fill;
+                Information information = new Information
+                {
+                    Dock = DockStyle.Fill
+                };
                 mainFormInstance.Controls.Add(information);
                 information.BringToFront();
             }
@@ -69,10 +86,25 @@ namespace SalonUserApp
         {
             if (mainFormInstance != null)
             {
-                AppointmentDate appointmentDate = new AppointmentDate();
-                appointmentDate.Dock = DockStyle.Fill;
+                AppointmentDate appointmentDate = new AppointmentDate
+                {
+                    Dock = DockStyle.Fill
+                };
                 mainFormInstance.Controls.Add(appointmentDate);
                 appointmentDate.BringToFront();
+            }
+        }
+
+        public static void ShowAppointEdit()
+        {
+            if (mainFormInstance != null)
+            {
+                ChangeAppointInfo ChangeAppointInfo = new ChangeAppointInfo
+                {
+                    Dock = DockStyle.Fill
+                };
+                mainFormInstance.Controls.Add(ChangeAppointInfo);
+                ChangeAppointInfo.BringToFront();
             }
         }
     }

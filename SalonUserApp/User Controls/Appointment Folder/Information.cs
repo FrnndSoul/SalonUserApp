@@ -1,4 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
+using Npgsql.Internal.Postgres;
+using SalonUserApp.Class_Components;
 using SalonUserApp.User_Controls.Appointment_Folder;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,7 @@ namespace SalonUserApp.User_Controls
         public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
         public static string serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
+        private Panel currentlyHighlightedPanel = null;
 
         public Information()
         {
@@ -51,6 +54,11 @@ namespace SalonUserApp.User_Controls
             }
         }
 
+        private void NumberBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
@@ -69,6 +77,16 @@ namespace SalonUserApp.User_Controls
             }
         }
 
+        public bool IsPhoneNumberValid()
+        {
+            string number = NumberBox.Text;
+            if (number[0] == '0' && number[1] == '9' && number.Length == 11)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void NextBtn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(NameBox.Text) || string.IsNullOrEmpty(AgeBox.Text) || string.IsNullOrEmpty(NumberBox.Text))
@@ -77,12 +95,11 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
-            if (NumberBox.TextLength != 11)
+            if (!IsPhoneNumberValid())
             {
-                MessageBox.Show("Phone number must be 11 digits long.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Phone number must be valid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            AppointmentDate appointmentDate = new AppointmentDate();
 
             if (currentlyHighlightedPanel == null)
             {
@@ -90,11 +107,11 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
+            Appoint.SetUserInfo(NameBox.Text, NumberBox.Text, AgeBox.Text);
+            Appoint.SetServiceInfo(serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID);
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
-
-        private Panel currentlyHighlightedPanel = null;
 
         public void GetServiceData()
         {
@@ -173,13 +190,13 @@ namespace SalonUserApp.User_Controls
                                     Tag = reader["ServiceTypeID"].ToString()
                                 };
 
-                                EventHandler clickHandler = (sender, e) =>
+                                void clickHandler(object sender, EventArgs e)
                                 {
-                                     serviceID = ((Control)sender).Tag.ToString();
-                                     serviceName = labelTitle.Text;
-                                     serviceAmount = labelTitle1.Text;
-                                     serviceTypeID = labelTitle2.Text;
-                                     serviceVariationID = labelTitle3.Text;
+                                    serviceID = ((Control)sender).Tag.ToString();
+                                    serviceName = labelTitle.Text;
+                                    serviceAmount = labelTitle1.Text;
+                                    serviceTypeID = labelTitle2.Text;
+                                    serviceVariationID = labelTitle3.Text;
 
                                     if (currentlyHighlightedPanel != null)
                                     {
@@ -188,7 +205,7 @@ namespace SalonUserApp.User_Controls
 
                                     panel.BackColor = Color.LightGray;
                                     currentlyHighlightedPanel = panel;
-                                };
+                                }
 
                                 panel.Click += clickHandler;
                                 picBox.Click += clickHandler;
@@ -203,10 +220,16 @@ namespace SalonUserApp.User_Controls
             }
         }
 
-
-        private void BackBtn_Click(object sender, EventArgs e)
+        private async void BackBtn_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            await Task.Delay(500);
+            Appoint.SetUserInfo(null, null, null);
+            Appoint.SetServiceInfo(null, null, null, null, null);
+            ServiceSelection.Visible = false;
+            guna2GroupBox1.Visible = false;
+            BackBtn.Visible = false;
+            NextBtn.Visible = false;
+            this.Parent.Controls.Remove(this);
             MainForm.ShowHomePage();
         }
     }
