@@ -33,6 +33,56 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         //This is the edited variables
         public static string FullName, Username, PhoneNumber, Age, serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
 
+        private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = NumberBox.Text;
+            int length = text.Length;
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                if (length >= 11)
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void AgeBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = AgeBox.Text;
+            int length = text.Length;
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                if (length >= 2)
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         //This is what's fetched in the database
         public static string cRefNumber, cDateFiled, cAppointDate, cUsername, cName, cPhoneNumber, cAge, cServicelD, cServiceName, cServiceAmount, ServiceTypelD, cServiceVariationlD, cIsCancelled;
 
