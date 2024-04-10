@@ -129,6 +129,7 @@ namespace SalonUserApp.User_Controls.FlowControls
                     }
                     else
                     {
+                        await Task.Delay(500);
                         promptForm.Close();
                         MainForm.ShowAppointEdit();
                         await Appoint.ReadAppointData(RefTextLabel.Text);
@@ -157,6 +158,7 @@ namespace SalonUserApp.User_Controls.FlowControls
                     }
                     else
                     {
+                        await Task.Delay(500);
                         DialogResult result = MessageBox.Show(
                             $"Are you sure you want to cancel this appointment?\nReference number: {RefTextLabel.Text}",
                             "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question
@@ -195,7 +197,6 @@ namespace SalonUserApp.User_Controls.FlowControls
             {
                 promptForm.Close();
             };
-
             promptForm.ShowDialog();
         }
     }
