@@ -39,11 +39,11 @@
             this.ServiceSelection = new Guna.UI2.WinForms.Guna2GroupBox();
             this.ServiceFLP = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ReferenceBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ChangeDateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.AppointDateBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.ChangeDateBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.ReferenceBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.ServiceSelection.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,7 @@
             this.AgeBox.Size = new System.Drawing.Size(177, 49);
             this.AgeBox.TabIndex = 19;
             this.AgeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AgeBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AgeBox_KeyPress);
             // 
             // DiscardBtn
             // 
@@ -201,6 +202,7 @@
             this.NumberBox.SelectedText = "";
             this.NumberBox.Size = new System.Drawing.Size(366, 49);
             this.NumberBox.TabIndex = 15;
+            this.NumberBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberBox_KeyPress);
             // 
             // ServiceSelection
             // 
@@ -249,6 +251,65 @@
             this.guna2GroupBox1.TabIndex = 29;
             this.guna2GroupBox1.Text = "Customer Information";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Chinacat", 15.75F);
+            this.label5.Location = new System.Drawing.Point(16, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(216, 25);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Reference Number:";
+            // 
+            // ReferenceBox
+            // 
+            this.ReferenceBox.Animated = true;
+            this.ReferenceBox.AutoRoundedCorners = true;
+            this.ReferenceBox.BackColor = System.Drawing.Color.Transparent;
+            this.ReferenceBox.BorderColor = System.Drawing.Color.Black;
+            this.ReferenceBox.BorderRadius = 23;
+            this.ReferenceBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ReferenceBox.DefaultText = "";
+            this.ReferenceBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ReferenceBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ReferenceBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ReferenceBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ReferenceBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ReferenceBox.Font = new System.Drawing.Font("Chinacat", 15.75F);
+            this.ReferenceBox.ForeColor = System.Drawing.Color.Black;
+            this.ReferenceBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ReferenceBox.Location = new System.Drawing.Point(21, 79);
+            this.ReferenceBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.ReferenceBox.Name = "ReferenceBox";
+            this.ReferenceBox.PasswordChar = '\0';
+            this.ReferenceBox.PlaceholderText = "Reference Number";
+            this.ReferenceBox.ReadOnly = true;
+            this.ReferenceBox.SelectedText = "";
+            this.ReferenceBox.Size = new System.Drawing.Size(366, 49);
+            this.ReferenceBox.TabIndex = 33;
+            // 
+            // ChangeDateBtn
+            // 
+            this.ChangeDateBtn.Animated = true;
+            this.ChangeDateBtn.AutoRoundedCorners = true;
+            this.ChangeDateBtn.BackColor = System.Drawing.Color.Transparent;
+            this.ChangeDateBtn.BorderRadius = 21;
+            this.ChangeDateBtn.BorderThickness = 1;
+            this.ChangeDateBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ChangeDateBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ChangeDateBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ChangeDateBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ChangeDateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.ChangeDateBtn.Font = new System.Drawing.Font("Chinacat", 18F);
+            this.ChangeDateBtn.ForeColor = System.Drawing.Color.Black;
+            this.ChangeDateBtn.Location = new System.Drawing.Point(207, 555);
+            this.ChangeDateBtn.Name = "ChangeDateBtn";
+            this.ChangeDateBtn.Size = new System.Drawing.Size(180, 45);
+            this.ChangeDateBtn.TabIndex = 31;
+            this.ChangeDateBtn.Text = "Change";
+            this.ChangeDateBtn.Click += new System.EventHandler(this.ChangeDateBtn_Click);
+            // 
             // AppointDateBox
             // 
             this.AppointDateBox.Animated = true;
@@ -287,65 +348,6 @@
             this.label4.Size = new System.Drawing.Size(210, 25);
             this.label4.TabIndex = 24;
             this.label4.Text = "Appointment Date";
-            // 
-            // ChangeDateBtn
-            // 
-            this.ChangeDateBtn.Animated = true;
-            this.ChangeDateBtn.AutoRoundedCorners = true;
-            this.ChangeDateBtn.BackColor = System.Drawing.Color.Transparent;
-            this.ChangeDateBtn.BorderRadius = 21;
-            this.ChangeDateBtn.BorderThickness = 1;
-            this.ChangeDateBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ChangeDateBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ChangeDateBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ChangeDateBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ChangeDateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.ChangeDateBtn.Font = new System.Drawing.Font("Chinacat", 18F);
-            this.ChangeDateBtn.ForeColor = System.Drawing.Color.Black;
-            this.ChangeDateBtn.Location = new System.Drawing.Point(207, 555);
-            this.ChangeDateBtn.Name = "ChangeDateBtn";
-            this.ChangeDateBtn.Size = new System.Drawing.Size(180, 45);
-            this.ChangeDateBtn.TabIndex = 31;
-            this.ChangeDateBtn.Text = "Change";
-            this.ChangeDateBtn.Click += new System.EventHandler(this.ChangeDateBtn_Click);
-            // 
-            // ReferenceBox
-            // 
-            this.ReferenceBox.Animated = true;
-            this.ReferenceBox.AutoRoundedCorners = true;
-            this.ReferenceBox.BackColor = System.Drawing.Color.Transparent;
-            this.ReferenceBox.BorderColor = System.Drawing.Color.Black;
-            this.ReferenceBox.BorderRadius = 23;
-            this.ReferenceBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ReferenceBox.DefaultText = "";
-            this.ReferenceBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ReferenceBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ReferenceBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ReferenceBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ReferenceBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ReferenceBox.Font = new System.Drawing.Font("Chinacat", 15.75F);
-            this.ReferenceBox.ForeColor = System.Drawing.Color.Black;
-            this.ReferenceBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ReferenceBox.Location = new System.Drawing.Point(21, 79);
-            this.ReferenceBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.ReferenceBox.Name = "ReferenceBox";
-            this.ReferenceBox.PasswordChar = '\0';
-            this.ReferenceBox.PlaceholderText = "Reference Number";
-            this.ReferenceBox.ReadOnly = true;
-            this.ReferenceBox.SelectedText = "";
-            this.ReferenceBox.Size = new System.Drawing.Size(366, 49);
-            this.ReferenceBox.TabIndex = 33;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Chinacat", 15.75F);
-            this.label5.Location = new System.Drawing.Point(16, 49);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(216, 25);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Reference Number:";
             // 
             // ChangeAppointInfo
             // 

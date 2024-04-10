@@ -35,22 +35,26 @@ namespace SalonUserApp.User_Controls
 
         private void AgeBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\b')
-            {
-                e.Handled = true;
-                return;
-            }
+            string text = AgeBox.Text;
+            int length = text.Length;
 
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (char.IsDigit(e.KeyChar))
             {
-                e.Handled = true;
-                return;
+                if (length >= 2)
+                {
+                    e.Handled = true;
+                }
             }
-
-            if (AgeBox.TextLength >= 2)
+            else
             {
-                e.Handled = true;
-                return;
+                if (e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
             }
         }
 
@@ -61,21 +65,25 @@ namespace SalonUserApp.User_Controls
 
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            string text = NumberBox.Text;
+            int length = text.Length;
 
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (char.IsDigit(e.KeyChar))
             {
-                e.Handled = true;
-                return;
+                if (length >= 11)
+                {
+                    e.Handled = true;
+                }
             }
-
-            string currentText = NumberBox.Text;
-
-            int totalLength = currentText.Length + 1;
-            if (totalLength > 11)
+            else
             {
-                e.Handled = true;
-                return;
+                if (e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                } else
+                {
+                    e.Handled = true;
+                }
             }
         }
 

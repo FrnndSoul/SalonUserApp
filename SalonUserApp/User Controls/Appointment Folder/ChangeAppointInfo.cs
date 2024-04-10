@@ -29,11 +29,59 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
         private Panel currentlyHighlightedPanel = null;
-
-        //This is the edited variables
         public static string FullName, Username, PhoneNumber, Age, serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
 
-        //This is what's fetched in the database
+        private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            string text = NumberBox.Text;
+            int length = text.Length;
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                if (length >= 11)
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void AgeBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string text = AgeBox.Text;
+            int length = text.Length;
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                if (length >= 2)
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                if (e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         public static string cRefNumber, cDateFiled, cAppointDate, cUsername, cName, cPhoneNumber, cAge, cServicelD, cServiceName, cServiceAmount, ServiceTypelD, cServiceVariationlD, cIsCancelled;
 
         private void ChangeDateBtn_Click(object sender, EventArgs e)
@@ -44,6 +92,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
+
         public bool IsPhoneNumberValid()
         {
             string number = NumberBox.Text;
@@ -284,6 +333,5 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                 }
             }
         }
-
     }
 }
