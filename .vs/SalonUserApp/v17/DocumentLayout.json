@@ -3,7 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|c:\\users\\saulf\\source\\repos\\salonuserapp\\salonuserapp\\user controls\\appointment folder\\information.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|c:\\users\\saulf\\source\\repos\\salonuserapp\\salonuserapp\\user controls\\flowcontrols\\appointinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|solutionrelative:salonuserapp\\user controls\\flowcontrols\\appointinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|c:\\users\\saulf\\source\\repos\\salonuserapp\\salonuserapp\\user controls\\flowcontrols\\appointinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|solutionrelative:salonuserapp\\user controls\\flowcontrols\\appointinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|c:\\users\\saulf\\source\\repos\\salonuserapp\\salonuserapp\\user controls\\appointment folder\\changeappointinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|solutionrelative:salonuserapp\\user controls\\appointment folder\\changeappointinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|C:\\Users\\saulf\\source\\repos\\SalonUserApp\\salonuserapp\\user controls\\appointment folder\\information.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{14B4C489-2E47-41BA-B848-929CA5048C28}|SalonUserApp\\SalonUserApp.csproj|solutionrelative:salonuserapp\\user controls\\appointment folder\\information.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -18,21 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "ChangeAppointInfo.cs",
+              "DocumentMoniker": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\Appointment Folder\\ChangeAppointInfo.cs",
+              "RelativeDocumentMoniker": "SalonUserApp\\User Controls\\Appointment Folder\\ChangeAppointInfo.cs",
+              "ToolTip": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\Appointment Folder\\ChangeAppointInfo.cs",
+              "RelativeToolTip": "SalonUserApp\\User Controls\\Appointment Folder\\ChangeAppointInfo.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAiwDEAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T11:49:06.612Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Information.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\Appointment Folder\\Information.cs",
+              "RelativeDocumentMoniker": "SalonUserApp\\User Controls\\Appointment Folder\\Information.cs",
+              "ToolTip": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\Appointment Folder\\Information.cs [Design]",
+              "RelativeToolTip": "SalonUserApp\\User Controls\\Appointment Folder\\Information.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T11:59:59.922Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Information.cs",
               "DocumentMoniker": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\Appointment Folder\\Information.cs",
               "RelativeDocumentMoniker": "SalonUserApp\\User Controls\\Appointment Folder\\Information.cs",
               "ToolTip": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\Appointment Folder\\Information.cs",
               "RelativeToolTip": "SalonUserApp\\User Controls\\Appointment Folder\\Information.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAowCoAAAAAAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAwwFcAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T11:22:09.216Z",
-              "IsPinned": true,
+              "WhenOpened": "2024-04-10T12:00:30.669Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppointInfo.cs",
+              "DocumentMoniker": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\FlowControls\\AppointInfo.cs",
+              "RelativeDocumentMoniker": "SalonUserApp\\User Controls\\FlowControls\\AppointInfo.cs",
+              "ToolTip": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\FlowControls\\AppointInfo.cs",
+              "RelativeToolTip": "SalonUserApp\\User Controls\\FlowControls\\AppointInfo.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAowFcAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T13:26:42.766Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppointInfo.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\FlowControls\\AppointInfo.cs",
+              "RelativeDocumentMoniker": "SalonUserApp\\User Controls\\FlowControls\\AppointInfo.cs",
+              "ToolTip": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\FlowControls\\AppointInfo.cs [Design]",
+              "RelativeToolTip": "SalonUserApp\\User Controls\\FlowControls\\AppointInfo.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-10T13:26:28.904Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -41,17 +103,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Information.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\Appointment Folder\\Information.cs",
-              "RelativeDocumentMoniker": "SalonUserApp\\User Controls\\Appointment Folder\\Information.cs",
-              "ToolTip": "C:\\Users\\saulf\\source\\repos\\SalonUserApp\\SalonUserApp\\User Controls\\Appointment Folder\\Information.cs [Design]",
-              "RelativeToolTip": "SalonUserApp\\User Controls\\Appointment Folder\\Information.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-10T11:22:07.233Z"
             }
           ]
         }

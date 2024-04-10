@@ -108,8 +108,8 @@ namespace SalonUserApp.User_Controls.FlowControls
             view.Click += async (sender, e) =>
             {
                 await Task.Delay(500);
-                promptForm.Close(); 
                 await Appoint.ReadAppointData(RefTextLabel.Text);
+                promptForm.Close();
                 Appoint.ViewAppointmentDetails();
             };
 
