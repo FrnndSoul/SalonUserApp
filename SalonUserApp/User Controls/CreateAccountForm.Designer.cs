@@ -45,6 +45,7 @@
             // 
             this.UsernameBox.Animated = true;
             this.UsernameBox.AutoRoundedCorners = true;
+            this.UsernameBox.BackColor = System.Drawing.Color.Transparent;
             this.UsernameBox.BorderColor = System.Drawing.Color.Black;
             this.UsernameBox.BorderRadius = 23;
             this.UsernameBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -70,6 +71,7 @@
             // 
             this.Password1Box.Animated = true;
             this.Password1Box.AutoRoundedCorners = true;
+            this.Password1Box.BackColor = System.Drawing.Color.Transparent;
             this.Password1Box.BorderColor = System.Drawing.Color.Black;
             this.Password1Box.BorderRadius = 23;
             this.Password1Box.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -95,6 +97,7 @@
             // 
             this.Password2Box.Animated = true;
             this.Password2Box.AutoRoundedCorners = true;
+            this.Password2Box.BackColor = System.Drawing.Color.Transparent;
             this.Password2Box.BorderColor = System.Drawing.Color.Black;
             this.Password2Box.BorderRadius = 23;
             this.Password2Box.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -141,6 +144,7 @@
             // 
             this.IDBox.Animated = true;
             this.IDBox.AutoRoundedCorners = true;
+            this.IDBox.BackColor = System.Drawing.Color.Transparent;
             this.IDBox.BorderColor = System.Drawing.Color.Black;
             this.IDBox.BorderRadius = 23;
             this.IDBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -167,6 +171,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Chinacat", 15.75F);
             this.label1.Location = new System.Drawing.Point(517, 196);
             this.label1.Name = "label1";
@@ -177,6 +182,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Chinacat", 15.75F);
             this.label2.Location = new System.Drawing.Point(139, 196);
             this.label2.Name = "label2";
@@ -187,6 +193,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Chinacat", 15.75F);
             this.label3.Location = new System.Drawing.Point(139, 306);
             this.label3.Name = "label3";
@@ -197,6 +204,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Chinacat", 15.75F);
             this.label4.Location = new System.Drawing.Point(517, 306);
             this.label4.Name = "label4";
@@ -207,6 +215,7 @@
             // ShowPass
             // 
             this.ShowPass.AutoSize = true;
+            this.ShowPass.BackColor = System.Drawing.Color.Transparent;
             this.ShowPass.CheckedState.BorderColor = System.Drawing.Color.Black;
             this.ShowPass.CheckedState.BorderRadius = 0;
             this.ShowPass.CheckedState.BorderThickness = 1;
@@ -222,6 +231,7 @@
             this.ShowPass.UncheckedState.BorderRadius = 0;
             this.ShowPass.UncheckedState.BorderThickness = 1;
             this.ShowPass.UncheckedState.FillColor = System.Drawing.Color.White;
+            this.ShowPass.UseVisualStyleBackColor = false;
             this.ShowPass.CheckedChanged += new System.EventHandler(this.ShowPass_CheckedChanged);
             // 
             // CreateBtn
@@ -243,7 +253,7 @@
             this.CreateBtn.Size = new System.Drawing.Size(180, 45);
             this.CreateBtn.TabIndex = 5;
             this.CreateBtn.Text = "Create";
-            this.CreateBtn.Click += async (sender, e) => await CreateBtn_Click(sender, e);
+            this.CreateBtn.Click += new System.EventHandler(this.CreateBtn_Click);
             // 
             // CreateAccountForm
             // 
@@ -263,7 +273,6 @@
             this.Controls.Add(this.UsernameBox);
             this.Name = "CreateAccountForm";
             this.Size = new System.Drawing.Size(1064, 681);
-            this.Load += new System.EventHandler(this.CreateAccountForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

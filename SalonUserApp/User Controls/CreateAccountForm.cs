@@ -23,9 +23,11 @@ namespace SalonUserApp.User_Controls
             InitializeComponent();
             Password1Box.PasswordChar = '*';
             Password2Box.PasswordChar = '*';
+            int ID = GenerateID();
+            IDBox.Text = ID.ToString();
         }
 
-        private async Task CreateBtn_Click(object sender, EventArgs e)
+        private async void CreateBtn_Click(object sender, EventArgs e)
         {
             string username = UsernameBox.Text;
             string pass1 = Password1Box.Text;
@@ -38,7 +40,7 @@ namespace SalonUserApp.User_Controls
                 return;
             }
 
-            if (await DuplicateChecker(username, "Username", "accounts"))
+            if (DuplicateChecker(username, "Username", "accounts"))
             {
                 MessageBox.Show("Username already taken.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -68,34 +70,29 @@ namespace SalonUserApp.User_Controls
             MainForm.ShowSignin();
         }
 
-        private async void CreateAccountForm_Load(object sender, EventArgs e)
-        {
-            IDBox.Text = (await GenerateID()).ToString();
-        }
-
-        public static async Task<int> GenerateID()
+        public static int GenerateID()
         {
             Random random = new Random();
             int Ref;
             do
             {
                 Ref = random.Next(10000, 100000);
-            } while (await DuplicateChecker(Ref.ToString(), "AccountID", "accounts"));
+            } while (DuplicateChecker(Ref.ToString(), "AccountID", "accounts"));
             return Ref;
         }
 
-        public static async Task<bool> DuplicateChecker(string Data, string Column, string Table)
+        public static bool DuplicateChecker(string Data, string Column, string Table)
         {
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                 {
-                    await connection.OpenAsync();
+                    connection.Open();
                     string query = $"SELECT COUNT(*) FROM {Table} WHERE {Column} = @data";
                     using (MySqlCommand querycmd = new MySqlCommand(query, connection))
                     {
                         querycmd.Parameters.AddWithValue("@data", Data);
-                        int count = Convert.ToInt32(await querycmd.ExecuteScalarAsync());
+                        int count = Convert.ToInt32(querycmd.ExecuteScalar());
                         return count != 0;
                     }
                 }

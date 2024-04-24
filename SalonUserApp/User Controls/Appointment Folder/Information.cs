@@ -100,6 +100,17 @@ namespace SalonUserApp.User_Controls
 
         private void NextBtn_Click(object sender, EventArgs e)
         {
+
+
+
+
+
+
+
+
+
+
+
             if (string.IsNullOrEmpty(NameBox.Text) || string.IsNullOrEmpty(AgeBox.Text) || string.IsNullOrEmpty(NumberBox.Text))
             {
                 MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -146,8 +157,8 @@ namespace SalonUserApp.User_Controls
                                 Panel panel = new Panel
                                 {
                                     Width = 210,
-                                    Height = 250,
-                                    Margin = new Padding(10),
+                                    Height = 250, 
+                                    BackColor = Color.White, 
                                     Tag = reader["ServiceTypeID"].ToString(),
                                 };
 
@@ -157,7 +168,7 @@ namespace SalonUserApp.User_Controls
                                     Location = new Point(10, 160),
                                     ForeColor = Color.Black,
                                     AutoSize = true,
-                                    Font = new Font("Stanberry", 16, FontStyle.Regular),
+                                    Font = new Font("Stanberry", 12, FontStyle.Regular),
                                     Tag = reader["ServiceTypeID"].ToString()
                                 };
 
@@ -206,12 +217,17 @@ namespace SalonUserApp.User_Controls
                                     serviceID = ((Control)sender).Tag.ToString();
                                     serviceName = labelTitle.Text;
                                     serviceAmount = labelTitle1.Text;
+                                    double amountInDouble = double.Parse(labelTitle1.Text);
+                                    double downpayment = amountInDouble * 0.2;
+                                    downpayment = Math.Round(downpayment, 2);
+                                    Feebox.Text = "PHP" + downpayment.ToString("0.00");
                                     serviceTypeID = labelTitle2.Text;
                                     serviceVariationID = labelTitle3.Text;
 
+
                                     if (currentlyHighlightedPanel != null)
                                     {
-                                        currentlyHighlightedPanel.BackColor = Color.Transparent;
+                                        currentlyHighlightedPanel.BackColor = Color.White;
                                     }
 
                                     panel.BackColor = Color.LightGray;
