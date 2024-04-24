@@ -115,82 +115,42 @@ namespace SalonUserApp.User_Controls.FlowControls
 
             change.Click += async (sender, e) => 
             {
-                if (DateTime.TryParseExact(DateTextLabel.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime appointDate))
-                {
-                    DateTime gracePeriod = DateTime.Now.AddDays(7);
-
-                    string formattedGracePeriod = gracePeriod.ToString("dd/MM/yyyy");
-
-                    if (appointDate <= gracePeriod)
-                    {
-                        MessageBox.Show("You cannot make changes with the appointment.\n" +
-                                        "The Appointment is in 7 days grace period for\n" +
-                                        "changes and cancellation", "Warning");
-                    }
-                    else
-                    {
-                        await Task.Delay(500);
-                        promptForm.Close();
-                        MainForm.ShowAppointEdit();
-                        await Appoint.ReadAppointData(RefTextLabel.Text);
-                        this.Parent.Controls.Remove(this);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Invalid date format detected!", "Error");
-                }
+                await Task.Delay(500);
+                promptForm.Close();
+                MainForm.ShowAppointEdit();
+                await Appoint.ReadAppointData(RefTextLabel.Text);
+                this.Parent.Controls.Remove(this);
             };
 
             cancel.Click += async (sender, e) =>
             {
-                if (DateTime.TryParseExact(DateTextLabel.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime appointDate))
+                await Task.Delay(500);
+                DialogResult result = MessageBox.Show(
+                    $"Are you sure you want to cancel this appointment?\nReference number: {RefTextLabel.Text}",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                    );
+
+                if (result != DialogResult.Yes)
                 {
-                    DateTime gracePeriod = DateTime.Now.AddDays(7);
+                    return;
+                }
 
-                    string formattedGracePeriod = gracePeriod.ToString("dd/MM/yyyy");
-
-                    if (appointDate <= gracePeriod)
+                foreach (Control control in MainForm.mainFormInstance.Controls)
+                {
+                    if (control is HomePage homepage)
                     {
-                        MessageBox.Show("You cannot make changes with the appointment.\n" +
-                        "The Appointment is in 7 days grace period for\n" +
-                        "changes and cancellation", "Warning");
-                    }
-                    else
-                    {
-                        await Task.Delay(500);
-                        DialogResult result = MessageBox.Show(
-                            $"Are you sure you want to cancel this appointment?\nReference number: {RefTextLabel.Text}",
-                            "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question
-                            );
-
-                        if (result != DialogResult.Yes)
+                        foreach (Control cont in homepage.Controls)
                         {
-                            return;
-                        }
-
-                        foreach (Control control in MainForm.mainFormInstance.Controls)
-                        {
-                            if (control is HomePage homepage)
+                            if (cont is CheckAppointmentStatus checkAppointmentStatus)
                             {
-                                foreach (Control cont in homepage.Controls)
-                                {
-                                    if (cont is CheckAppointmentStatus checkAppointmentStatus)
-                                    {
-                                        checkAppointmentStatus.CancelAppointment(RefTextLabel.Text);
-                                    }
-                                    break;
-                                }
+                                checkAppointmentStatus.CancelAppointment(RefTextLabel.Text);
                             }
                             break;
                         }
-                        promptForm.Close();
                     }
+                    break;
                 }
-                else
-                {
-                    MessageBox.Show("Date error caught!", "Error");
-                }
+                promptForm.Close();
             };
 
             none.Click += (sender, e) =>

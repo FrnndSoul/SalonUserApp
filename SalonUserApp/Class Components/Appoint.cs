@@ -87,6 +87,7 @@ namespace SalonUserApp.Class_Components
                             command.Parameters.AddWithValue("@ServiceVariationID", serviceVariationID);
 
                             int rowsAffected = command.ExecuteNonQuery();
+
                             if (rowsAffected > 0)
                             {
                                 MessageBox.Show($"Appointment booked!\n\nHere is your reference number: {ReferenceNumber}", "Thank you!");
