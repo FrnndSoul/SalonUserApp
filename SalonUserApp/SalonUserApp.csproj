@@ -361,6 +361,12 @@
     <Compile Include="User Controls\Appointment Folder\DownpaymentForm.Designer.cs">
       <DependentUpon>DownpaymentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\Appointment Folder\DownPaymentUserform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Controls\Appointment Folder\DownPaymentUserform.Designer.cs">
+      <DependentUpon>DownPaymentUserform.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\Appointment Folder\Information.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -439,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\DownpaymentForm.resx">
       <DependentUpon>DownpaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\Appointment Folder\DownPaymentUserform.resx">
+      <DependentUpon>DownPaymentUserform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>

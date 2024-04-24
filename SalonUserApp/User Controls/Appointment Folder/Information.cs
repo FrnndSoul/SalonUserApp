@@ -100,17 +100,6 @@ namespace SalonUserApp.User_Controls
 
         private void NextBtn_Click(object sender, EventArgs e)
         {
-
-
-
-
-
-
-
-
-
-
-
             if (string.IsNullOrEmpty(NameBox.Text) || string.IsNullOrEmpty(AgeBox.Text) || string.IsNullOrEmpty(NumberBox.Text))
             {
                 MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -131,6 +120,10 @@ namespace SalonUserApp.User_Controls
 
             Appoint.SetUserInfo(NameBox.Text, NumberBox.Text, AgeBox.Text);
             Appoint.SetServiceInfo(serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID);
+
+            DownPaymentUserform downPaymentUserform = new DownPaymentUserform();
+            downPaymentUserform.ShowDialog();
+
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
