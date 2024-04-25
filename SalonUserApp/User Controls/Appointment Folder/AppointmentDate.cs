@@ -50,8 +50,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                 UCDays ucdays = new UCDays();
                 ucdays.days(i, currentMonth, currentYear);
 
-                // Check if the day is in the past or within the next 7 days
-                if (daychecker.AddDays(i) < DateTime.Today || daychecker.AddDays(i) < DateTime.Today.AddDays(7))
+                if (daychecker.AddDays(i) < DateTime.Today || daychecker.AddDays(i) < DateTime.Today.AddDays(1))
                 {
                     ucdays.Enabled = false;
                 }
