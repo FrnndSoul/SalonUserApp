@@ -276,7 +276,7 @@ namespace SalonUserApp.Class_Components
                 MessageBox.Show("Please select a valid Date.", "Invalid Time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (appointDate.Hour < 11 || appointDate.Hour >= 19)
+            if (appointDate.Hour < 11 || appointDate.Hour > 19)
             {
                 MessageBox.Show("Please select a valid time between 11:00 and 19:00.", "Invalid Time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -294,7 +294,8 @@ namespace SalonUserApp.Class_Components
                 $"   Service: {serviceName}\n" +
                 $"   ServiceID: {serviceID}\n" +
                 $"   Amount: {serviceAmount}\n\n" +
-                $"Confirm appointment?", "Confirmation",
+                $"Confirm appointment changes?\n\n" +
+                $"Note that the downpayment of the previous service will not be refunded", "Confirmation",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.OK)

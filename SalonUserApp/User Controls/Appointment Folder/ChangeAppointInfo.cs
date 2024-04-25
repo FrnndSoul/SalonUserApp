@@ -30,7 +30,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
         private Panel currentlyHighlightedPanel = null;
 
-        //This is the edited variables
         public static string FullName, Username, PhoneNumber, Age, serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
 
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -83,7 +82,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
         }
 
-        //This is what's fetched in the database
         public static string cRefNumber, cDateFiled, cAppointDate, cUsername, cName, cPhoneNumber, cAge, cServicelD, cServiceName, cServiceAmount, cDownPayment, ServiceTypelD, cServiceVariationlD, cIsCancelled;
 
         private void ChangeDateBtn_Click(object sender, EventArgs e)
@@ -94,6 +92,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
+
         public bool IsPhoneNumberValid()
         {
             string number = NumberBox.Text;
@@ -227,7 +226,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             using (var conn = new MySqlConnection(mysqlcon))
             {
                 conn.Open();
-                string query = "SELECT ServiceName, ServiceImage, ServiceAmount, ServiceTypeID, ServiceVariationID FROM salon_services";
+                string query = "SELECT ServiceName, ServiceImage, ServiceAmount, ServiceTypeID, ServiceVariationID FROM salon_services"; //database table
 
                 using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
@@ -245,7 +244,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                                 {
                                     Width = 210,
                                     Height = 250,
-                                    Margin = new Padding(10),
+                                    BackColor = Color.White,
                                     Tag = reader["ServiceTypeID"].ToString(),
                                 };
 
@@ -255,7 +254,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                                     Location = new Point(10, 160),
                                     ForeColor = Color.Black,
                                     AutoSize = true,
-                                    Font = new Font("Stanberry", 16, FontStyle.Regular),
+                                    Font = new Font("Stanberry", 12, FontStyle.Regular),
                                     Tag = reader["ServiceTypeID"].ToString()
                                 };
 
@@ -309,9 +308,8 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
                                     if (currentlyHighlightedPanel != null)
                                     {
-                                        currentlyHighlightedPanel.BackColor = Color.Transparent;
+                                        currentlyHighlightedPanel.BackColor = Color.White;
                                     }
-
                                     panel.BackColor = Color.LightGray;
                                     currentlyHighlightedPanel = panel;
                                 }
@@ -322,18 +320,11 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                                 panel.Controls.Add(labelTitle);
                                 panel.Controls.Add(labelTitle1);
                                 ServiceFLP.Controls.Add(panel);
-
-                                if (cServiceName == labelTitle.Text)
-                                {
-                                    panel.BackColor = Color.LightGray;
-                                    currentlyHighlightedPanel = panel;
-                                }
                             }
                         }
                     }
                 }
             }
         }
-
     }
 }
