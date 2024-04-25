@@ -20,15 +20,29 @@ namespace SalonUserApp.Class_Components
 {
     internal class Appoint
     {
-        public static string cUsername, cName, cNumber, cAge,
-            serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
+        public static string cUsername, cName, cNumber, cAge, 
+            serviceID, serviceName, serviceAmount, downPayment, serviceTypeID, serviceVariationID, PaymentRef;
         public static string dbDateFiled, dbAppointDate, dbUsername, dbName, dbPhoneNumber, dbAge,
             dbServicelD, dbServiceName, dbServiceAmount, dbServiceTypelD, dbServiceVariationlD, dbIsCancelled;
         public static DateTime appointDate;
         public static int ReferenceNumber;
+        public static bool PaymentStatus;
 
         public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
+
+        public static void SetPaymentRef(string newRef)
+        {
+            if (string.IsNullOrEmpty(newRef))
+            {
+                PaymentStatus = false;
+            }
+            else
+            {
+                PaymentRef = newRef;
+                PaymentStatus = true;
+            }
+        }
 
         public static void Appointment()
         {
@@ -40,7 +54,8 @@ namespace SalonUserApp.Class_Components
                 MessageBox.Show("Please select a valid Date.", "Invalid Time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (appointDate.Hour < 11 || appointDate.Hour >= 19)
+
+            if (appointDate.Hour < 11 || appointDate.Hour > 19)
             {
                 MessageBox.Show("Please select a valid time between 11:00 and 19:00.", "Invalid Time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -57,16 +72,25 @@ namespace SalonUserApp.Class_Components
                 "Service Information\n" +
                 $"   Service: {serviceName}\n" +
                 $"   ServiceID: {serviceID}\n" +
-                $"   Amount: {serviceAmount}\n\n" +
-                $"Confirm appointment?", "Confirmation", 
+                $"   Amount: {serviceAmount}\n" +
+                $"   Down Payment: {downPayment}\n\n" +
+                $"Continue to settle downpayment?", "Confirmation", 
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (result == DialogResult.OK)
             {
+                DownPaymentUserform downPaymentUserform = new DownPaymentUserform();
+                downPaymentUserform.ShowDialog();
+
+                if (!PaymentStatus)
+                {
+                    return;
+                }
+
                 try
                 {
-                    string query = "INSERT INTO Appointments (ReferenceNumber, AppointDate, Username, Name, PhoneNumber, Age, ServiceID, ServiceName, ServiceAmount, ServiceTypeID, ServiceVariationID) VALUES " +
-                                                "(@ReferenceNumber, @AppointDate, @Username, @Name, @PhoneNumber, @Age, @ServiceID, @ServiceName, @ServiceAmount, @ServiceTypeID, @ServiceVariationID)";
+                    string query = "INSERT INTO Appointments (ReferenceNumber, AppointDate, Username, Name, PhoneNumber, Age, ServiceID, ServiceName, ServiceAmount, DownPayment, DPRefNumber, ServiceTypeID, ServiceVariationID) VALUES " +
+                                                "(@ReferenceNumber, @AppointDate, @Username, @Name, @PhoneNumber, @Age, @ServiceID, @ServiceName, @ServiceAmount, @dp, @dpref, @ServiceTypeID, @ServiceVariationID)";
                     
                     using (MySqlConnection connection = new MySqlConnection(mysqlcon))
                     {
@@ -83,6 +107,8 @@ namespace SalonUserApp.Class_Components
                             command.Parameters.AddWithValue("@ServiceID", serviceID);
                             command.Parameters.AddWithValue("@ServiceName", serviceName);
                             command.Parameters.AddWithValue("@ServiceAmount", serviceAmount);
+                            command.Parameters.AddWithValue("@dp", downPayment);
+                            command.Parameters.AddWithValue("@dpref", PaymentRef);
                             command.Parameters.AddWithValue("@ServiceTypeID", serviceTypeID);
                             command.Parameters.AddWithValue("@ServiceVariationID", serviceVariationID);
 
@@ -99,7 +125,6 @@ namespace SalonUserApp.Class_Components
                                         control.Dispose();
                                     }
                                 }
-
                                 MainForm.ShowHomePage();
                             }
                             else
@@ -128,13 +153,18 @@ namespace SalonUserApp.Class_Components
             cUsername = username;
         }
 
-        public static void SetServiceInfo(string sID, string sName, string sAmount, string sTypeID, string sVariationID)
+        public static void SetServiceInfo(string sID, string sName, string sAmount, string sDownPayment, string sTypeID, string sVariationID)
         {
             serviceID = sID;
             serviceName = sName;
-            serviceAmount = sAmount;
+            downPayment = sDownPayment;
             serviceTypeID = sTypeID;
             serviceVariationID = sVariationID;
+            string downPaymentWithoutCurrency = sDownPayment.Replace("PHP", "").Trim();
+
+            // Convert strings to double and perform subtraction
+            double newCost = Convert.ToDouble(sAmount) - Convert.ToDouble(downPaymentWithoutCurrency);
+            serviceAmount = newCost.ToString();
         }
 
         public static void SetAppointYearMonth(string month, string year)
@@ -296,7 +326,7 @@ namespace SalonUserApp.Class_Components
                             {
                                 MessageBox.Show($"Appointment edited!\n\nSame Reference Number: {ReferenceNumber}", "Thank you!");
                                 SetUserInfo(null, null, null);
-                                SetServiceInfo(null, null, null, null, null);
+                                SetServiceInfo(null, null, null, null, null, null);
                                 foreach (Control control in MainForm.mainFormInstance.Controls)
                                 {
                                     if (control is Information || control is AppointmentDate)

@@ -193,7 +193,8 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                                 break;
                             }
 
-                        } else if (control is ChangeAppointInfo)
+                        }
+                        else if (control is ChangeAppointInfo)
                         {
                             if (control.Visible == false)
                             {

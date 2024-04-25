@@ -19,7 +19,7 @@ namespace SalonUserApp.User_Controls
     {
         public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
-        public static string serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
+        public static string serviceID, serviceName, serviceAmount, DownPayment, serviceTypeID, serviceVariationID;
         private Panel currentlyHighlightedPanel = null;
 
         public Information()
@@ -119,11 +119,7 @@ namespace SalonUserApp.User_Controls
             }
 
             Appoint.SetUserInfo(NameBox.Text, NumberBox.Text, AgeBox.Text);
-            Appoint.SetServiceInfo(serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID);
-
-            DownPaymentUserform downPaymentUserform = new DownPaymentUserform();
-            downPaymentUserform.ShowDialog();
-
+            Appoint.SetServiceInfo(serviceID, serviceName, serviceAmount, DownPayment, serviceTypeID, serviceVariationID);
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
@@ -214,6 +210,7 @@ namespace SalonUserApp.User_Controls
                                     double downpayment = amountInDouble * 0.2;
                                     downpayment = Math.Round(downpayment, 2);
                                     Feebox.Text = "PHP" + downpayment.ToString("0.00");
+                                    DownPayment = downpayment.ToString();
                                     serviceTypeID = labelTitle2.Text;
                                     serviceVariationID = labelTitle3.Text;
 
@@ -244,7 +241,7 @@ namespace SalonUserApp.User_Controls
         {
             await Task.Delay(500);
             Appoint.SetUserInfo(null, null, null);
-            Appoint.SetServiceInfo(null, null, null, null, null);
+            Appoint.SetServiceInfo(null, null, null, null, null, null);
             ServiceSelection.Visible = false;
             guna2GroupBox1.Visible = false;
             BackBtn.Visible = false;
