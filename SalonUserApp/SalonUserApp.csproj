@@ -327,6 +327,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppointmentDetailsForm.Designer.cs">
+      <DependentUpon>AppointmentDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class Components\Appoint.cs" />
     <Compile Include="Class Components\ReadUserData.cs" />
     <Compile Include="MainForm.cs">
@@ -355,10 +361,10 @@
     <Compile Include="User Controls\Appointment Folder\CheckAppointmentStatus.Designer.cs">
       <DependentUpon>CheckAppointmentStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\DownPaymentUserform.cs">
+    <Compile Include="DownPaymentUserform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Controls\Appointment Folder\DownPaymentUserform.Designer.cs">
+    <Compile Include="DownPaymentUserform.Designer.cs">
       <DependentUpon>DownPaymentUserform.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\Appointment Folder\Information.cs">
@@ -415,6 +421,9 @@
     <Compile Include="User Controls\SigninPage.Designer.cs">
       <DependentUpon>SigninPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AppointmentDetailsForm.resx">
+      <DependentUpon>AppointmentDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -437,7 +446,7 @@
     <EmbeddedResource Include="User Controls\Appointment Folder\CheckAppointmentStatus.resx">
       <DependentUpon>CheckAppointmentStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\Appointment Folder\DownPaymentUserform.resx">
+    <EmbeddedResource Include="DownPaymentUserform.resx">
       <DependentUpon>DownPaymentUserform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">

@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,10 +30,11 @@ namespace SalonUserApp.User_Controls.FlowControls
             InitializeComponent();
         }
 
-        private async void CheckStatusBtn_Click(object sender, EventArgs e)
+        private void CheckStatusBtn_Click(object sender, EventArgs e)
         {
-            await Task.Delay(500);
-            ShowInputDialog(RefTextLabel.Text);
+            AppointmentDetailsForm appointmentDetailsForm = new AppointmentDetailsForm();
+            appointmentDetailsForm.loadRefnum(RefTextLabel.Text);
+            appointmentDetailsForm.ShowDialog();
         }
 
         private async void ShowInputDialog(string refNumber)

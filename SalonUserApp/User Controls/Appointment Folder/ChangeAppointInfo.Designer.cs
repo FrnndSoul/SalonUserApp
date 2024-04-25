@@ -222,9 +222,9 @@
             // 
             this.ServiceFLP.AutoScroll = true;
             this.ServiceFLP.BackColor = System.Drawing.Color.White;
-            this.ServiceFLP.Location = new System.Drawing.Point(3, 43);
+            this.ServiceFLP.Location = new System.Drawing.Point(3, 197);
             this.ServiceFLP.Name = "ServiceFLP";
-            this.ServiceFLP.Size = new System.Drawing.Size(638, 629);
+            this.ServiceFLP.Size = new System.Drawing.Size(638, 475);
             this.ServiceFLP.TabIndex = 0;
             // 
             // guna2GroupBox1

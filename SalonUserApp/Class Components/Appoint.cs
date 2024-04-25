@@ -160,11 +160,12 @@ namespace SalonUserApp.Class_Components
             downPayment = sDownPayment;
             serviceTypeID = sTypeID;
             serviceVariationID = sVariationID;
-            string downPaymentWithoutCurrency = sDownPayment.Replace("PHP", "").Trim();
-
-            // Convert strings to double and perform subtraction
-            double newCost = Convert.ToDouble(sAmount) - Convert.ToDouble(downPaymentWithoutCurrency);
-            serviceAmount = newCost.ToString();
+            if (!string.IsNullOrEmpty(sDownPayment))
+            {
+                string downPaymentWithoutCurrency = sDownPayment.Replace("PHP", "").Trim();
+                double newCost = Convert.ToDouble(sAmount) - Convert.ToDouble(downPaymentWithoutCurrency);
+                serviceAmount = newCost.ToString();
+            }
         }
 
         public static void SetAppointYearMonth(string month, string year)
