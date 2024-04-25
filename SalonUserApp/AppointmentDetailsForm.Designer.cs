@@ -428,6 +428,7 @@
             this.Controls.Add(this.BackBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AppointmentDetailsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AppointmentDetailsForm";
             this.Load += new System.EventHandler(this.AppointmentDetailsForm_Load);
             this.ResumeLayout(false);
