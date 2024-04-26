@@ -30,7 +30,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         {
             if (previousClicked != null)
             {
-                previousClicked.BackColor = Color.Transparent;
+                previousClicked.BackColor = Color.White;
             }
 
             this.BackColor = Color.LightGray;
@@ -41,10 +41,15 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         {
             if (previousClicked != null)
             {
-                previousClicked.BackColor = Color.Transparent;
+                previousClicked.BackColor = Color.White;
             }
 
             previousClicked = null;
+        }
+
+        private void TimeUC_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

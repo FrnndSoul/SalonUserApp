@@ -49,6 +49,7 @@
             this.nextMon.AutoRoundedCorners = true;
             this.nextMon.BackColor = System.Drawing.Color.Transparent;
             this.nextMon.BorderRadius = 21;
+            this.nextMon.BorderThickness = 1;
             this.nextMon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.nextMon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.nextMon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -79,6 +80,7 @@
             this.prevMon.AutoRoundedCorners = true;
             this.prevMon.BackColor = System.Drawing.Color.Transparent;
             this.prevMon.BorderRadius = 21;
+            this.prevMon.BorderThickness = 1;
             this.prevMon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.prevMon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.prevMon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -96,7 +98,7 @@
             // CalendarFLP
             // 
             this.CalendarFLP.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.CalendarFLP.BackColor = System.Drawing.Color.White;
+            this.CalendarFLP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.CalendarFLP.Location = new System.Drawing.Point(29, 97);
             this.CalendarFLP.Name = "CalendarFLP";
             this.CalendarFLP.Size = new System.Drawing.Size(547, 472);
@@ -185,6 +187,7 @@
             this.Next.AutoRoundedCorners = true;
             this.Next.BackColor = System.Drawing.Color.Transparent;
             this.Next.BorderRadius = 21;
+            this.Next.BorderThickness = 1;
             this.Next.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Next.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Next.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -192,7 +195,7 @@
             this.Next.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.Next.Font = new System.Drawing.Font("Chinacat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Next.ForeColor = System.Drawing.Color.Black;
-            this.Next.Location = new System.Drawing.Point(845, 575);
+            this.Next.Location = new System.Drawing.Point(858, 575);
             this.Next.Name = "Next";
             this.Next.Size = new System.Drawing.Size(180, 45);
             this.Next.TabIndex = 40;
@@ -204,6 +207,7 @@
             this.Back.AutoRoundedCorners = true;
             this.Back.BackColor = System.Drawing.Color.Transparent;
             this.Back.BorderRadius = 21;
+            this.Back.BorderThickness = 1;
             this.Back.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.Back.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.Back.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -220,7 +224,7 @@
             // 
             // TimeFLP
             // 
-            this.TimeFLP.BackColor = System.Drawing.Color.White;
+            this.TimeFLP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.TimeFLP.Location = new System.Drawing.Point(645, 78);
             this.TimeFLP.Name = "TimeFLP";
             this.TimeFLP.Size = new System.Drawing.Size(393, 480);
