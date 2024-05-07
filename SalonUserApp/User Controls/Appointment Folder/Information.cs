@@ -19,7 +19,7 @@ namespace SalonUserApp.User_Controls
     {
         public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
-        public static string serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
+        public static string serviceID, serviceName, serviceAmount, DownPayment, serviceTypeID, serviceVariationID;
         private Panel currentlyHighlightedPanel = null;
 
         public Information()
@@ -119,7 +119,7 @@ namespace SalonUserApp.User_Controls
             }
 
             Appoint.SetUserInfo(NameBox.Text, NumberBox.Text, AgeBox.Text);
-            Appoint.SetServiceInfo(serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID);
+            Appoint.SetServiceInfo(serviceID, serviceName, serviceAmount, DownPayment, serviceTypeID, serviceVariationID);
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
@@ -146,8 +146,8 @@ namespace SalonUserApp.User_Controls
                                 Panel panel = new Panel
                                 {
                                     Width = 210,
-                                    Height = 250,
-                                    Margin = new Padding(10),
+                                    Height = 250, 
+                                    BackColor = Color.White, 
                                     Tag = reader["ServiceTypeID"].ToString(),
                                 };
 
@@ -157,7 +157,7 @@ namespace SalonUserApp.User_Controls
                                     Location = new Point(10, 160),
                                     ForeColor = Color.Black,
                                     AutoSize = true,
-                                    Font = new Font("Stanberry", 16, FontStyle.Regular),
+                                    Font = new Font("Stanberry", 12, FontStyle.Regular),
                                     Tag = reader["ServiceTypeID"].ToString()
                                 };
 
@@ -206,12 +206,18 @@ namespace SalonUserApp.User_Controls
                                     serviceID = ((Control)sender).Tag.ToString();
                                     serviceName = labelTitle.Text;
                                     serviceAmount = labelTitle1.Text;
+                                    double amountInDouble = double.Parse(labelTitle1.Text);
+                                    double downpayment = amountInDouble * 0.2;
+                                    downpayment = Math.Round(downpayment, 2);
+                                    Feebox.Text = "PHP" + downpayment.ToString("0.00");
+                                    DownPayment = downpayment.ToString();
                                     serviceTypeID = labelTitle2.Text;
                                     serviceVariationID = labelTitle3.Text;
 
+
                                     if (currentlyHighlightedPanel != null)
                                     {
-                                        currentlyHighlightedPanel.BackColor = Color.Transparent;
+                                        currentlyHighlightedPanel.BackColor = Color.White;
                                     }
 
                                     panel.BackColor = Color.LightGray;
@@ -235,7 +241,7 @@ namespace SalonUserApp.User_Controls
         {
             await Task.Delay(500);
             Appoint.SetUserInfo(null, null, null);
-            Appoint.SetServiceInfo(null, null, null, null, null);
+            Appoint.SetServiceInfo(null, null, null, null, null, null);
             ServiceSelection.Visible = false;
             guna2GroupBox1.Visible = false;
             BackBtn.Visible = false;

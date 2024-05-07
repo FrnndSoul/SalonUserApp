@@ -327,6 +327,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppointmentDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppointmentDetailsForm.Designer.cs">
+      <DependentUpon>AppointmentDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class Components\Appoint.cs" />
     <Compile Include="Class Components\ReadUserData.cs" />
     <Compile Include="MainForm.cs">
@@ -354,6 +360,12 @@
     </Compile>
     <Compile Include="User Controls\Appointment Folder\CheckAppointmentStatus.Designer.cs">
       <DependentUpon>CheckAppointmentStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DownPaymentUserform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DownPaymentUserform.Designer.cs">
+      <DependentUpon>DownPaymentUserform.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\Appointment Folder\Information.cs">
       <SubType>UserControl</SubType>
@@ -409,6 +421,9 @@
     <Compile Include="User Controls\SigninPage.Designer.cs">
       <DependentUpon>SigninPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AppointmentDetailsForm.resx">
+      <DependentUpon>AppointmentDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -430,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\CheckAppointmentStatus.resx">
       <DependentUpon>CheckAppointmentStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DownPaymentUserform.resx">
+      <DependentUpon>DownPaymentUserform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\Appointment Folder\Information.resx">
       <DependentUpon>Information.cs</DependentUpon>
@@ -491,6 +509,8 @@
     <None Include="Resources\logout.png" />
     <None Include="Resources\schedule.png" />
     <None Include="Resources\calendar.png" />
+    <None Include="Resources\photo_2024-03-04_03-03-56.jpg" />
+    <None Include="Resources\gcash.jpg" />
     <Content Include="Resources\SignInDesign.png" />
     <None Include="Resources\SignInDesignLogo1.png" />
     <None Include="Resources\SignInDesign1.png" />

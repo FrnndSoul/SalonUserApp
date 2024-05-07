@@ -244,3 +244,5 @@ C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.
 C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.CheckAppointmentStatus.resources
 C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.ChangeUserPassword.resources
 C:\Users\New User\Source\Repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.FlowControls.AppointInfo.resources
+C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.User_Controls.Appointment_Folder.DownPaymentUserform.resources
+C:\Users\saulf\source\repos\SalonUserApp\SalonUserApp\obj\Debug\SalonUserApp.AppointmentDetailsForm.resources

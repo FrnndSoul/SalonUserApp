@@ -50,8 +50,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                 UCDays ucdays = new UCDays();
                 ucdays.days(i, currentMonth, currentYear);
 
-                // Check if the day is in the past or within the next 7 days
-                if (daychecker.AddDays(i) < DateTime.Today || daychecker.AddDays(i) < DateTime.Today.AddDays(7))
+                if (daychecker.AddDays(i) < DateTime.Today || daychecker.AddDays(i) < DateTime.Today.AddDays(1))
                 {
                     ucdays.Enabled = false;
                 }
@@ -90,6 +89,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
                 // Set the text of the Timelbl label directly with the custom time format
                 timeControl.Timelbl.Text = FormatTime(currentTime);
+                timeControl.normalTime.Text = FormatTime12(currentTime);
 
                 // Add the TimeUC control to the TimeFLP
                 TimeFLP.Controls.Add(timeControl);
@@ -104,6 +104,19 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             int minute = time.Minutes;
 
             string formattedTime = $"{hour:D2}:{minute:D2}";
+
+            return formattedTime;
+        }
+
+        private string FormatTime12(TimeSpan time)
+        {
+            int hour = time.Hours % 12; // Get the hour in 12-hour format
+            if (hour == 0) hour = 12; // Special case for 12:00 AM/PM
+            int minute = time.Minutes;
+
+            string period = (time.Hours >= 12) ? "PM" : "AM"; // Determine if it's AM or PM
+
+            string formattedTime = $"{hour:D2}:{minute:D2} {period}";
 
             return formattedTime;
         }
@@ -193,7 +206,8 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                                 break;
                             }
 
-                        } else if (control is ChangeAppointInfo)
+                        }
+                        else if (control is ChangeAppointInfo)
                         {
                             if (control.Visible == false)
                             {

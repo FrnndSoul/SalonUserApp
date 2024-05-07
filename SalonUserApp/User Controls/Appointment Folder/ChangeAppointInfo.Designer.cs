@@ -104,7 +104,7 @@
             this.AgeBox.PasswordChar = '\0';
             this.AgeBox.PlaceholderText = "Age";
             this.AgeBox.SelectedText = "";
-            this.AgeBox.Size = new System.Drawing.Size(177, 49);
+            this.AgeBox.Size = new System.Drawing.Size(106, 49);
             this.AgeBox.TabIndex = 19;
             this.AgeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.AgeBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AgeBox_KeyPress);
@@ -123,7 +123,7 @@
             this.DiscardBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.DiscardBtn.Font = new System.Drawing.Font("Chinacat", 18F);
             this.DiscardBtn.ForeColor = System.Drawing.Color.White;
-            this.DiscardBtn.Location = new System.Drawing.Point(24, 630);
+            this.DiscardBtn.Location = new System.Drawing.Point(7, 630);
             this.DiscardBtn.Name = "DiscardBtn";
             this.DiscardBtn.Size = new System.Drawing.Size(180, 45);
             this.DiscardBtn.TabIndex = 28;
@@ -144,9 +144,9 @@
             this.SaveBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.SaveBtn.Font = new System.Drawing.Font("Chinacat", 18F);
             this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.Location = new System.Drawing.Point(210, 630);
+            this.SaveBtn.Location = new System.Drawing.Point(196, 630);
             this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(180, 45);
+            this.SaveBtn.Size = new System.Drawing.Size(165, 45);
             this.SaveBtn.TabIndex = 27;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
@@ -174,7 +174,7 @@
             this.NameBox.PasswordChar = '\0';
             this.NameBox.PlaceholderText = "Name";
             this.NameBox.SelectedText = "";
-            this.NameBox.Size = new System.Drawing.Size(366, 49);
+            this.NameBox.Size = new System.Drawing.Size(322, 49);
             this.NameBox.TabIndex = 14;
             // 
             // NumberBox
@@ -200,7 +200,7 @@
             this.NumberBox.PasswordChar = '\0';
             this.NumberBox.PlaceholderText = "Phone Number";
             this.NumberBox.SelectedText = "";
-            this.NumberBox.Size = new System.Drawing.Size(366, 49);
+            this.NumberBox.Size = new System.Drawing.Size(322, 49);
             this.NumberBox.TabIndex = 15;
             this.NumberBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberBox_KeyPress);
             // 
@@ -212,19 +212,19 @@
             this.ServiceSelection.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ServiceSelection.Font = new System.Drawing.Font("Chinacat", 18F);
             this.ServiceSelection.ForeColor = System.Drawing.Color.Black;
-            this.ServiceSelection.Location = new System.Drawing.Point(417, 3);
+            this.ServiceSelection.Location = new System.Drawing.Point(367, 3);
             this.ServiceSelection.Name = "ServiceSelection";
-            this.ServiceSelection.Size = new System.Drawing.Size(644, 675);
+            this.ServiceSelection.Size = new System.Drawing.Size(694, 675);
             this.ServiceSelection.TabIndex = 30;
             this.ServiceSelection.Text = "Choose Service";
             // 
             // ServiceFLP
             // 
             this.ServiceFLP.AutoScroll = true;
-            this.ServiceFLP.BackColor = System.Drawing.Color.White;
-            this.ServiceFLP.Location = new System.Drawing.Point(3, 43);
+            this.ServiceFLP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ServiceFLP.Location = new System.Drawing.Point(3, 47);
             this.ServiceFLP.Name = "ServiceFLP";
-            this.ServiceFLP.Size = new System.Drawing.Size(638, 629);
+            this.ServiceFLP.Size = new System.Drawing.Size(688, 623);
             this.ServiceFLP.TabIndex = 0;
             // 
             // guna2GroupBox1
@@ -247,7 +247,7 @@
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2GroupBox1.Location = new System.Drawing.Point(3, 3);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(408, 621);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(358, 551);
             this.guna2GroupBox1.TabIndex = 29;
             this.guna2GroupBox1.Text = "Customer Information";
             // 
@@ -286,7 +286,7 @@
             this.ReferenceBox.PlaceholderText = "Reference Number";
             this.ReferenceBox.ReadOnly = true;
             this.ReferenceBox.SelectedText = "";
-            this.ReferenceBox.Size = new System.Drawing.Size(366, 49);
+            this.ReferenceBox.Size = new System.Drawing.Size(322, 49);
             this.ReferenceBox.TabIndex = 33;
             // 
             // ChangeDateBtn
@@ -303,7 +303,7 @@
             this.ChangeDateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ChangeDateBtn.Font = new System.Drawing.Font("Chinacat", 18F);
             this.ChangeDateBtn.ForeColor = System.Drawing.Color.Black;
-            this.ChangeDateBtn.Location = new System.Drawing.Point(207, 555);
+            this.ChangeDateBtn.Location = new System.Drawing.Point(163, 490);
             this.ChangeDateBtn.Name = "ChangeDateBtn";
             this.ChangeDateBtn.Size = new System.Drawing.Size(180, 45);
             this.ChangeDateBtn.TabIndex = 31;
@@ -327,7 +327,7 @@
             this.AppointDateBox.Font = new System.Drawing.Font("Chinacat", 15.75F);
             this.AppointDateBox.ForeColor = System.Drawing.Color.Black;
             this.AppointDateBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.AppointDateBox.Location = new System.Drawing.Point(21, 551);
+            this.AppointDateBox.Location = new System.Drawing.Point(166, 433);
             this.AppointDateBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.AppointDateBox.Name = "AppointDateBox";
             this.AppointDateBox.PasswordChar = '\0';
@@ -343,7 +343,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Chinacat", 15.75F);
-            this.label4.Location = new System.Drawing.Point(16, 521);
+            this.label4.Location = new System.Drawing.Point(133, 403);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(210, 25);
             this.label4.TabIndex = 24;

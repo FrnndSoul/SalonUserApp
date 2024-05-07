@@ -22,15 +22,12 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
         public ChangeAppointInfo()
         {
             InitializeComponent();
-            Appoint.SetUserInfo(null, null, null);
-            Appoint.SetServiceInfo(null, null, null, null, null);
         }
 
         public static string mysqlcon = "server=153.92.15.3;user=u139003143_salondatabase;database=u139003143_salondatabase;password=M0g~:^GqpI";
         public MySqlConnection connection = new MySqlConnection(mysqlcon);
         private Panel currentlyHighlightedPanel = null;
 
-        //This is the edited variables
         public static string FullName, Username, PhoneNumber, Age, serviceID, serviceName, serviceAmount, serviceTypeID, serviceVariationID;
 
         private void NumberBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -83,17 +80,17 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             }
         }
 
-        //This is what's fetched in the database
-        public static string cRefNumber, cDateFiled, cAppointDate, cUsername, cName, cPhoneNumber, cAge, cServicelD, cServiceName, cServiceAmount, ServiceTypelD, cServiceVariationlD, cIsCancelled;
+        public static string cRefNumber, cDateFiled, cAppointDate, cUsername, cName, cPhoneNumber, cAge, cServicelD, cServiceName, cServiceAmount, cDownPayment, ServiceTypelD, cServiceVariationlD, cIsCancelled;
 
         private void ChangeDateBtn_Click(object sender, EventArgs e)
         {
             Appoint.EditAppointRefnum(cRefNumber);
             Appoint.SetUserInfo(NameBox.Text, NumberBox.Text, AgeBox.Text);
-            Appoint.SetServiceInfo(cServicelD, cServiceName, cServiceAmount, ServiceTypelD, cServiceVariationlD);
+            Appoint.SetServiceInfo(cServicelD, cServiceName, cServiceAmount, cDownPayment,ServiceTypelD, cServiceVariationlD);
             this.Visible = false;
             MainForm.ShowAppointDate();
         }
+
         public bool IsPhoneNumberValid()
         {
             string number = NumberBox.Text;
@@ -112,7 +109,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                 return;
             }
 
-            if (IsPhoneNumberValid())
+            if (!IsPhoneNumberValid())
             {
                 MessageBox.Show("Phone number must be valid.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -134,61 +131,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
             if (result == DialogResult.OK)
             {
-                try
-                {
-                    string query = "UPDATE Appointments SET " +
-                           "Name = @Name, " +
-                           "PhoneNumber = @PhoneNumber, " +
-                           "Age = @Age, " +
-                           "ServiceID = @ServiceID, " +
-                           "ServiceName = @ServiceName, " +
-                           "ServiceAmount = @ServiceAmount, " +
-                           "ServiceTypeID = @ServiceTypeID, " +
-                           "ServiceVariationID = @ServiceVariationID " +
-                           "WHERE ReferenceNumber = @ReferenceNumber";
-
-
-                    using (MySqlConnection connection = new MySqlConnection(mysqlcon))
-                    {
-                        connection.Open();
-                        using (MySqlCommand command = new MySqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@Name", NameBox.Text);
-                            command.Parameters.AddWithValue("@PhoneNumber", NumberBox.Text);
-                            command.Parameters.AddWithValue("@Age", AgeBox.Text);
-                            command.Parameters.AddWithValue("@ServiceID", serviceID);
-                            command.Parameters.AddWithValue("@ServiceName", serviceName);
-                            command.Parameters.AddWithValue("@ServiceAmount", serviceAmount);
-                            command.Parameters.AddWithValue("@ServiceTypeID", serviceTypeID);
-                            command.Parameters.AddWithValue("@ServiceVariationID", serviceVariationID);
-                            command.Parameters.AddWithValue("@ReferenceNumber", cRefNumber);
-
-                            int rowsAffected = command.ExecuteNonQuery();
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show($"Appointment edited!\n\nSame Reference Number: {cRefNumber}", "Thank you!");
-                                Appoint.SetUserInfo(null, null, null);
-                                Appoint.SetServiceInfo(null, null, null, null, null);
-                                foreach (Control control in MainForm.mainFormInstance.Controls)
-                                {
-                                    if (control is Information || control is AppointmentDate)
-                                    {
-                                        control.Parent.Controls.Remove(control);
-                                    }
-                                }
-                                MainForm.ShowHomePage();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed to edit appointment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Appoint.EditAppointment();
             }
         }
 
@@ -228,7 +171,6 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
             {
                 conn.Open();
                 string query = "SELECT ServiceName, ServiceImage, ServiceAmount, ServiceTypeID, ServiceVariationID FROM salon_services";
-
                 using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
                     using (MySqlDataReader reader = command.ExecuteReader())
@@ -245,7 +187,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                                 {
                                     Width = 210,
                                     Height = 250,
-                                    Margin = new Padding(10),
+                                    BackColor = Color.White,
                                     Tag = reader["ServiceTypeID"].ToString(),
                                 };
 
@@ -255,7 +197,7 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                                     Location = new Point(10, 160),
                                     ForeColor = Color.Black,
                                     AutoSize = true,
-                                    Font = new Font("Stanberry", 16, FontStyle.Regular),
+                                    Font = new Font("Stanberry", 12, FontStyle.Regular),
                                     Tag = reader["ServiceTypeID"].ToString()
                                 };
 
@@ -301,16 +243,45 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
 
                                 void clickHandler(object sender, EventArgs e)
                                 {
-                                    serviceID = ((Control)sender).Tag.ToString();
-                                    serviceName = labelTitle.Text;
-                                    serviceAmount = labelTitle1.Text;
-                                    serviceTypeID = labelTitle2.Text;
-                                    serviceVariationID = labelTitle3.Text;
+                                    if (cServiceName == labelTitle.Text)
+                                    {
+                                        serviceID = labelTitle3.Text;
+                                        serviceName = labelTitle.Text;
+                                        double amountInDouble = double.Parse(labelTitle1.Text);
+                                        double remainingBalance = amountInDouble * 0.8;
+                                        remainingBalance = Math.Round(remainingBalance, 2);
+                                        serviceAmount = remainingBalance.ToString("0.00");
+                                        serviceTypeID = labelTitle2.Text;
+                                        serviceVariationID = labelTitle3.Text;
+                                    }
+                                    else
+                                    {
+                                        serviceID = ((Control)sender).Tag.ToString();
+                                        serviceName = labelTitle.Text;
+                                        serviceAmount = labelTitle1.Text;
+                                        serviceTypeID = labelTitle2.Text;
+                                        serviceVariationID = labelTitle3.Text;
+                                    }
 
                                     if (currentlyHighlightedPanel != null)
                                     {
-                                        currentlyHighlightedPanel.BackColor = Color.Transparent;
+                                        currentlyHighlightedPanel.BackColor = Color.White;
                                     }
+
+                                    panel.BackColor = Color.LightGray;
+                                    currentlyHighlightedPanel = panel;
+                                }
+
+                                if (cServiceName == reader["ServiceName"].ToString())
+                                {
+                                    serviceID = reader["ServiceTypeID"].ToString();
+                                    serviceName = labelTitle.Text;
+                                    double amountInDouble = double.Parse(labelTitle1.Text);
+                                    double remainingBalance = amountInDouble * 0.8;
+                                    remainingBalance = Math.Round(remainingBalance, 2);
+                                    serviceAmount = remainingBalance.ToString("0.00");
+                                    serviceTypeID = labelTitle2.Text;
+                                    serviceVariationID = labelTitle3.Text;
 
                                     panel.BackColor = Color.LightGray;
                                     currentlyHighlightedPanel = panel;
@@ -322,18 +293,13 @@ namespace SalonUserApp.User_Controls.Appointment_Folder
                                 panel.Controls.Add(labelTitle);
                                 panel.Controls.Add(labelTitle1);
                                 ServiceFLP.Controls.Add(panel);
-
-                                if (cServiceName == labelTitle.Text)
-                                {
-                                    panel.BackColor = Color.LightGray;
-                                    currentlyHighlightedPanel = panel;
-                                }
+                                
+                                
                             }
                         }
                     }
                 }
             }
         }
-
     }
 }

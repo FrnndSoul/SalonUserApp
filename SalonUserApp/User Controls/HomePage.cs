@@ -22,7 +22,6 @@ namespace SalonUserApp.User_Controls
 
             checkAppointment = new CheckAppointmentStatus();
             changeUserPassword = new ChangeUserPassword();
-
         }
 
         private async void Guna2Button4_Click(object sender, EventArgs e) //sched an appoint
