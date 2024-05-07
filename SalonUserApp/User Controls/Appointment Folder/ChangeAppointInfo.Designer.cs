@@ -44,7 +44,6 @@
             this.ChangeDateBtn = new Guna.UI2.WinForms.Guna2Button();
             this.AppointDateBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ServiceSelection.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -208,7 +207,6 @@
             // ServiceSelection
             // 
             this.ServiceSelection.BorderColor = System.Drawing.Color.Black;
-            this.ServiceSelection.Controls.Add(this.flowLayoutPanel1);
             this.ServiceSelection.Controls.Add(this.ServiceFLP);
             this.ServiceSelection.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ServiceSelection.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -223,10 +221,10 @@
             // ServiceFLP
             // 
             this.ServiceFLP.AutoScroll = true;
-            this.ServiceFLP.BackColor = System.Drawing.Color.Black;
-            this.ServiceFLP.Location = new System.Drawing.Point(3, 124);
+            this.ServiceFLP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ServiceFLP.Location = new System.Drawing.Point(3, 47);
             this.ServiceFLP.Name = "ServiceFLP";
-            this.ServiceFLP.Size = new System.Drawing.Size(688, 548);
+            this.ServiceFLP.Size = new System.Drawing.Size(688, 623);
             this.ServiceFLP.TabIndex = 0;
             // 
             // guna2GroupBox1
@@ -351,16 +349,6 @@
             this.label4.TabIndex = 24;
             this.label4.Text = "Appointment Date";
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 45);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(685, 76);
-            this.flowLayoutPanel1.TabIndex = 28;
-            // 
             // ChangeAppointInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,6 +385,5 @@
         private Guna.UI2.WinForms.Guna2Button ChangeDateBtn;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox ReferenceBox;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

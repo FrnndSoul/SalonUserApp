@@ -39,10 +39,9 @@
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.ServiceSelection = new Guna.UI2.WinForms.Guna2GroupBox();
             this.ServiceFLP = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.FeeLabel = new System.Windows.Forms.Label();
             this.Feebox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.FeeLabel = new System.Windows.Forms.Label();
             this.guna2GroupBox1.SuspendLayout();
             this.ServiceSelection.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
@@ -227,7 +226,6 @@
             // ServiceSelection
             // 
             this.ServiceSelection.BorderColor = System.Drawing.Color.Black;
-            this.ServiceSelection.Controls.Add(this.flowLayoutPanel1);
             this.ServiceSelection.Controls.Add(this.ServiceFLP);
             this.ServiceSelection.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ServiceSelection.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -242,22 +240,12 @@
             // ServiceFLP
             // 
             this.ServiceFLP.AutoScroll = true;
-            this.ServiceFLP.BackColor = System.Drawing.Color.Black;
-            this.ServiceFLP.Location = new System.Drawing.Point(3, 122);
+            this.ServiceFLP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ServiceFLP.Location = new System.Drawing.Point(3, 44);
             this.ServiceFLP.Margin = new System.Windows.Forms.Padding(0);
             this.ServiceFLP.Name = "ServiceFLP";
-            this.ServiceFLP.Size = new System.Drawing.Size(685, 550);
+            this.ServiceFLP.Size = new System.Drawing.Size(685, 626);
             this.ServiceFLP.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 43);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(685, 76);
-            this.flowLayoutPanel1.TabIndex = 27;
             // 
             // guna2GroupBox2
             // 
@@ -273,19 +261,6 @@
             this.guna2GroupBox2.Size = new System.Drawing.Size(358, 250);
             this.guna2GroupBox2.TabIndex = 26;
             this.guna2GroupBox2.Text = "Booking Fee";
-            // 
-            // FeeLabel
-            // 
-            this.FeeLabel.AutoSize = true;
-            this.FeeLabel.BackColor = System.Drawing.Color.Transparent;
-            this.FeeLabel.Font = new System.Drawing.Font("Chinacat", 15.75F);
-            this.FeeLabel.Location = new System.Drawing.Point(3, 47);
-            this.FeeLabel.Name = "FeeLabel";
-            this.FeeLabel.Size = new System.Drawing.Size(350, 175);
-            this.FeeLabel.TabIndex = 23;
-            this.FeeLabel.Text = "Booking fee will be 20% of the\r\nselected service\'s cost. This will\r\nserve as both" +
-    " down payment\r\nand cancellation fee which\r\nwill not be refunded.\r\n\r\nCost will be" +
-    ": ";
             // 
             // Feebox
             // 
@@ -314,6 +289,19 @@
             this.Feebox.Size = new System.Drawing.Size(197, 49);
             this.Feebox.TabIndex = 23;
             this.Feebox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // FeeLabel
+            // 
+            this.FeeLabel.AutoSize = true;
+            this.FeeLabel.BackColor = System.Drawing.Color.Transparent;
+            this.FeeLabel.Font = new System.Drawing.Font("Chinacat", 15.75F);
+            this.FeeLabel.Location = new System.Drawing.Point(3, 47);
+            this.FeeLabel.Name = "FeeLabel";
+            this.FeeLabel.Size = new System.Drawing.Size(350, 175);
+            this.FeeLabel.TabIndex = 23;
+            this.FeeLabel.Text = "Booking fee will be 20% of the\r\nselected service\'s cost. This will\r\nserve as both" +
+    " down payment\r\nand cancellation fee which\r\nwill not be refunded.\r\n\r\nCost will be" +
+    ": ";
             // 
             // Information
             // 
@@ -349,7 +337,6 @@
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2GroupBox ServiceSelection;
         private System.Windows.Forms.FlowLayoutPanel ServiceFLP;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
         private System.Windows.Forms.Label FeeLabel;
         private Guna.UI2.WinForms.Guna2TextBox Feebox;
